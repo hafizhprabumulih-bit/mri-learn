@@ -2,6 +2,7 @@ package id.mrilearn.mri.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,18 +14,36 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import id.mrilearn.mri.R
 import id.mrilearn.mri.data.Modul
+import id.mrilearn.mri.data.StatusBelajar
 
 /**
  * Daftar halaman untuk modul yang punya pecahan: "Halaman utama modul" lalu tiap pecahan.
- * Label pecahan memakai id apa adanya (mis. m03a), sesuai jawaban pengguna.
+ * Fase 6: tiap baris menampilkan status (Dibuka, Selesai) dan ★ bila ada bookmark.
  */
 @Composable
-fun PilihBagianScreen(modul: Modul, onBuka: (String) -> Unit, onKembali: () -> Unit) {
+fun PilihBagianScreen(
+    modul: Modul,
+    status: StatusBelajar,
+    onBuka: (String) -> Unit,
+    onKembali: () -> Unit,
+) {
+    fun keterangan(berkas: String): String {
+        val k = StatusBelajar.kunci(modul.id, berkas)
+        val bintang = if (status.adaPenanda(k)) "★ " else ""
+        val keadaan = when {
+            k in status.selesai -> "Selesai ✓"
+            k in status.dibuka -> "Dibuka"
+            else -> ""
+        }
+        return bintang + keadaan
+    }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = { BilahAtas(judul = modul.judul, onKembali = onKembali) },
@@ -49,29 +68,41 @@ fun PilihBagianScreen(modul: Modul, onBuka: (String) -> Unit, onKembali: () -> U
                 }
             }
             item {
-                BarisBagian(stringResource(R.string.halaman_utama_modul)) {
+                BarisBagian(stringResource(R.string.halaman_utama_modul), keterangan(modul.halamanMasuk)) {
                     onBuka(modul.halamanMasuk)
                 }
             }
             items(modul.pecahan, key = { it.id }) { p ->
-                BarisBagian(p.id) { onBuka(p.berkas) }
+                BarisBagian(p.id, keterangan(p.berkas)) { onBuka(p.berkas) }
             }
         }
     }
 }
 
 @Composable
-private fun BarisBagian(teks: String, onKlik: () -> Unit) {
+private fun BarisBagian(teks: String, keterangan: String, onKlik: () -> Unit) {
     Card(
         onClick = onKlik,
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
     ) {
-        Text(
-            text = teks,
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onSurface,
+        Row(
             modifier = Modifier.padding(16.dp),
-        )
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = teks,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.weight(1f),
+            )
+            if (keterangan.isNotEmpty()) {
+                Text(
+                    text = keterangan,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.secondary,
+                )
+            }
+        }
     }
 }

@@ -23,18 +23,20 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import id.mrilearn.mri.R
 import id.mrilearn.mri.data.ModuleRepository
+import id.mrilearn.mri.data.StatusBelajar
 import id.mrilearn.mri.web.PencegatTautan
 
 /**
- * Layar akar (Fase 4): tumpukan layar native sederhana.
- * Dasbor -> (PilihBagian) -> IsiModul. Tautan dari dalam WebView yang menunjuk modul lain
- * mendorong IsiModul baru ke tumpukan, jadi Back kembali ke modul sebelumnya.
+ * Layar akar: tumpukan layar native sederhana.
+ * Dasbor -> (PilihBagian) -> IsiModul, plus layar Bookmark (Fase 6). Tautan dari dalam WebView
+ * yang menunjuk modul lain mendorong IsiModul baru ke tumpukan, jadi Back kembali ke modul sebelumnya.
  */
 @Composable
 fun MriLearnApp() {
     val context = LocalContext.current
     val hasil = remember { runCatching { ModuleRepository.muat(context) } }
     val data = hasil.getOrNull()
+    val status = remember { StatusBelajar(context) }
 
     var tumpukan by rememberSaveable { mutableStateOf(Layar.Dasbor.kode()) }
     val daftar = tumpukan.split("\n").map(::kodeKeLayar)
@@ -66,6 +68,7 @@ fun MriLearnApp() {
         when (layar) {
             Layar.Dasbor -> DasborScreen(
                 modul = data.modul,
+                status = status,
                 onBuka = { m ->
                     if (m.pecahan.isEmpty()) {
                         dorong(Layar.IsiModul(m.id, m.halamanMasuk, null))
@@ -73,6 +76,14 @@ fun MriLearnApp() {
                         dorong(Layar.PilihBagian(m.id))
                     }
                 },
+                onBukaBookmark = { dorong(Layar.Bookmark) },
+            )
+
+            Layar.Bookmark -> BookmarkScreen(
+                modul = data.modul,
+                status = status,
+                onBuka = { p -> dorong(Layar.IsiModul(p.modulId, p.berkas, null, p.posisi)) },
+                onKembali = { kembali() },
             )
 
             is Layar.PilihBagian -> {
@@ -82,6 +93,7 @@ fun MriLearnApp() {
                 } else {
                     PilihBagianScreen(
                         modul = m,
+                        status = status,
                         onBuka = { berkas -> dorong(Layar.IsiModul(m.id, berkas, null)) },
                         onKembali = { kembali() },
                     )
@@ -94,10 +106,14 @@ fun MriLearnApp() {
                     GalatScreen(pesan = "Modul ${layar.modulId} tidak ditemukan.")
                 } else {
                     ModulScreen(
+                        modulId = m.id,
+                        daftarModul = data.modul,
+                        status = status,
                         judul = m.judul,
                         folder = m.folder,
                         berkas = layar.berkas,
                         anchor = layar.anchor,
+                        posisiAwal = layar.posisi,
                         pencegat = pencegat,
                         onBukaModul = { aksi ->
                             dorong(Layar.IsiModul(aksi.modulId, aksi.berkas, aksi.anchor))

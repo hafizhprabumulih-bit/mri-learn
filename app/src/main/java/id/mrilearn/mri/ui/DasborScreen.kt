@@ -10,6 +10,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -19,10 +21,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import id.mrilearn.mri.R
 import id.mrilearn.mri.data.Modul
+import id.mrilearn.mri.data.StatusBelajar
 
-/** Dasbor native: 10 kartu modul dari `modules.json` (D-07). Deskripsi null: judul saja (D-27). */
+/**
+ * Dasbor native: 10 kartu modul dari `modules.json` (D-07). Deskripsi null: judul saja (D-27).
+ * Fase 6: tombol Bookmark dan kemajuan "Selesai X dari Y halaman" per modul.
+ */
 @Composable
-fun DasborScreen(modul: List<Modul>, onBuka: (Modul) -> Unit) {
+fun DasborScreen(
+    modul: List<Modul>,
+    status: StatusBelajar,
+    onBuka: (Modul) -> Unit,
+    onBukaBookmark: () -> Unit,
+) {
     Scaffold(containerColor = MaterialTheme.colorScheme.background) { innerPadding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -41,7 +52,12 @@ fun DasborScreen(modul: List<Modul>, onBuka: (Modul) -> Unit) {
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
-            items(modul, key = { it.id }) { m -> KartuModul(m, onBuka) }
+            item {
+                FilledTonalButton(onClick = onBukaBookmark) {
+                    Text("★ Bookmark (${status.penanda.size})")
+                }
+            }
+            items(modul, key = { it.id }) { m -> KartuModul(m, status, onBuka) }
             item {
                 Text(
                     text = stringResource(R.string.disclaimer),
@@ -55,7 +71,7 @@ fun DasborScreen(modul: List<Modul>, onBuka: (Modul) -> Unit) {
 }
 
 @Composable
-private fun KartuModul(m: Modul, onBuka: (Modul) -> Unit) {
+private fun KartuModul(m: Modul, status: StatusBelajar, onBuka: (Modul) -> Unit) {
     val label = when {
         m.segeraHadir -> stringResource(R.string.status_segera_hadir)
         m.status == "sebagian" -> stringResource(R.string.status_sebagian)
@@ -64,6 +80,8 @@ private fun KartuModul(m: Modul, onBuka: (Modul) -> Unit) {
     val warnaJudul =
         if (m.segeraHadir) MaterialTheme.colorScheme.onSurfaceVariant
         else MaterialTheme.colorScheme.onSurface
+    val total = StatusBelajar.halamanModul(m).size
+    val selesai = status.jumlahSelesai(m)
     Card(
         onClick = { onBuka(m) },
         enabled = !m.segeraHadir,
@@ -90,6 +108,17 @@ private fun KartuModul(m: Modul, onBuka: (Modul) -> Unit) {
                     text = it,
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.secondary,
+                )
+            }
+            if (!m.segeraHadir && total > 0) {
+                LinearProgressIndicator(
+                    progress = { selesai.toFloat() / total },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Text(
+                    text = "Selesai $selesai dari $total halaman",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
         }

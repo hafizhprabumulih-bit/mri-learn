@@ -40,6 +40,8 @@ fun buatWebView(
     onAksi: (AksiTautan) -> Unit,
     onRiwayat: (Boolean) -> Unit,
     onRenderHilang: () -> Unit,
+    onUrl: (String) -> Unit = {},
+    onMuatSelesai: (String) -> Unit = {},
 ): WebView {
     // Debugging isi WebView (chrome://inspect) hanya boleh di build debug, tidak di rilis.
     WebView.setWebContentsDebuggingEnabled(WebConfig.apakahDebug(context))
@@ -93,11 +95,13 @@ fun buatWebView(
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 pegangan.muatMs = SystemClock.elapsedRealtime() - pegangan.mulaiMs
+                onMuatSelesai(url.orEmpty())
             }
 
             override fun doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean) {
                 super.doUpdateVisitedHistory(view, url, isReload)
                 onRiwayat(view?.canGoBack() == true)
+                onUrl(url.orEmpty())
             }
 
             // Sistem bisa mematikan proses render saat memori habis. Tanpa ini, aplikasi ikut mati.
