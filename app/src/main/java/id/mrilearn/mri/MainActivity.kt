@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import id.mrilearn.mri.ui.MriLearnApp
 import id.mrilearn.mri.ui.theme.MriLearnTheme
+import id.mrilearn.mri.web.WebAktif
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,5 +23,16 @@ class MainActivity : ComponentActivity() {
                 MriLearnApp()
             }
         }
+    }
+
+    // Fase 5: jeda WebView (animasi/timer simulasi) saat aplikasi ke latar agar hemat baterai.
+    override fun onPause() {
+        WebAktif.view?.onPause()
+        super.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        WebAktif.view?.onResume()
     }
 }
