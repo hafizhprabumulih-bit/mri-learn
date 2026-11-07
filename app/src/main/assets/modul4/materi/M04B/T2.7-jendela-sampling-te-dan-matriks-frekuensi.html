@@ -1,0 +1,15 @@
+<!-- T2.7 Jendela sampling, TE, dan matriks frekuensi | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04b.json -->
+<p class='s'>Jendela sampling sama dengan jumlah titik data dikali interval sampling. Puncak gema berada di tengahnya, jadi jendela yang lebih panjang menaikkan TE minimum.</p>
+<div class='l'>
+<p><b>Interval dan jendela.</b> Hubungannya: <span class='rumus'>RBW = 1/&Delta;T<sub>s</sub></span>, dan jendela sampling = N &times; &Delta;T<sub>s</sub>, dengan N adalah matriks frekuensi. Gradien frekuensi menyala selama jendela itu.</p>
+<p><b>Mengapa TE ikut terpengaruh.</b> Jendela sampling tidak dipilih langsung di protokol. Namun puncak gema berada di tengah jendela, sehingga jendela yang lebih lama membuat puncak gema muncul lebih lambat dan TE minimum naik. Jendela yang lebih pendek menurunkannya. Separuh jendela berisi spin yang menyatu (rephase) menuju puncak pada TE, dan separuh lainnya berisi spin yang bercerai (dephase).</p>
+<p><b>Tiga parameter yang saling terkait:</b></p>
+<ul>
+<li>RBW menentukan rentang frekuensi yang didigitalkan. Nilainya sama dengan frekuensi sampling bila Nyquist dipenuhi.</li>
+<li>Frekuensi sampling menentukan banyak titik data per detik lewat ADC.</li>
+<li>Matriks frekuensi menentukan banyak titik data dalam satu jendela sampling.</li>
+<li>TE minimum dipengaruhi lama jendela sampling karena gema berada di tengahnya.</li>
+</ul>
+<p><b>Dua cara memperpanjang jendela:</b> menurunkan RBW (RBW setengahnya membuat jendela dua kali lebih panjang untuk N yang sama), atau menaikkan matriks frekuensi (N dua kali membuat jendela dua kali lebih panjang pada RBW yang sama). Keduanya menaikkan TE minimum. RBW yang lebih lebar atau matriks yang lebih kecil memendekkan jendela. Bandingkan dengan perhitungan SNR di kalkulator M09: BW penerima yang lebih sempit memberi SNR lebih tinggi, jadi ada kompromi antara SNR dan TE minimum. <!-- TODO-VERIFIKASI: hubungan RBW dan SNR di sini mengikuti rumus sederhana kalkulator, bukan model lengkap. --></p>
+</div>
+<p class='a'><b>Analogi:</b> Kamera sprinter hanya sanggup separuh foto per detik. Untuk tetap mendapat jumlah foto yang sama, lomba harus dua kali lebih panjang. Lomba lebih panjang berarti jendela lebih panjang, puncak gema lebih lambat, dan TE lebih besar.</p>

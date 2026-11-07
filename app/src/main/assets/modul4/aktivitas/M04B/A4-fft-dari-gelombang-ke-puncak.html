@@ -1,0 +1,12 @@
+<!-- A4 FFT: dari gelombang ke puncak. Judul dan hubungan ke materi diatur di struktur/m04b.json. File ini hanya isi kartu. -->
+<p>Susun gelombang dari dua frekuensi, lalu lihat hasil FFT-nya. Satu frekuensi memberi satu puncak, dua frekuensi memberi dua puncak, dan tinggi puncak mengikuti amplitudo. Amplitudo 0 mematikan komponen.</p>
+<label for='f1'>Frekuensi 1: <span id='f1v'></span> siklus per jendela</label><input type='range' id='f1' min='1' max='30' value='5'>
+<label for='a1'>Amplitudo 1: <span id='a1v'></span></label><input type='range' id='a1' min='0' max='10' value='10'>
+<label for='f2'>Frekuensi 2: <span id='f2v'></span> siklus per jendela</label><input type='range' id='f2' min='1' max='30' value='12'>
+<label for='a2'>Amplitudo 2: <span id='a2v'></span></label><input type='range' id='a2' min='0' max='10' value='5'>
+<label><input type='checkbox' id='pel'> Peluruhan (seperti gema nyata, puncak menjadi lebih lebar)</label>
+<canvas id='cf1' width='600' height='130' style='width:100%' role='img' aria-label='Gelombang gabungan terhadap waktu'></canvas>
+<p class='lembut'>Atas: amplitudo terhadap waktu. Bawah: hasil FFT, amplitudo terhadap frekuensi.</p>
+<canvas id='cf2' width='600' height='130' style='width:100%' role='img' aria-label='Hasil FFT berupa puncak-puncak frekuensi'></canvas>
+<p id='ketf' aria-live='polite'></p>
+<button id='reset9' type='button'>Reset</button>

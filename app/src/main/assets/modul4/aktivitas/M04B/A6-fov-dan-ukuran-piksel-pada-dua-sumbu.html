@@ -1,0 +1,12 @@
+<!-- A6 FOV dan ukuran piksel pada dua sumbu. Judul dan hubungan ke materi diatur di struktur/m04b.json. File ini hanya isi kartu. -->
+<p>Atur FOV frekuensi, FOV fase (sebagai persentase FOV frekuensi), dan matriks pada kedua arah. Kiri: citra, dengan ukuran FOV dan piksel. Kanan: ruang-k, dengan jarak antar titik (titik-titik) dan jangkauannya (kotak biru). Jarak antar titik berbanding terbalik dengan FOV, sedangkan ukuran piksel adalah FOV dibagi matriks.</p>
+<!-- TODO-VERIFIKASI: nilai awal FOV dan matriks hanya contoh belajar. Gambar ruang-k memakai skala relatif terhadap nilai awal. -->
+<label for='gf'>FOV frekuensi: <span id='gfv'></span> mm</label><input type='range' id='gf' min='100' max='500' step='10' value='240'>
+<label for='gpp'>FOV fase: <span id='gppv'></span>% dari FOV frekuensi</label><input type='range' id='gpp' min='25' max='100' step='5' value='100'>
+<label for='gnf'>Matriks frekuensi</label>
+<select id='gnf'><option>64</option><option selected>128</option><option>256</option><option>512</option></select>
+<label for='gnp'>Matriks fase</label>
+<select id='gnp'><option>64</option><option selected>128</option><option>256</option><option>512</option></select>
+<canvas id='cfp' width='600' height='260' style='width:100%' role='img' aria-label='Kiri: FOV dan piksel pada citra. Kanan: jarak antar titik dan jangkauan ruang-k'></canvas>
+<p id='ketfp' aria-live='polite'></p>
+<button id='reset20' type='button'>Reset</button>

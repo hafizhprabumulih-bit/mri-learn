@@ -1,0 +1,18 @@
+/* TAMBAHAN: gaya untuk kerangka baru (daftar isi, kode simpul, uji A1, A6, A7). */
+.daftar a{display:inline-block;margin:2px 6px 2px 0;padding:2px 8px;border:1px solid var(--garis);border-radius:999px;text-decoration:none;font-size:.85rem}
+.daftar a.akt{border-color:var(--t2);color:var(--t2)}
+.judul-tingkat{border-bottom:2px solid var(--garis);padding-bottom:4px}
+.kode{display:inline-block;font-weight:700;padding:1px 8px;border-radius:6px;background:var(--aksen);color:var(--latar);margin-right:6px;font-size:.8rem}
+.kode.akt{background:var(--t2)}
+.meta{font-size:.85rem;color:var(--lembut);margin:4px 0}
+.kartu.akt{border-left:4px solid var(--t2)}
+.tautan{font-size:.88rem;color:var(--lembut);margin:2px 0}
+.m5-stage.uji .m5-lbl{display:none}
+.opsi.pilihan-uji{width:auto;display:inline-block}
+.slot{display:flex;gap:8px;align-items:center;margin:4px 0;padding:6px 10px;border:1px dashed var(--garis);border-radius:8px;min-height:2.4em}
+.kartu-urut{display:block;width:100%;text-align:left;margin:4px 0}
+.kartu-urut[disabled]{opacity:.5}
+.grafik{width:100%;height:auto;background:var(--permukaan);border:1px solid var(--garis);border-radius:10px;display:block}
+.grafik .sb{stroke:var(--lembut);stroke-width:1}
+.grafik .kv{fill:none;stroke-width:2.5}
+.grafik text{font:11px var(--font);fill:var(--lembut)}

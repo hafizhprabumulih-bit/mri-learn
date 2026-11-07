@@ -1,0 +1,13 @@
+<!-- A3 Pengodean frekuensi: papan tuts dan FOV. Judul dan hubungan ke materi diatur di struktur/m04a.json. File ini hanya isi kartu. -->
+<p>Gradien frekuensi mengubah tubuh menjadi &ldquo;papan tuts&rdquo;: tiap posisi punya frekuensi sendiri. Geser posisi spin untuk melihat tuts yang berbunyi. Ubah amplitudo gradien dan receive bandwidth untuk melihat FOV pada arah frekuensi. Gradien yang lebih curam membuat FOV lebih kecil.</p>
+<!-- TODO-VERIFIKASI: nilai awal RBW, amplitudo gradien, dan matriks hanya contoh belajar. Batas atas amplitudo mengikuti DATA. -->
+<label for='fb0'>Kuat medan B0 (T)</label>
+<select id='fb0'><option value='1.5' selected>1,5</option><option value='3'>3</option></select>
+<label for='fr'>Receive bandwidth: <span id='frv'></span> kHz</label><input type='range' id='fr' min='4' max='100' value='25'>
+<label for='fg'>Amplitudo gradien frekuensi: <span id='fgv'></span> mT/m</label><input type='range' id='fg' min='1' step='0.5' value='2.5'>
+<label for='fn'>Matriks frekuensi (piksel pada arah frekuensi)</label>
+<select id='fn'><option>64</option><option selected>128</option><option>256</option><option>512</option></select>
+<label for='fx'>Posisi spin sepanjang FOV: <span id='fxv'></span>% dari FOV (dari isosenter)</label><input type='range' id='fx' min='-50' max='50' step='1' value='20'>
+<canvas id='cpf' width='600' height='250' style='width:100%' role='img' aria-label='Batang FOV dengan gradien frekuensi dan papan tuts piano yang menunjukkan nada tiap posisi'></canvas>
+<p id='ketf2' aria-live='polite'></p>
+<button id='reset15' type='button'>Reset</button>

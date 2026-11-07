@@ -1,0 +1,35 @@
+<!-- NODE M03A T1.3: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03a-t1-3' class='simpul'><span class='kode'>T1.3</span> Penekanan sinyal dengan IR</h3>
+<ul class='cakupan'><li>STIR (short tau inversion recovery): penekanan lemak</li><li>FLAIR (fluid attenuated inversion recovery): penekanan CSF</li></ul>
+<div class='kartu bm'>
+<span class='tag'>M03A · T1.3 · Penekanan sinyal dengan IR</span>
+<b class='sub'>STIR (short tau inversion recovery)</b>
+<p class='s'>STIR memilih TI pendek sehingga lemak tepat di titik null saat pulsa 90° tiba. Tanpa magnetisasi longitudinal, lemak tidak menghasilkan sinyal. Sinyal lemak ditekan.</p>
+<div class='l'>
+<p>TI STIR sama dengan waktu yang dibutuhkan vektor lemak untuk pulih dari inversi penuh sampai tepat di bidang transversal. Saat itu tidak ada komponen longitudinal lemak. Pulsa 90° tidak punya apa-apa untuk dimiringkan, sehingga tidak ada komponen transversal dan sinyal lemak nol. TI sekitar 100 sampai 175 ms biasanya menekan lemak, meski sedikit berbeda antar kuat medan.</p>
+<p><b>Persamaan 3.3:</b> <code>SI = 1 − 2e^(−t/T1)</code>. SI = 0 saat t = 0,693 × T1, jadi TI yang meniadakan suatu jaringan selalu 0,69 kali T1 jaringan itu.</p>
+<ul>
+<li><b>Kegunaan:</b> penting pada pencitraan muskuloskeletal, karena sumsum tulang berlemak ditekan sehingga memar tulang dan tumor tampak lebih jelas. Juga berguna untuk menekan lemak secara umum.</li>
+<li><b>Jangan dipakai bersama kontras:</b> gadolinium memperpendek T1 jaringan yang menyerap sehingga mendekati T1 lemak, dan jaringan itu ikut ditiadakan.</li>
+<li><b>Parameter:</b> TI 150 sampai 175 ms, TE 50 ms atau lebih, TR 4000 ms atau lebih, turbo factor 16 sampai 20.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> kamu memotret bandul tepat saat ia melintas di titik nol, sehingga bandul itu "hilang" dari foto.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03A · T1.3 · Penekanan sinyal dengan IR</span>
+<b class='sub'>FLAIR (fluid attenuated inversion recovery)</b>
+<p class='s'>FLAIR memilih TI yang meniadakan sinyal cairan serebrospinal (CSF), sehingga lesi di dekat CSF tampak lebih jelas pada citra T2w.</p>
+<div class='l'>
+<p>TI FLAIR sesuai pemulihan vektor CSF dari inversi penuh sampai bidang transversal, sekitar 1700 sampai 2200 ms. Nilainya dihitung dari T1 CSF dikali 0,69 dan sedikit berbeda antar kuat medan. Karena CSF tak punya komponen longitudinal saat pulsa 90° tiba, sinyalnya nol.</p>
+<ul>
+<li><b>Kegunaan:</b> otak dan medula spinalis, untuk melihat lesi periventrikular dan lesi medula spinalis, plak multiple sclerosis, perdarahan subaraknoid akut, dan meningitis.</li>
+<li><b>Variasi:</b> TI sekitar 300 ms menandai titik null substansia alba, sehingga lesi di dalamnya tampak jauh lebih terang. Berguna untuk leukomalasia periventrikular dan kelainan substansia grisea/alba bawaan.</li>
+<li><b>Parameter:</b> TI 1700 sampai 2200 ms, TE 70 ms atau lebih, TR 6000 ms atau lebih, turbo factor 16 sampai 20.</li>
+<li><b>FLAIR dan gadolinium:</b> kadang gadolinium dipakai pada FLAIR. Rangkaian echo yang panjang membuat lemak tetap terang karena J-coupling, dan gadolinium membuat T1 jaringan yang menyerap mirip lemak, sehingga tampak lebih terang.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> menurunkan volume satu penyanyi yang terlalu keras (CSF) agar suara lain terdengar.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03a-a2'>A2</a></p>

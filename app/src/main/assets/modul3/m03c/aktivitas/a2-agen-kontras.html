@@ -1,0 +1,17 @@
+<div class='kartu aktivitas' id='m03c-a2'>
+<span class='tag'>M03C · A2 · menjelaskan T1.4, T2.1, T2.2 · [BARU]</span>
+<b>Agen kontras: pemendekan T1 atau T2 dan perubahan intensitas</b>
+<p class='lembut'>Pilih agen, jaringan, dan konsentrasi. T1 dan T2 baru dihitung dari <code>1/T = 1/T0 + r·[C]</code>. Sinyal spin echo dihitung dari <code>SI = PD · e^(−TE/T2) · (1 − e^(−TR/T1))</code>: T1w memakai TR 500 ms dan TE 15 ms, T2w memakai TR 3000 ms dan TE 100 ms. Relaksivitas dan rentang konsentrasi adalah angka ilustrasi.</p>
+<div class='pilih' role='group' aria-label='Jenis agen'>
+<button type='button' data-ag='gd' aria-pressed='true'>Agen T1: gadolinium</button>
+<button type='button' data-ag='fe' aria-pressed='false'>Agen T2: besi superparamagnetik</button>
+</div>
+<canvas id='m3-ak-cv' width='760' height='320' role='img' aria-label='Sinyal relatif terhadap konsentrasi agen'></canvas>
+<label for='m3-ak-j'>Jaringan</label>
+<select id='m3-ak-j'></select>
+<label for='m3-ak-c'>Konsentrasi agen: <span id='m3-ak-oc'></span></label>
+<input type='range' id='m3-ak-c' min='0' max='100' step='1' value='25'>
+<div class='gulir'><table class='tabel' id='m3-ak-tb'></table></div>
+<p>Pada T1w: <span id='m3-ak-s1' class='lencana ok'></span> Pada T2w: <span id='m3-ak-s2' class='lencana ok'></span></p>
+<p id='m3-ak-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

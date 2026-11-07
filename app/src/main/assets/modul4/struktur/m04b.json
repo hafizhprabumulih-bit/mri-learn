@@ -1,0 +1,295 @@
+{
+ "id": "M04B",
+ "judul": "Gradien, Ruang-k, dan Fourier",
+ "pecahan": "Pecahan 2 dari 3 dari M04 Pembentukan Citra (Tingkat 2)",
+ "prasyarat": [
+  "M04A"
+ ],
+ "dilanjutkan": [
+  "M04C",
+  "M08A",
+  "M09"
+ ],
+ "tujuan": [
+  "Menjelaskan apa itu ruang-k dan bagaimana gradien fase mengisinya",
+  "Menghubungkan sampling, receive bandwidth, dan teorema Nyquist",
+  "Menyebut dan menerapkan enam fakta penting ruang-k (FOV, piksel, waktu pindai)"
+ ],
+ "nav": {
+  "kiri": {
+   "teks": "← M04A",
+   "href": "m04a.html"
+  },
+  "induk": {
+   "teks": "M04 (induk)",
+   "href": "index.html"
+  },
+  "kanan": {
+   "teks": "M04C →",
+   "href": "m04c.html"
+  }
+ },
+ "materi": {
+  "judul": "Tingkat 2 (Menengah)",
+  "pengantar": {
+   "judul": "Ringkasan Tingkat 2: gradien, ruang-k, dan Fourier",
+   "file": "materi/M04B/pengantar-ringkasan-tingkat-2.html"
+  },
+  "node": [
+   {
+    "kode": "T2.1",
+    "judul": "Bagian 1: Apa itu ruang-k? Sumbu, laci, dan penomoran",
+    "file": "materi/M04B/T2.1-bagian-1-apa-itu-ruang-k-sumbu-laci-dan-penomora.html",
+    "simulasi": [
+     "A1"
+    ]
+   },
+   {
+    "kode": "T2.2",
+    "judul": "Bagian 1 (lanjutan): Gradien fase mengisi ruang-k",
+    "file": "materi/M04B/T2.2-bagian-1-lanjutan-gradien-fase-mengisi-ruang-k.html",
+    "simulasi": [
+     "A1",
+     "A7"
+    ]
+   },
+   {
+    "kode": "T2.3",
+    "judul": "Gradien fase: mengapa harus berubah tiap TR?",
+    "file": "materi/M04B/T2.3-gradien-fase-mengapa-harus-berubah-tiap-tr.html",
+    "simulasi": [
+     "A7"
+    ]
+   },
+   {
+    "kode": "T2.4",
+    "judul": "Bagian 2: Dari gema ke titik data",
+    "file": "materi/M04B/T2.4-bagian-2-dari-gema-ke-titik-data.html",
+    "simulasi": [
+     "A1"
+    ]
+   },
+   {
+    "kode": "T2.5",
+    "judul": "Sampling dan teorema Nyquist",
+    "file": "materi/M04B/T2.5-sampling-dan-teorema-nyquist.html",
+    "simulasi": [
+     "A2"
+    ]
+   },
+   {
+    "kode": "T2.6",
+    "judul": "Receive bandwidth (RBW) dan frekuensi Nyquist",
+    "file": "materi/M04B/T2.6-receive-bandwidth-rbw-dan-frekuensi-nyquist.html",
+    "simulasi": [
+     "A3"
+    ]
+   },
+   {
+    "kode": "T2.7",
+    "judul": "Jendela sampling, TE, dan matriks frekuensi",
+    "file": "materi/M04B/T2.7-jendela-sampling-te-dan-matriks-frekuensi.html",
+    "simulasi": [
+     "A3"
+    ]
+   },
+   {
+    "kode": "T2.8",
+    "judul": "TE minimum, tampilan RBW, dan jumlah irisan",
+    "file": "materi/M04B/T2.8-te-minimum-tampilan-rbw-dan-jumlah-irisan.html",
+    "simulasi": [
+     "A3"
+    ]
+   },
+   {
+    "kode": "T2.9",
+    "judul": "FFT: dari titik data ke citra",
+    "file": "materi/M04B/T2.9-fft-dari-titik-data-ke-citra.html",
+    "simulasi": [
+     "A4"
+    ],
+    "ilustrasi": [
+     "ilustrasi/B-1-ruang-k-menjadi-citra.html"
+    ]
+   },
+   {
+    "kode": "T2.10",
+    "judul": "Enam fakta penting tentang ruang-k",
+    "pengantar": "Kode anak T2.10.1 sampai T2.10.5 adalah usulan penomoran; di pohon asli anak-anak ini belum bernomor.",
+    "simulasi": [
+     "A5",
+     "A6",
+     "A7"
+    ],
+    "anak": [
+     {
+      "kode": "T2.10.1",
+      "judul": "Fakta 1-3: tiga fakta penting tentang ruang-k",
+      "file": "materi/M04B/T2.10.1-fakta-1-3-tiga-fakta-penting-tentang-ruang-k.html",
+      "simulasi": [
+       "A5",
+       "A7"
+      ]
+     },
+     {
+      "kode": "T2.10.2",
+      "judul": "Ruang-k, resolusi, dan sinyal: tiga citra pelajaran",
+      "file": "materi/M04B/T2.10.2-ruang-k-resolusi-dan-sinyal-tiga-citra-pelajaran.html",
+      "simulasi": [
+       "A5",
+       "A7"
+      ]
+     },
+     {
+      "kode": "T2.10.3",
+      "judul": "Fakta 4: Waktu pindai adalah waktu mengisi ruang-k",
+      "file": "materi/M04B/T2.10.3-fakta-4-waktu-pindai-adalah-waktu-mengisi-ruang.html",
+      "simulasi": [
+       "A7"
+      ]
+     },
+     {
+      "kode": "T2.10.4",
+      "judul": "Fakta 5: Jarak antar titik menentukan FOV",
+      "file": "materi/M04B/T2.10.4-fakta-5-jarak-antar-titik-menentukan-fov.html",
+      "simulasi": [
+       "A6"
+      ]
+     },
+     {
+      "kode": "T2.10.5",
+      "judul": "Fakta 6: Dimensi ruang-k menentukan ukuran piksel",
+      "file": "materi/M04B/T2.10.5-fakta-6-dimensi-ruang-k-menentukan-ukuran-piksel.html",
+      "simulasi": [
+       "A6"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "simulasi": [
+  {
+   "kode": "A1",
+   "judul": "Lemari laci ruang-k",
+   "menjelaskan": [
+    "T2.1",
+    "T2.2",
+    "T2.4"
+   ],
+   "html": "aktivitas/M04B/A1-lemari-laci-ruang-k.html",
+   "js": "aktivitas/M04B/A1-lemari-laci-ruang-k.js"
+  },
+  {
+   "kode": "A2",
+   "judul": "Sampling dan teorema Nyquist",
+   "menjelaskan": [
+    "T2.5"
+   ],
+   "html": "aktivitas/M04B/A2-sampling-dan-teorema-nyquist.html",
+   "js": "aktivitas/M04B/A2-sampling-dan-teorema-nyquist.js"
+  },
+  {
+   "kode": "A3",
+   "judul": "Receive bandwidth, jendela sampling, dan TE",
+   "menjelaskan": [
+    "T2.6",
+    "T2.7",
+    "T2.8"
+   ],
+   "html": "aktivitas/M04B/A3-receive-bandwidth-jendela-sampling-dan-te.html",
+   "js": "aktivitas/M04B/A3-receive-bandwidth-jendela-sampling-dan-te.js"
+  },
+  {
+   "kode": "A4",
+   "judul": "FFT: dari gelombang ke puncak",
+   "menjelaskan": [
+    "T2.9"
+   ],
+   "html": "aktivitas/M04B/A4-fft-dari-gelombang-ke-puncak.html",
+   "js": "aktivitas/M04B/A4-fft-dari-gelombang-ke-puncak.js"
+  },
+  {
+   "kode": "A5",
+   "judul": "Sinyal dan resolusi: garis tengah vs tepi",
+   "menjelaskan": [
+    "T2.10.1",
+    "T2.10.2"
+   ],
+   "html": "aktivitas/M04B/A5-sinyal-dan-resolusi-garis-tengah-vs-tepi.html",
+   "js": "aktivitas/M04B/A5-sinyal-dan-resolusi-garis-tengah-vs-tepi.js"
+  },
+  {
+   "kode": "A6",
+   "judul": "FOV dan ukuran piksel pada dua sumbu",
+   "menjelaskan": [
+    "T2.10.4",
+    "T2.10.5"
+   ],
+   "html": "aktivitas/M04B/A6-fov-dan-ukuran-piksel-pada-dua-sumbu.html",
+   "js": "aktivitas/M04B/A6-fov-dan-ukuran-piksel-pada-dua-sumbu.js"
+  },
+  {
+   "kode": "A7",
+   "judul": "Laboratorium ruang-k: mulai dari kosong",
+   "menjelaskan": [
+    "T2.2",
+    "T2.3",
+    "T2.10.1",
+    "T2.10.2",
+    "T2.10.3"
+   ],
+   "html": "aktivitas/M04B/A7-laboratorium-ruang-k-mulai-dari-kosong.html",
+   "js": "aktivitas/M04B/A7-laboratorium-ruang-k-mulai-dari-kosong.js",
+   "anak": [
+    {
+     "kode": "A7.1",
+     "judul": "Ruang-k dengan mask",
+     "menjelaskan": [
+      "T2.10.2"
+     ],
+     "html": "aktivitas/M04B/A7.1-ruang-k-dengan-mask.html",
+     "js": "aktivitas/M04B/A7.1-ruang-k-dengan-mask.js"
+    },
+    {
+     "kode": "A7.2",
+     "judul": "FOV, matriks, dan aliasing",
+     "menjelaskan": [
+      "T2.5",
+      "T2.10.4"
+     ],
+     "html": "aktivitas/M04B/A7.2-fov-matriks-dan-aliasing.html",
+     "js": "aktivitas/M04B/A7.2-fov-matriks-dan-aliasing.js"
+    },
+    {
+     "kode": "A7.3",
+     "judul": "Simulator pindai: isi ruang-k baris demi baris",
+     "menjelaskan": [
+      "T2.3",
+      "T2.10.3"
+     ],
+     "html": "aktivitas/M04B/A7.3-simulator-pindai-isi-ruang-k-baris-demi-baris.html",
+     "js": "aktivitas/M04B/A7.3-simulator-pindai-isi-ruang-k-baris-demi-baris.js"
+    }
+   ]
+  }
+ ],
+ "kuis": {
+  "judul": "Kuis dinamis: Tingkat 2",
+  "file": "kuis/m04b.js"
+ },
+ "tautan": [
+  {
+   "teks": "Kalkulator TA, SNR, dan irisan (mode lengkap)",
+   "tujuan": "M09 (komponen bersama, mode ringkas di sini)"
+  },
+  {
+   "teks": "Aliasing sebagai artefak",
+   "tujuan": "M08A"
+  },
+  {
+   "teks": "Partial Fourier dan parallel imaging",
+   "tujuan": "M04C"
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+<!-- NODE M03C T2.3: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03c-t2-3' class='simpul'><span class='kode'>T2.3</span> Skema Stejskal-Tanner (gradien bipolar & pulsa 180°)</h3>
+<ul class='cakupan'><li>Nilai b (peta parameter → M02 T1.1)</li></ul>
+<p class='lembut catatan'>[← M06 Topik Lanjut] ⚑ Prasyarat: M04A</p>
+<!-- TODO-VERIFIKASI: ditulis baru (pohon: [← M06 Topik Lanjut], butuh M04A). Nilai b tipikal otak (0 dan 1000 s/mm²) adalah contoh umum, bukan standar. -->
+<div class='kartu bm'>
+<span class='tag'>M03C · T2.3 · Skema Stejskal-Tanner (gradien bipolar & pulsa 180°) [BARU]</span>
+<b class='sub'>Sekuens difusi dan nilai b</b>
+<p class='s'>Skema Stejskal-Tanner adalah spin echo dengan dua gradien difusi yang mengapit pulsa 180°. Spin yang diam kembali sefase dan sinyalnya utuh. Spin yang berdifusi tidak sepenuhnya sefase, sehingga sinyalnya turun: S = S0 · e^(−b · ADC).</p>
+<div class='l'>
+<p><b>Urutannya.</b> Pulsa 90°, gradien difusi pertama (lama δ, kuat G), pulsa 180°, gradien difusi kedua yang sama, lalu gema. Pulsa 180° membalik fase, jadi dua gradien identik di kedua sisinya berefek berlawanan dan saling meniadakan untuk spin yang tetap di tempat. Spin yang bergerak acak antara dua gradien itu tidak terbatalkan sempurna, sehingga sinyalnya berkurang. Gradien bipolar (polaritas berlawanan) dipakai di sisi lain pulsa 180° dengan prinsip pembatalan yang sama. Konsep gradien dan rephasing ada di M04A.</p>
+<p><b>Nilai b.</b> <code>b = γ² G² δ² (Δ − δ/3)</code>. γ adalah rasio giromagnetik (rad/s/T), G kekuatan gradien (T/m), δ lama tiap gradien (s), Δ jarak antara kedua gradien (s). Satuannya s/m², biasanya ditulis s/mm². Makin besar G, δ, atau Δ, makin besar b dan makin kuat bobot difusinya.</p>
+<p><b>ADC dari dua citra.</b> Dengan citra b = 0 dan citra b tertentu: <code>ADC = ln(S<sub>0</sub> / S<sub>b</sub>) / b</code>. Dihitung per piksel, hasilnya adalah peta ADC (peta parameter, lihat M02 T1.1). Pada otak, nilai b yang umum dipakai ada di sekitar 0 dan 1000 s/mm².</p>
+<p><b>Dua jenis parameter.</b> Nilai b adalah pilihan operator (ekstrinsik), ADC adalah sifat jaringan (intrinsik). Gradien yang kuat dan cepat diperlukan agar b besar tercapai dalam waktu singkat (lihat M06A T2.1).</p>
+</div>
+<p class='a'><b>Analogi:</b> dua lampu kilat: kilat pertama menandai posisi, kilat kedua memeriksa apakah orang itu masih di tempat yang sama. Yang diam tampak jelas (sinyal utuh), yang berpindah tampak kabur (sinyal turun).</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03c-a1'>A1</a></p>

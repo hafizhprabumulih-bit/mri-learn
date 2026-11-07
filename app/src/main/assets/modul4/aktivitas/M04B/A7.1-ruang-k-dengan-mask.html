@@ -1,0 +1,15 @@
+<!-- A7.1 Ruang-k dengan mask. Judul dan hubungan ke materi diatur di struktur/m04b.json. File ini hanya isi kartu. -->
+<p>Pilih bagian ruang-k yang dipakai. Lihat apa yang terjadi pada citra. Citra diskalakan sama dengan citra penuh, jadi redupnya citra menunjukkan hilangnya sinyal.</p>
+<fieldset><legend>Mask ruang-k</legend>
+<label><input type='radio' name='mask' value='semua' checked> Seluruhnya</label>
+<label><input type='radio' name='mask' value='pusat'> Hanya pusat</label>
+<label><input type='radio' name='mask' value='tepi'> Hanya tepi</label>
+</fieldset>
+<label for='rad'>Radius mask: <span id='radv'></span> baris/kolom dari pusat</label>
+<input type='range' id='rad' min='2' max='30' value='8'>
+<div class='baris'>
+<figure><canvas id='ck' class='cit' width='64' height='64' role='img' aria-label='Ruang-k setelah mask'></canvas><figcaption>Ruang-k (skala logaritmik)</figcaption></figure>
+<figure><canvas id='cc' class='cit' width='64' height='64' role='img' aria-label='Citra hasil transformasi Fourier'></canvas><figcaption>Citra hasil Fourier 2D</figcaption></figure>
+</div>
+<p id='ketk' class='lembut' aria-live='polite'></p>
+<button id='reset1' type='button'>Reset</button>

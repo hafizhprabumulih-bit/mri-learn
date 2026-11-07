@@ -1,0 +1,21 @@
+/* TAMBAHAN: gaya untuk kerangka baru (daftar isi, kode simpul, uji A1, A6, A7). */
+.daftar a{display:inline-block;margin:2px 6px 2px 0;padding:2px 8px;border:1px solid var(--garis);border-radius:999px;text-decoration:none;font-size:.85rem}
+.daftar a.akt{border-color:var(--t2);color:var(--t2)}
+.judul-tingkat{border-bottom:2px solid var(--garis);padding-bottom:4px}
+.kode{display:inline-block;font-weight:700;padding:1px 8px;border-radius:6px;background:var(--aksen);color:var(--latar);margin-right:6px;font-size:.8rem}
+.kode.akt{background:var(--t2)}
+.meta{font-size:.85rem;color:var(--lembut);margin:4px 0}
+.kartu.akt{border-left:4px solid var(--t2)}
+.tautan{font-size:.88rem;color:var(--lembut);margin:2px 0}
+.m5-stage.uji .m5-lbl{display:none}
+/* TAMBAHAN M09: kalkulator, hasil, chip, tabel */
+h3{font-size:1.05rem;margin:.2em 0 .5em}
+.sl{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+@media(max-width:600px){.sl{grid-template-columns:1fr}}
+.sl label{display:flex;justify-content:space-between;font-size:.9rem;margin-top:4px;font-weight:400}.sl b{color:var(--aksen)}
+.rumus{font-family:ui-monospace,Consolas,monospace;background:var(--latar);border:1px solid var(--garis);border-radius:8px;padding:6px 10px;font-size:.9rem;overflow-x:auto}
+.hasil{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:10px 0}
+.hasil div{background:var(--latar);border:1px solid var(--garis);border-radius:8px;padding:6px 10px;font-size:.9rem}.hasil strong{display:block;font-size:1.15rem}
+.chip{display:inline-block;font-size:.78rem;border:1px solid var(--garis);border-radius:99px;padding:1px 9px;margin:2px 4px 2px 0;background:var(--latar)}
+.chip.ta{border-color:var(--t1);color:var(--t1)}.chip.snr{border-color:var(--t2);color:var(--t2)}.chip.res{border-color:var(--aksen);color:var(--aksen)}.chip.kon{border-color:var(--benar);color:var(--benar)}
+.konsol li{margin:4px 0}

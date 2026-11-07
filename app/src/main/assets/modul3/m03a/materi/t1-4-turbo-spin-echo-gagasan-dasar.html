@@ -1,0 +1,28 @@
+<!-- NODE M03A T1.4: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03a-t1-4' class='simpul'><span class='kode'>T1.4</span> Turbo spin echo (TSE / FSE / RARE): gagasan dasar</h3>
+<ul class='cakupan'><li>Echo train & turbo factor (ETL)</li></ul>
+<div class='kartu bm lanjut'>
+<span class='tag'>M03A · T1.4 · Turbo spin echo (TSE / FSE / RARE): gagasan dasar</span>
+<b class='sub'>Turbo spin echo</b>
+<p class='s'>Beberapa gema dalam satu TR mempercepat pindai, tetapi menambah T2 <i>blur</i> dan SAR.</p>
+<div class='l'>
+<p>Pada <i>turbo spin echo</i>, satu TR memuat beberapa gema (<i>echo train</i>). Tiap gema mengisi garis ruang-k yang berbeda, sehingga waktu pindai turun kira-kira sebanding dengan panjang <i>echo train</i>. Harganya: gema belakangan lebih lemah sehingga citra bisa kabur (T2 <i>blur</i>), dan pulsa 180° yang lebih banyak menaikkan SAR.</p>
+<p>Ada pula kompromi SNR terhadap waktu: pindai lebih singkat berarti lebih sedikit rata-rata sinyal, jadi SNR turun. Gema yang mengisi tengah ruang-k paling menentukan kontras, sehingga urutan pengisian ruang-k ikut mengatur kontras. Hubungan ini dibahas di Modul 4.</p>
+</div>
+<p class='a'><b>Analogi:</b> memotret banyak foto dalam sekali kedipan lampu kilat. Lebih cepat, tetapi foto-foto terakhir lebih redup.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03A · T1.4 · Turbo spin echo (TSE / FSE / RARE): gagasan dasar</span>
+<b class='sub'>TSE, turbo factor, dan waktu pindai</b>
+<p class='s'>Turbo (atau fast) spin echo, disebut juga TSE, FSE, atau RARE, adalah spin echo dengan waktu pindai jauh lebih singkat. Tiap TR memuat beberapa pulsa 180°, sehingga terbentuk rangkaian gema (<i>echo train</i>), dan tiap gema mengisi satu baris ruang-k yang berbeda. Jumlah gema per TR disebut <i>turbo factor</i> atau ETL.</p>
+<div class='l'>
+<p>Waktu pindai bergantung pada TR, jumlah rata-rata sinyal (NSA), dan matriks fase. TSE memangkasnya lewat matriks fase: jumlah total langkah penyandian fase tetap sama, tetapi jumlah langkah <i>per TR</i> bertambah, sehingga ruang-k terisi lebih efisien. Pada spin echo konvensional, satu TR hanya mengisi satu baris ruang-k per irisan. Pada TSE, tiap pulsa 180° diikuti penyandian fase dengan kemiringan dan/atau polaritas berbeda, sehingga tiap gema membuka baris yang berbeda.</p>
+<p>Perbedaan penting: pada spin echo multi-gema konvensional, tiap gema menjadi citra terpisah (biasanya PD dan T2). Pada TSE, data semua gema dimasukkan ke <i>satu</i> citra.</p>
+<p><code>ST = TR × M(p) × NSA / ETL</code>. TR dalam ms, jadi bagi 1000 untuk detik. Contoh dari buku: matriks fase 256, NSA 1. Pada spin echo konvensional dibutuhkan 256 TR. Dengan turbo factor 16, hanya 256 ÷ 16 = 16 TR, jadi waktu pindai menjadi 1/16. Makin panjang <i>echo train</i>, makin singkat pindai, tetapi irisan per TR bisa berkurang.</p>
+<p><b>Gema awal tidak gratis.</b> Pada spin echo multi-gema konvensional, gema awal tidak menambah waktu pindai. Pada TSE, tiap gema mengisi baris ruang-k, dan tiap citra butuh daerah ruang-k sendiri. Jadi bila dibutuhkan citra PD dan T2 dari dua daerah ruang-k yang berbeda, waktu pindai menjadi dua kali lipat.</p>
+<p class='lembut'>Dianjurkan memahami penyandian spasial dan ruang-k (bab 5 dan 6 buku) sebelum bagian ini. Acuan: Westbrook dan Talbot, <i>MRI in Practice</i>, Bab 3 (ditulis ulang).</p>
+</div>
+<p class='a'><b>Analogi:</b> lemari laci. Satu laci dibuka per TR pada spin echo biasa. Pada TSE, bila 10 laci dibuka per TR, isi lemari terkumpul 10 kali lebih cepat. Tiap laci yang dibuka butuh isi, yaitu satu gema.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03a-a3'>A3</a></p>

@@ -1,0 +1,16 @@
+<div class='kartu aktivitas' id='m03b-a8'>
+<span class='tag'>M03B · A8 · tambahan dari modul lama (belum ada di pohon) · terkait T1.2</span>
+<b>Diagram sekuens koheren: peran rewinder</b>
+<p class='lembut'>Dua TR berurutan pada gradient echo koheren (disusun mengikuti Gambar 4.14 buku). Gradien penyandi fase memberi langkah fase, lalu rewinder membaliknya setelah pembacaan agar semua magnetisasi transversal kembali koheren sebelum pulsa RF berikutnya. Matikan rewinder dan lihat sisa fase menumpuk. Tekan Putar untuk menelusuri tiap tahap.</p>
+<canvas id='m3y-cv-c' width='760' height='300' role='img' aria-label='Diagram sekuens koheren'></canvas>
+<label for='m3y-c-t'>Waktu: <span id='m3y-c-ot'></span></label>
+<input type='range' id='m3y-c-t' min='0' max='100' step='1'>
+<label for='m3y-c-a'>Langkah penyandi fase: <span id='m3y-c-oa'></span></label>
+<input type='range' id='m3y-c-a' min='-100' max='100' step='1'>
+<div class='baris'>
+<button type='button' id='m3y-c-play'>Putar</button>
+<button type='button' id='m3y-c-rw' aria-pressed='true'>Rewinder: nyala</button>
+<button type='button' id='m3y-c-rs'>Reset</button>
+</div>
+<p id='m3y-c-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

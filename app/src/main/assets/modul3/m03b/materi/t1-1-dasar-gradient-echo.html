@@ -1,0 +1,38 @@
+<!-- NODE M03B T1.1: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03b-t1-1' class='simpul'><span class='kode'>T1.1</span> Dasar gradient echo</h3>
+<ul class='cakupan'><li>Sudut flip kecil tanpa pulsa 180°</li></ul>
+<div class='kartu bm'>
+<span class='tag'>M03B · T1.1 · Dasar gradient echo</span>
+<b class='sub'>Gradient echo, cepat tetapi rentan</b>
+<p class='s'>Gradient echo memakai sudut flip kecil dan gradien, bukan pulsa 180°, untuk membentuk gema. TR dan TE bisa lebih pendek, tetapi ketidakhomogenan medan tidak dikoreksi.</p>
+<div class='l'>
+<p>Ada dua beda utama dengan spin echo. Pertama, sudut flip biasanya di bawah 90°. Magnetisasi hanya dimiringkan sedikit, sehingga pemulihan longitudinal cepat tuntas dan TR boleh pendek. Karena TR ikut menentukan waktu pindai, pindai jadi lebih singkat.</p>
+<p>Kedua, gema dibuat oleh gradien. Pulsa 180° tidak cocok di sini: pada sudut kecil sebagian besar magnetisasi masih longitudinal, sehingga pulsa itu justru membaliknya ke arah −z, bukan merefokus komponen transversal.</p>
+<ul>
+<li>Gradien yang mengacak fase disebut <i>spoiler</i>. Gradien yang merapikannya kembali disebut <i>rewinder</i>.</li>
+<li>Gema dibuat oleh gradien bipolar: lobus negatif lebih dulu (sinyal awal, FID, hilang), lalu lobus positif yang luasnya dua kali lipat. Gema muncul saat luas positif menetralkan luas negatif, yaitu pada TE.</li>
+<li>Gradien hanya merapikan fase yang ia buat sendiri. Pengaruh ketidakhomogenan medan tetap tersisa, sehingga kontrasnya berbobot T2* dan artefak kerentanan magnetik bertambah.</li>
+</ul>
+<p class='lembut sumber'>Nama sekuens berbeda antar produsen. Acuan: Westbrook dan Talbot, <i>MRI in Practice</i>, Bab 4 (ditulis ulang). <!-- TODO-VERIFIKASI: singkatan mengikuti Tabel 4.1 buku dan dapat berbeda antar versi sistem. --></p>
+<div class='gulir'><table class='tabel'><tr><th>Jenis</th><th>GE</th><th>Philips</th><th>Siemens</th></tr><tr><td>Koheren (<i>rewound</i>)</td><td>GRASS</td><td>FFE</td><td>FISP</td></tr><tr><td>Inkoheren (<i>spoiled</i>)</td><td>SPGR</td><td>T1-FFE</td><td>FLASH</td></tr><tr><td><i>Balanced</i></td><td>FIESTA</td><td>B-FFE</td><td>True FISP</td></tr><tr><td>Cepat</td><td>Fast GRASS atau SPGR</td><td>TFE</td><td>Turbo FLASH</td></tr></table></div>
+</div>
+<p class='a'><b>Analogi:</b> pelari di lintasan. Gradien membuat pelari berpencar karena kecepatannya berbeda. Saat gradien dibalik, yang tertinggal berlari lebih cepat dan yang di depan lebih lambat, sehingga semua tiba bersama di garis finis (gema). Rintangan acak di lintasan (medan tidak homogen) tidak ikut dibalik.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03B · T1.1 · Dasar gradient echo</span>
+<b class='sub'>Bobot pada gradient echo</b>
+<p class='s'>TR dan sudut flip menentukan apakah magnetisasi jenuh (saturasi), dan saturasi hanya dibutuhkan untuk bobot T1. TE mengatur bobot T2*. T1w: sudut besar, TR pendek, TE pendek. T2*w: sudut kecil, TR panjang, TE panjang. PD: sudut kecil, TR panjang, TE pendek.</p>
+<div class='l'>
+<p>Persamaan sinyal gradient echo sama dengan yang di atas, hanya ada satu variabel tambahan: sudut flip. Bila α = 90°, maka sin α = 1 dan cos α = 0, sehingga persamaannya kembali ke spin echo. Kuncinya, bayangkan seberapa jauh vektor dimiringkan oleh pulsa RF, lalu berapa lama mereka diberi waktu untuk pulih (TR).</p>
+<ul>
+<li>Kombinasi sudut dan TR membuat vektor tidak sempat pulih penuh (jenuh): kontras T1 maksimal.</li>
+<li>Kombinasi sudut dan TR memberi waktu pulih hampir penuh: kontras T1 minimal.</li>
+<li>TE panjang memberi waktu bagi spin untuk berpencar, jadi kontras T2* naik. TE pendek menekannya.</li>
+</ul>
+<p class='lembut'>Nilai tipikal (rentang kasar, tergantung sistem dan medan; acuan Tabel 4.3 buku Westbrook dan Talbot, ditulis ulang). <!-- TODO-VERIFIKASI: nilai tipikal, bukan standar. --></p>
+<div class='gulir'><table class='tabel'><tr><th>Sekuens</th><th>TR</th><th>TE</th><th>Sudut flip</th></tr><tr><td>Spin echo, panjang (T2w)</td><td>2000 ms ke atas</td><td>70 ms ke atas</td><td>90°</td></tr><tr><td>Spin echo, pendek (T1w)</td><td>300 sampai 700 ms</td><td>10 sampai 30 ms</td><td>90°</td></tr><tr><td>Gradient echo, panjang</td><td>100 ms ke atas</td><td>15 sampai 25 ms</td><td>kecil, 5° sampai 20°</td></tr><tr><td>Gradient echo, pendek</td><td>di bawah 50 ms</td><td>di bawah 5 ms</td><td>sedang 30° sampai 45°, atau besar 70° ke atas</td></tr></table></div>
+</div>
+<p class='a'><b>Analogi:</b> kompor dengan tiga tombol: TR, TE, dan sudut flip. Api T1 membesar bila TR diturunkan dan sudut dinaikkan. Api T2* membesar bila TE dinaikkan. Api PD menonjol ketika dua api lainnya dikecilkan.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03b-a1'>A1</a>, <a href='#m03b-a4'>A4</a>, <a href='#m03b-a5'>A5</a></p>

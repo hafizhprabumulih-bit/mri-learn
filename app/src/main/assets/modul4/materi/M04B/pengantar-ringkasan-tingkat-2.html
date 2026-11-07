@@ -1,0 +1,10 @@
+<!-- Ringkasan Tingkat 2 (tanpa kode di pohon). Dipakai sebagai pengantar M04B. -->
+<p class='s'>Gradien menentukan tebal irisan. Ruang-k diisi satu baris per TR, lalu diubah menjadi citra dengan Fourier. FOV = 1/&Delta;k, dan FOV yang terlalu kecil menyebabkan aliasing.</p>
+<div class='l'>
+<p>Dengan gradien G, frekuensi di posisi r menjadi <span class='rumus'>&omega; = &gamma;(B0 + G&middot;r)</span>. Frekuensi kini bergantung pada posisi.</p>
+<p><b>Tebal irisan.</b> <span class='rumus'>&Delta;z = BW_RF / (&gamma;&#772; &middot; Gz)</span>. Pulsa RF yang pita frekuensinya sempit atau gradien yang lebih kuat menghasilkan irisan lebih tipis.</p>
+<p><b>Ruang-k.</b> Ruang-k diisi baris demi baris, satu baris per TR. Citra didapat dengan transformasi Fourier 2D. Pusat ruang-k membawa sinyal dan kontras. Tepinya membawa detail halus dan tajam tepi.</p>
+<p><b>FOV dan voksel.</b> FOV = 1/&Delta;k, dan ukuran voksel = FOV/N. Jika FOV lebih kecil daripada objek, bagian objek yang di luar FOV terlipat ke sisi seberang. Gejala ini disebut aliasing.</p>
+<p><b>Waktu pindai 2D</b> = TR &times; N_fase &times; NEX.</p>
+</div>
+<p class='a'><b>Analogi:</b> Pita RF seperti jendela sempit pada tangga nada: hanya satu lantai yang &ldquo;berbunyi&rdquo;. Ruang-k seperti daftar nada yang menyusun lagu (citra).</p>

@@ -1,0 +1,15 @@
+<!-- A1 Lemari laci ruang-k. Judul dan hubungan ke materi diatur di struktur/m04b.json. File ini hanya isi kartu. -->
+<p>Ini satu lemari, yaitu ruang-k untuk satu irisan. Pilih laci dengan slider atau klik lemarinya. Lihat nomor garis, polaritas gradien fase, dan gelombang data di dalam laci itu. Garis putus-putus oranye adalah sumbu tengah.</p>
+<label for='mtx'>Matriks fase (jumlah laci)</label>
+<select id='mtx'><option>8</option><option selected>16</option><option>32</option></select>
+<label for='irs'>Jumlah irisan (jumlah lemari): <span id='irsv'></span></label>
+<input type='range' id='irs' min='1' max='8' value='3'>
+<label for='laci'>Laci terpilih (urutan dari atas): <span id='lacv'></span></label>
+<input type='range' id='laci' min='1' max='16' value='8'>
+<div class='baris'>
+<figure><canvas id='cl' class='klik' width='240' height='240' style='width:240px' role='img' aria-label='Satu lemari berisi laci-laci, tiap laci adalah satu garis ruang-k'></canvas><figcaption>Lemari (klik laci)</figcaption></figure>
+<figure><canvas id='cw' width='300' height='240' style='width:300px' role='img' aria-label='Gelombang data pada laci terpilih'></canvas><figcaption>Data dalam laci (sumbu frekuensi mendatar)</figcaption></figure>
+</div>
+<p id='ketd' aria-live='polite'></p>
+<p id='ketd2' class='lembut'></p>
+<button id='reset6' type='button'>Reset</button>

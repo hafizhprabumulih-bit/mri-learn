@@ -1,0 +1,159 @@
+{
+ "id": "M04A",
+ "judul": "Pengodean Spasial: Dari Sinyal Menjadi Gambar",
+ "pecahan": "Pecahan 1 dari 3 dari M04 Pembentukan Citra (Tingkat 1)",
+ "prasyarat": [
+  "M01",
+  "M02 (spin echo)"
+ ],
+ "dilanjutkan": [
+  "M04B",
+  "M06A",
+  "M06B",
+  "M08B"
+ ],
+ "tujuan": [
+  "Menjelaskan fungsi tiga gradien: pemilihan irisan, pengodean fase, pengodean frekuensi",
+  "Menghubungkan tebal irisan dengan transmit bandwidth dan kekuatan gradien",
+  "Menghubungkan gradien baca dengan FOV"
+ ],
+ "nav": {
+  "induk": {
+   "teks": "M04 (induk)",
+   "href": "index.html"
+  },
+  "kanan": {
+   "teks": "M04B →",
+   "href": "m04b.html"
+  }
+ },
+ "materi": {
+  "judul": "Tingkat 1 (Dasar)",
+  "node": [
+   {
+    "kode": "T1.1",
+    "judul": "Dari sinyal menjadi gambar",
+    "file": "materi/M04A/T1.1-dari-sinyal-menjadi-gambar.html",
+    "simulasi": [
+     "A4"
+    ],
+    "ilustrasi": [
+     "ilustrasi/A-1-tiga-langkah-pengodean-posisi.html"
+    ]
+   },
+   {
+    "kode": "T1.2",
+    "judul": "Mekanisme gradien: gradient coil, polaritas, dan isosenter",
+    "file": "materi/M04A/T1.2-mekanisme-gradien-gradient-coil-polaritas-dan-is.html",
+    "simulasi": [
+     "A1"
+    ]
+   },
+   {
+    "kode": "T1.3",
+    "judul": "Sumbu gradien dan lobus pada diagram urutan pulsa",
+    "file": "materi/M04A/T1.3-sumbu-gradien-dan-lobus-pada-diagram-urutan-puls.html",
+    "simulasi": [
+     "A4"
+    ]
+   },
+   {
+    "kode": "T1.4",
+    "judul": "Pemilihan irisan: cara kerja, bidang, dan waktu",
+    "file": "materi/M04A/T1.4-pemilihan-irisan-cara-kerja-bidang-dan-waktu.html",
+    "simulasi": [
+     "A2"
+    ]
+   },
+   {
+    "kode": "T1.5",
+    "judul": "Tebal irisan, transmit bandwidth, dan celah",
+    "file": "materi/M04A/T1.5-tebal-irisan-transmit-bandwidth-dan-celah.html",
+    "simulasi": [
+     "A2"
+    ],
+    "ilustrasi": [
+     "ilustrasi/A-2-pemilihan-irisan-gradien-dan-pita-rf.html"
+    ]
+   },
+   {
+    "kode": "T1.6",
+    "judul": "Pengodean frekuensi: gradien baca dan FOV",
+    "file": "materi/M04A/T1.6-pengodean-frekuensi-gradien-baca-dan-fov.html",
+    "simulasi": [
+     "A3"
+    ]
+   },
+   {
+    "kode": "T1.7",
+    "judul": "Pengodean fase: gradien fase memberi \"jam tangan\" berbeda tiap baris",
+    "file": "materi/M04A/T1.7-pengodean-fase-gradien-fase-memberi-jam-tangan-b.html",
+    "simulasi": [
+     "A1",
+     "A4"
+    ],
+    "baru": true
+   }
+  ]
+ },
+ "simulasi": [
+  {
+   "kode": "A1",
+   "judul": "Gradien dan jam tangan: frekuensi dan fase",
+   "menjelaskan": [
+    "T1.2",
+    "T1.7"
+   ],
+   "html": "aktivitas/M04A/A1-gradien-dan-jam-tangan-frekuensi-dan-fase.html",
+   "js": "aktivitas/M04A/A1-gradien-dan-jam-tangan-frekuensi-dan-fase.js"
+  },
+  {
+   "kode": "A2",
+   "judul": "Pemilihan irisan: bidang, frekuensi RF, dan tebal irisan",
+   "menjelaskan": [
+    "T1.4",
+    "T1.5"
+   ],
+   "html": "aktivitas/M04A/A2-pemilihan-irisan-bidang-frekuensi-rf-dan-tebal-i.html",
+   "js": "aktivitas/M04A/A2-pemilihan-irisan-bidang-frekuensi-rf-dan-tebal-i.js"
+  },
+  {
+   "kode": "A3",
+   "judul": "Pengodean frekuensi: papan tuts dan FOV",
+   "menjelaskan": [
+    "T1.6"
+   ],
+   "html": "aktivitas/M04A/A3-pengodean-frekuensi-papan-tuts-dan-fov.html",
+   "js": "aktivitas/M04A/A3-pengodean-frekuensi-papan-tuts-dan-fov.js"
+  },
+  {
+   "kode": "A4",
+   "judul": "Satu TR, tiga gradien",
+   "menjelaskan": [
+    "T1.1",
+    "T1.3",
+    "T1.7"
+   ],
+   "html": "aktivitas/M04A/A4-satu-tr-tiga-gradien.html",
+   "js": "aktivitas/M04A/A4-satu-tr-tiga-gradien.js"
+  }
+ ],
+ "kuis": {
+  "judul": "Kuis dinamis: Tingkat 1",
+  "file": "kuis/m04a.js"
+ },
+ "tautan": [
+  {
+   "teks": "Perangkat keras gradient coil",
+   "tujuan": "M06A"
+  },
+  {
+   "teks": "Pulsa sinc dan sistem pemancar RF",
+   "tujuan": "M06B T2.2"
+  },
+  {
+   "teks": "Gradien bipolar pada gradient echo",
+   "tujuan": "M03B T1.2"
+  }
+ ]
+}

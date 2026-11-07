@@ -1,0 +1,20 @@
+<!-- NODE M03B T1.2: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03b-t1-2' class='simpul'><span class='kode'>T1.2</span> Gradien bipolar (spoiler & rewinder)</h3>
+<p class='lembut catatan'>⚑ Prasyarat: M04A</p>
+<div class='kartu bm'>
+<span class='tag'>M03B · T1.2 · Gradien bipolar (spoiler & rewinder)</span>
+<b class='sub'>Cara gradien mendephase dan merephase</b>
+<p class='s'>Gradien mengubah medan secara linear sehingga momen magnetik berubah frekuensi: sebagian cepat, sebagian lambat. Gradien yang mendephase disebut spoiler, yang merephase disebut rewinder. Gema muncul saat fase semuanya sejajar lagi.</p>
+<div class='l'>
+<p><b>Mengapa bukan pulsa 180°?</b> Pada spin echo, sudut flip besar membuat magnetisasi masih transversal saat pulsa 180° tiba, sehingga bisa direfase. Pada gradient echo, sudut flip kecil meninggalkan banyak magnetisasi longitudinal. Pulsa 180° justru membaliknya ke −z, bukan merefase komponen transversal. Maka dipakai gradien.</p>
+<p><b>Mendephase.</b> Tanpa gradien semua momen magnetik berpresesi pada frekuensi sama. Gradien pada magnetisasi koheren mengubah kuat medan sepanjang sumbunya: ujung berkuat medan tinggi berpresesi lebih cepat (tepi terdepan kipas, merah), ujung berkuat medan rendah lebih lambat (tepi tertinggal, ungu). Momen tidak lagi di tempat yang sama pada waktu yang sama. Gradien yang mendephase begini disebut <b>spoiler</b> dan prosesnya <b>gradient spoiling</b>.</p>
+<p><b>Merephase.</b> Gradien dengan arah berlawanan dipasang pada magnetisasi yang sudah menyebar. Inti lambat kini mengalami medan lebih tinggi dan mempercepat, sedangkan inti cepat mengalami medan lebih rendah dan melambat. Sesaat kemudian yang lambat menyusul yang cepat, semuanya sefase, dan sinyal maksimum diinduksi di koil penerima: <b>gradient echo</b>. Gradien yang merephase begini disebut <b>rewinder</b>.</p>
+<ul>
+<li><b>Polaritas</b> gradien (arah arus di koil gradien) menentukan apakah medan ditambah atau dikurangi.</li>
+<li>Gema dibuat oleh <b>gradien bipolar</b> dengan dua lobus. Lobus negatif lebih dulu, menambah dephasing dan menghilangkan FID. Polaritas lalu dibalik, merephase hanya momen yang tadi didephase oleh lobus negatif, dan gema muncul pada TE.</li>
+<li>Luas lobus negatif separuh luas lobus positif. Pada sekuens dasar, gradien penyandi frekuensi dipakai secara bipolar untuk ini (lihat Bab 5).</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> pelari berpencar karena beda kecepatan, lalu semua berbalik dan yang tertinggal berlari lebih cepat sehingga tiba bersama di garis finis.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03b-a8'>A8</a></p>

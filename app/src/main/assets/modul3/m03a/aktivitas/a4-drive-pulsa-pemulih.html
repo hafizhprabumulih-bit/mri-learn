@@ -1,0 +1,17 @@
+<div class='kartu aktivitas' id='m03a-a4'>
+<span class='tag'>M03A · A4 · menjelaskan T3.1 · [BARU]</span>
+<b>DRIVE: pulsa pemulih setelah echo train</b>
+<p class='lembut'>Setelah echo train masih ada sisa magnetisasi transversal. DRIVE memberi pulsa yang mengembalikan sisa itu ke arah longitudinal. Bandingkan pemulihan magnetisasi longitudinal dengan dan tanpa DRIVE, lalu lihat nilainya saat pulsa 90° berikutnya (di akhir TR). Model disederhanakan (ilustrasi).</p>
+<div class='pilih' role='group' aria-label='Mode DRIVE'>
+<button type='button' id='m3-dr-on' aria-pressed='true'>DRIVE aktif</button>
+<button type='button' id='m3-dr-off' aria-pressed='false'>DRIVE mati</button>
+</div>
+<canvas id='m3-dr-cv' width='760' height='330' role='img' aria-label='Pemulihan magnetisasi dengan dan tanpa DRIVE'></canvas>
+<label for='m3-dr-j'>Jaringan</label>
+<select id='m3-dr-j'></select>
+<label for='m3-dr-tr'>TR: <span id='m3-dr-otr'></span></label>
+<input type='range' id='m3-dr-tr' min='300' max='6000' step='100' value='1500'>
+<label for='m3-dr-et'>Lama echo train (dari pulsa 90° sampai gema terakhir): <span id='m3-dr-oet'></span></label>
+<input type='range' id='m3-dr-et' min='40' max='400' step='10' value='160'>
+<p id='m3-dr-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

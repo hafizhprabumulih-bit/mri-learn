@@ -1,0 +1,25 @@
+<div class='kartu aktivitas' id='m03b-a5'>
+<span class='tag'>M03B · A5 · tambahan dari modul lama (belum ada di pohon) · terkait T1.1</span>
+<b>Kompor kontras gradient echo</b>
+<p class='lembut'>Putar tiga tombol: TR, TE, dan sudut flip. Tiga api menunjukkan seberapa besar kontras T1, T2*, dan PD antara cairan serebrospinal dan substansia alba. Grafik di sebelahnya menunjukkan berapa TR yang dibutuhkan sinyal tiap jaringan untuk mencapai keadaan tunak (model gradient echo dengan sisa magnetisasi transversal dihapus tiap TR, disederhanakan).</p>
+<div class='baris'>
+<button type='button' data-k='t1'>Preset T1w</button>
+<button type='button' data-k='t2'>Preset T2*w</button>
+<button type='button' data-k='pd'>Preset PD</button>
+<button type='button' id='m3-k-rs'>Reset</button>
+</div>
+<div class='m3-g'>
+<div>
+<label for='m3-k-tr'>Tombol TR: <span id='m3-k-otr'></span></label>
+<input type='range' id='m3-k-tr' min='0' max='100' step='1'>
+<label for='m3-k-te'>Tombol TE: <span id='m3-k-ote'></span></label>
+<input type='range' id='m3-k-te' min='0' max='100' step='1'>
+<label for='m3-k-fa'>Tombol sudut flip α: <span id='m3-k-ofa'></span></label>
+<input type='range' id='m3-k-fa' min='1' max='90' step='1'>
+<p>Dominan: <span id='m3-k-st' class='lencana ok'></span></p>
+</div>
+<canvas id='m3-cv-a' width='380' height='260' role='img' aria-label='Tiga api kontras'></canvas>
+</div>
+<canvas id='m3-cv-k' width='380' height='260' role='img' aria-label='Menuju keadaan tunak'></canvas>
+<p id='m3-k-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

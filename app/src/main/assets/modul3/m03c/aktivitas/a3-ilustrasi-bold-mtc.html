@@ -1,0 +1,25 @@
+<div class='kartu aktivitas' id='m03c-a3'>
+<span class='tag'>M03C · A3 · menjelaskan T1.2, T1.3 · [BARU]</span>
+<b>Ilustrasi BOLD dan MTC</b>
+<p class='lembut'>Dua ilustrasi konsep dengan angka ilustrasi, bukan data pasien. Kiri: sinyal naik sedikit saat area otak aktif (BOLD). Kanan: pulsa saturasi off-resonance menurunkan sinyal jaringan yang kaya inti terikat (MTC).</p>
+<div class='m3-g'>
+<div>
+<b>BOLD</b>
+<canvas id='m3-bo-cv' width='380' height='260' role='img' aria-label='Deret waktu sinyal BOLD'></canvas>
+<label for='m3-bo-a'>Aktivasi otak: <span id='m3-bo-oa'></span></label>
+<input type='range' id='m3-bo-a' min='0' max='100' step='5' value='60'>
+<label for='m3-bo-te'>TE: <span id='m3-bo-ote'></span></label>
+<input type='range' id='m3-bo-te' min='10' max='100' step='5' value='40'>
+<p id='m3-bo-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>
+<div>
+<b>MTC</b>
+<canvas id='m3-mt-cv' width='380' height='260' role='img' aria-label='Sinyal tiga jaringan dengan dan tanpa saturasi MTC'></canvas>
+<label for='m3-mt-f'>Offset frekuensi pulsa saturasi: <span id='m3-mt-of'></span></label>
+<input type='range' id='m3-mt-f' min='1' max='20' step='1' value='4'>
+<label for='m3-mt-p'>Daya saturasi: <span id='m3-mt-op'></span></label>
+<input type='range' id='m3-mt-p' min='0' max='100' step='5' value='80'>
+<p id='m3-mt-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>
+</div>
+</div>

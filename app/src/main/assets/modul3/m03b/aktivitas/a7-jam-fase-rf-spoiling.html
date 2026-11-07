@@ -1,0 +1,18 @@
+<div class='kartu aktivitas' id='m03b-a7'>
+<span class='tag'>M03B · A7 · tambahan dari modul lama (belum ada di pohon) · terkait T2.2</span>
+<b>Jam fase: RF spoiling</b>
+<p class='lembut'>Anggap kamu ikut berputar bersama vektor pada frekuensi Larmor. Tiap pulsa RF membentuk magnetisasi pada fase (arah jarum jam) yang berbeda. Panah biru tebal adalah magnetisasi baru dan menjadi acuan penerima (garis putus-putus). Panah oranye adalah sisa dari pulsa sebelumnya: makin kecil seiring TR, dan makin berputar seiring pergantian fase. Geser pergantian fase ke 0° untuk melihat sisa menumpuk dan ikut terbaca.</p>
+<canvas id='m3-cv-j' width='380' height='280' role='img' aria-label='Jam fase RF spoiling'></canvas>
+<label for='m3-j-d'>Pergantian fase pulsa RF tiap TR: <span id='m3-j-od'></span></label>
+<input type='range' id='m3-j-d' min='0' max='180' step='1'>
+<label for='m3-j-tr'>TR: <span id='m3-j-otr'></span></label>
+<input type='range' id='m3-j-tr' min='5' max='100' step='1'>
+<label for='m3-j-j'>Jaringan</label>
+<select id='m3-j-j'></select>
+<div class='baris'>
+<button type='button' data-sp='0'>Tanpa spoiling (0°)</button>
+<button type='button' data-sp='90'>Seperti gambar buku (90°)</button>
+<button type='button' id='m3-j-rs'>Reset</button>
+</div>
+<p id='m3-j-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

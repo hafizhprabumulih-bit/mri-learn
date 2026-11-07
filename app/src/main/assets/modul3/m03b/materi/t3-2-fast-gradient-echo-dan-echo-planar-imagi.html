@@ -1,0 +1,35 @@
+<!-- NODE M03B T3.2: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03b-t3-2' class='simpul'><span class='kode'>T3.2</span> Fast gradient echo & echo planar imaging (EPI)</h3>
+<p class='lembut catatan'>⚑ Prasyarat: M04C (jalur ruang-k EPI)</p>
+<div class='kartu bm'>
+<span class='tag'>M03B · T3.2 · Fast gradient echo & echo planar imaging (EPI)</span>
+<b class='sub'>Fast gradient echo dan EPI</b>
+<p class='s'>Fast gradient echo memangkas TE dan TR agar satu volume terekam dalam satu tahan napas. EPI membaca banyak gema berurutan dari gradien baca yang berosilasi.</p>
+<div class='l'>
+<p><b>Fast gradient echo.</b> TE dipersingkat dengan beberapa cara: hanya sebagian gema yang dibaca (<i>partial echo</i>), bandwidth penerima dilebarkan, dan dipakai <i>ramped sampling</i>, yaitu pengambilan sampel dimulai sebelum gradien frekuensi mencapai amplitudo maksimum. Banyak sekuens cepat juga memakai pulsa persiapan 180° sebelum sekuens dimulai. Magnetisasi dibalik, lalu setelah jeda tertentu sekuens berjalan. Ini menguatkan bobot T1 dan dapat menekan jaringan tertentu seperti pada inversion recovery. Karena TE sangat pendek, beberapa irisan dapat diperoleh dalam satu tahan napas, dan pencitraan dinamis setelah kontras menjadi mungkin.</p>
+<p><b>EPI (<i>echo planar imaging</i>).</b> Diawali satu atau lebih pulsa RF, lalu rangkaian gradient echo yang dihasilkan osilasi gradien baca. <b>GE-EPI</b> diawali pulsa eksitasi bersudut berapa saja. <b>SE-EPI</b> diawali pulsa 90° lalu 180°: waktunya lebih lama dan RF yang masuk ke pasien lebih banyak, tetapi kualitas citra umumnya lebih baik karena pulsa 180° membersihkan sebagian artefak akibat ketidakhomogenan medan dan pergeseran kimia. EPI bisa diawali pulsa apa pun, misalnya EPI-FLAIR (180°/90°/180° lalu bacaan EPI) yang menekan CSF jauh lebih cepat daripada FLAIR biasa.</p>
+<ul>
+<li>Pada pencitraan <i>single-shot</i>, seluruh ruang-k terisi sekaligus, jadi laju pemulihan jaringan tidak kritis dan TR dianggap tak hingga.</li>
+<li>Bobot PD atau T2* ditentukan oleh TE efektif, yaitu jarak dari pulsa eksitasi sampai pusat ruang-k terisi. Bobot T1 didapat dengan pulsa inversi sebelum eksitasi.</li>
+<li><b>GRASE</b> adalah sekuens hibrid: kecepatan perefokusan gradien digabung dengan kemampuan pulsa RF mengimbangi efek T2*.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> fast gradient echo seperti lari cepat tanpa pemanasan. EPI seperti menyapu satu halaman penuh dengan satu tarikan pena zig-zag.</p>
+</div>
+
+<div class='kartu bm lanjut'>
+<span class='tag'>M03B · T3.2 · Fast gradient echo & echo planar imaging (EPI)</span>
+<b class='sub'>Artefak EPI</b>
+<p class='s'>EPI sangat cepat, tetapi rentan terhadap pergeseran kimia di arah fase, blur, dan bayangan setengah FOV.</p>
+<div class='l'>
+<ul>
+<li><b>Pergeseran kimia.</b> Pada arah frekuensi hampir tidak ada karena tiap gema direkam cepat. Pada arah fase justru besar, karena seluruh rangkaian penyandian fase memakan waktu setelah eksitasi.</li>
+<li><b>Blur.</b> Bila rangkaian gema selama waktu yang mirip dengan T2*, sinyal di ujung akuisisi melemah dan resolusi menurun.</li>
+<li><b>Bayangan setengah FOV.</b> Selisih kecil antara gema berpolaritas gradien baca positif dan negatif membuat bayangan citra bergeser setengah FOV di arah fase. Koreksinya dilakukan saat rekonstruksi memakai pindai referensi.</li>
+<li>Pergantian polaritas gradien yang cepat dapat merangsang saraf tepi dan bising gradiennya tinggi, sehingga pelindung telinga perlu.</li>
+</ul>
+<p>Ada pula sekuens khas produsen, misalnya <b>DESS</b> (<i>double echo steady state</i>) yang menghasilkan dua gema: satu koheren (memberi resolusi) dan satu reverse-echo (memberi kontras T2). Keduanya digabung pada citra akhir.</p>
+</div>
+<p class='a'><b>Analogi:</b> menulis cepat di kertas goyang. Tulisan selesai dalam sekali jalan, tetapi huruf di ujung baris makin buram dan bergeser.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03b-a6'>A6</a></p>

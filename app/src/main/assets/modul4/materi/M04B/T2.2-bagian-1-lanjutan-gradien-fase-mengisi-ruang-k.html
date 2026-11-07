@@ -1,0 +1,16 @@
+<!-- T2.2 Bagian 1 (lanjutan): Gradien fase mengisi ruang-k | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04b.json -->
+<p class='s'>Gradien fase memilih laci mana yang terisi pada tiap TR. Polaritas memilih separuh atas atau bawah, dan kemiringan memilih jarak dari pusat: curam ke tepi, landai ke pusat.</p>
+<div class='l'>
+<p><b>Polaritas dan kemiringan.</b> Gradien fase positif memilih garis di separuh atas ruang-k, dan gradien negatif memilih garis di separuh bawah. Kemiringan menentukan garis yang mana: gradien curam (positif maupun negatif) memilih garis terluar, sedangkan gradien landai memilih garis dekat pusat. Jika kemiringan diturunkan dari curam ke landai, sistem bergerak dari tepi menuju pusat. Jika kemiringan dinaikkan, arahnya sebaliknya.</p>
+<p><b>Jika gradien fase tidak pernah diubah,</b> garis yang sama terisi pada setiap TR. Hasilnya hanya satu garis dan matriks fase bernilai satu. Karena itu polaritas dan kemiringan diubah di setiap TR agar citra punya banyak piksel pada arah fase.</p>
+<p><b>Satu TR pada spin-echo.</b> Tiga gradien bekerja bergantian. Gradien irisan memilih lemari (irisan), gradien fase memilih laci (garis), dan gradien frekuensi menentukan tempat titik data diletakkan. Dalam satu TR, laci yang sama diisi di setiap lemari, irisan demi irisan. Pada TR berikutnya, laci tepat di atas atau di bawahnya yang terisi. Pada pengisian kartesian, garis tengah (garis 0) selalu terisi karena gradien fase tidak menyala. Urutan paling umum: dari garis positif terluar turun ke tengah, lalu ke garis negatif terluar. Urutan dari bawah ke atas juga mungkin. <!-- TODO-VERIFIKASI: bab rujukan menyebut urutan umum (+N/2, 0, dan negatif); pabrikan bisa berbeda. --></p>
+<p><b>Hal yang perlu diingat:</b></p>
+<ul>
+<li>Ruang-k menyimpan informasi tentang di mana frekuensi di dalam irisan berada.</li>
+<li>Titik data yang terkumpul selama pindai diubah oleh FFT menjadi informasi amplitudo.</li>
+<li>Ruang-k seperti lemari laci: jumlah garis terisi sama dengan jumlah laci.</li>
+<li>Pada urutan standar, laci yang sama diisi di setiap lemari dalam satu TR.</li>
+<li>Jumlah laci sama dengan matriks fase. Jumlah titik data per laci sama dengan matriks frekuensi.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> Seperti tombol lift. Arah (atas atau bawah) adalah polaritas, dan seberapa jauh lift bergerak dari lantai tengah adalah kemiringan. Tiap TR, satu laci yang sama dibuka di semua lemari.</p>

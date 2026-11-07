@@ -1,0 +1,39 @@
+<!-- NODE M03A T2.3: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03a-t2-3' class='simpul'><span class='kode'>T2.3</span> Titik nol IR: TI untuk menekan jaringan</h3>
+<p class='lembut catatan'>[BARU] TI nol sekitar T1 x ln 2</p>
+<!-- TODO-VERIFIKASI: kartu T2.3 ini ditulis baru (simpul [BARU] di pohon). Cek nilai T1 dan rumus TR terbatas terhadap sumber acuan. -->
+<div class='kartu bm'>
+<span class='tag'>M03A · T2.3 · Titik nol IR: TI untuk menekan jaringan [BARU]</span>
+<b class='sub'>Mengapa TI nol kira-kira 0,69 × T1</b>
+<p class='s'>Setelah pulsa pembalik 180°, magnetisasi pulih dari −M0 menuju +M0. Jaringan tidak bersinyal bila pulsa 90° tiba tepat saat magnetisasinya melewati nol, yaitu pada TI ≈ T1 × ln 2 ≈ 0,69 × T1.</p>
+<div class='l'>
+<p><b>Dari persamaan.</b> Setelah pulsa 180°, magnetisasi longitudinal pulih menurut <code>Mz(TI) = M0 (1 − 2e<sup>−TI/T1</sup>)</code>. Mz bernilai nol bila <code>e<sup>−TI/T1</sup> = ½</code>, sehingga <code>TI<sub>nol</sub> = T1 × ln 2 ≈ 0,69 × T1</code>. Rumus ini berlaku bila TR cukup panjang sehingga magnetisasi pulih penuh di tiap pengulangan. Bila TR terbatas, TI nol sedikit lebih pendek: <code>TI<sub>nol</sub> = T1 × ln[2 / (1 + e<sup>−TR/T1</sup>)]</code>.</p>
+<p><b>Contoh dengan T1 pada data modul (1,5 T, TR panjang).</b></p>
+<div class='gulir'><table class='tabel'>
+<tr><th>Jaringan</th><th>T1 (ms)</th><th>TI nol ≈ 0,69 × T1 (ms)</th><th>Dipakai untuk</th></tr>
+<tr><td>Lemak</td><td>260</td><td>180</td><td>STIR (menekan lemak)</td></tr>
+<tr><td>Substansia alba</td><td>790</td><td>548</td><td>—</td></tr>
+<tr><td>Substansia grisea</td><td>925</td><td>641</td><td>—</td></tr>
+<tr><td>CSF</td><td>2400</td><td>1664</td><td>FLAIR (menekan cairan)</td></tr>
+</table></div>
+<p>Angka di atas adalah perkiraan dari data bersama, bukan nilai protokol. Protokol nyata menyesuaikan TI dengan kekuatan medan dan TR.</p>
+<p><b>Catatan citra.</b> Pada rekonstruksi magnitudo, tanda minus dibuang. Jaringan yang magnetisasinya masih negatif dan jauh dari titik nol tetap tampak terang. Hanya jaringan yang dekat titik nol yang tampak gelap.</p>
+</div>
+<p class='a'><b>Analogi:</b> bak air yang mula-mula dibalik menjadi penuh ke arah "minus", lalu perlahan terisi kembali. Foto (pulsa 90°) hanya "kosong" bila diambil tepat saat permukaan air melewati garis nol. Tiap jaringan terisi dengan kecepatan berbeda, jadi saat garis nolnya pun berbeda.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03A · T2.3 · Titik nol IR: TI untuk menekan jaringan</span>
+<b class='sub'>Ringkasan IR, IR prep, rekonstruksi, dan sudut refokus TSE</b>
+<p class='s'>TR mengatur pemulihan T1, TE mengatur peluruhan T2, TI mengatur titik null, dan ETL/TF mengatur berapa garis ruang-k per TR. IR bersama TSE mempersingkat waktu pindai.</p>
+<div class='l'>
+<div class='gulir'><table class='tabel'><tr><th>Parameter</th><th>Di balik layar (Tabel 3.8)</th></tr><tr><td>TR</td><td>Pemulihan T1 dan kontras T1</td></tr><tr><td>TE</td><td>Peluruhan T2 dan kontras T2. Pulsa 180° diberikan pada separuh TE (tau)</td></tr><tr><td>TI</td><td>Titik saat magnetisasi longitudinal ditiadakan</td></tr><tr><td>ETL/TF</td><td>Jumlah garis ruang-k per TR, yaitu jumlah pulsa refokus dan berapa kali gradien penyandi fase diberi amplitudo berbeda</td></tr></table></div>
+<p><b>IR prep</b> (untuk meniadakan darah pada pencitraan jantung): <b>double IR</b> memakai dua pulsa 180°, satu non-selektif irisan dan satu selektif irisan. TI pada titik null darah (sekitar 800 ms) menghasilkan darah hitam, berguna untuk morfologi jantung dan pembuluh besar. <b>Triple IR</b> menambah pulsa pembalik pada TI lemak (sekitar 150 ms) untuk meniadakan lemak dan darah sekaligus, berguna menilai infiltrasi lemak dinding jantung.</p>
+<p><b>Rekonstruksi:</b> citra magnitudo hanya memakai amplitudo, sehingga jaringan dengan T1 sangat panjang atau sangat pendek mendapat piksel tinggi. Citra fase juga memuat kontribusi pulsa pembalik, sehingga jaringan ber-T1 panjang yang terbalik penuh pada TI pendek mendapat piksel rendah. Data peka fase memperluas rentang kontras.</p>
+<p><b>Sudut refokus TSE:</b> pada TSE banyak pulsa 180° berurutan menaikkan SAR dan membatasi jumlah irisan. SAR dapat diturunkan dengan sudut refokus 150° atau 120°. Hati-hati, sebagian produsen menyebutnya flip angle, padahal itu sudut refokus, bukan sudut eksitasi.</p>
+<div class='gulir'><table class='tabel'><tr><th>Kelebihan IR</th><th>Kekurangan</th></tr><tr><td>Serbaguna, kualitas citra baik, peka terhadap patologi</td><td>Waktu pindai panjang (IR konvensional)</td></tr></table></div>
+<p class='lembut'>Spin echo sering dipakai di klinik, tetapi pada keadaan tertentu kurang optimal. Itu sebabnya ada keluarga sekuens lain, yaitu gradient echo (Bab 4).</p>
+</div>
+<p class='a'><b>Analogi:</b> TR adalah lamanya menunggu, TE kapan mendengar gema, TI kapan memotret bandul, dan ETL berapa foto per kedipan lampu kilat.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03a-a2'>A2</a></p>

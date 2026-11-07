@@ -1,0 +1,18 @@
+<div class='kartu aktivitas' id='m03b-a2'>
+<span class='tag'>M03B · A2 · menjelaskan T2.2, T3.1</span>
+<b>Sinyal apa yang dibaca?</b>
+<p class='lembut'>Pilih jenis sekuens tunak. Garis tebal berwarna adalah sinyal yang dibaca, garis putus-putus abu-abu tidak dibaca. Pada reverse-echo, atur TR dan TE aktual, lalu lihat TE efektif dan kontras T2 yang dihasilkan. Pada gradient echo, tabel memakai T2 sebagai pengganti T2*.</p>
+<div class='pilih' role='group' aria-label='Jenis sekuens tunak'>
+<button type='button' data-w='co' aria-pressed='true'>Koheren</button>
+<button type='button' data-w='in' aria-pressed='false'>Inkoheren</button>
+<button type='button' data-w='rev' aria-pressed='false'>Reverse-echo</button>
+</div>
+<canvas id='m3-cv-w' width='760' height='260' role='img' aria-label='Sinyal tunak'></canvas>
+<label for='m3-w-tr'>TR (hanya reverse-echo): <span id='m3-w-otr'></span></label>
+<input type='range' id='m3-w-tr' min='15' max='60' step='1'>
+<label for='m3-w-te'>TE (aktual): <span id='m3-w-ote'></span></label>
+<input type='range' id='m3-w-te' min='2' max='30' step='1'>
+<div class='gulir'><table class='tabel' id='m3-w-tb'></table></div>
+<div class='baris'><button type='button' id='m3-w-rs'>Reset</button></div>
+<p id='m3-w-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

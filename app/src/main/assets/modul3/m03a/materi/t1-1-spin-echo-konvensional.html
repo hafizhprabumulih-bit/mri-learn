@@ -1,0 +1,47 @@
+<!-- NODE M03A T1.1: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03a-t1-1' class='simpul'><span class='kode'>T1.1</span> Spin echo konvensional (SE)</h3>
+<ul class='cakupan'><li>Pulsa RF eksitasi 90° & pulsa refokus 180°</li></ul>
+<div class='kartu bm'>
+<span class='tag'>M03A · T1.1 · Spin echo konvensional (SE)</span>
+<b class='sub'>Sekuens pulsa dan gema (echo)</b>
+<p class='s'>Sekuens pulsa mengatur kapan sistem memberi pulsa RF dan gradien. Gema dibuat dengan pulsa refokus 180° (spin echo) atau dengan gradien (gradient echo).</p>
+<div class='l'>
+<p>FID meluruh dalam sekitar 10 ms karena ketidakhomogenan medan B0, terlalu cepat untuk mengukur relaksasi T1 atau T2. Sekuens pulsa memfase ulang momen magnetik hidrogen di waktu yang lebih lambat, dan sinyal yang muncul disebut <b>echo</b>. Pada echo itu, kontras citra bergantung pada beda waktu pemulihan T1, peluruhan T2, atau kerapatan proton.</p>
+<ul>
+<li><b>Spin echo</b>: pulsa RF refokus 180°. <b>Gradient echo</b>: gradien (lihat Bab 4).</li>
+<li><b>Diagram sekuens</b>: sumbu mendatar adalah waktu. Biasanya ada lima garis: RF, tiga gradien (pemilih irisan, penyandi fase, penyandi frekuensi), dan sinyal. Bentuk di atas garis berarti gradien berpolaritas positif, di bawah garis negatif, dan tingginya menunjukkan amplitudo.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi dansa:</b> semua tarian memakai gerak tangan dan kaki, seperti semua sekuens memakai pulsa RF dan gradien. Waktu dan koordinasinya yang menentukan jenis tarian, yaitu bobot citra.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03A · T1.1 · Spin echo konvensional (SE)</span>
+<b class='sub'>RF rephasing, tau, dan TE</b>
+<p class='s'>Pulsa 90° memiringkan NMV ke bidang transversal, lalu dephasing T2* membuat sinyal hilang. Setelah waktu tau, pulsa 180° membalik momen magnetik sehingga yang tertinggal menjadi di depan. Pada TE = 2 tau, semuanya sefase dan muncul spin echo.</p>
+<div class='l'>
+<p>Dephasing T2* membuat momen magnetik "mengipas" di bidang transversal. Momen yang melambat membentuk sisi tertinggal (biru), momen yang mempercepat membentuk sisi terdepan (merah). Pulsa 180° membalik kipas itu seperti membalik pancake: arah presesi tetap, tetapi sisi tertinggal kini ada di depan. Sisi yang tadinya terdepan sekarang tertinggal, sehingga sisi yang lebih lambat itu mengejar dan keduanya bertumpuk. Di saat itu magnetisasi transversal sefase dan sinyal maksimum: <b>spin echo</b>.</p>
+<ul>
+<li><b>TR</b>: waktu antar pulsa eksitasi 90° untuk tiap irisan. <b>TE</b>: waktu antara pulsa 90° dan puncak spin echo.</li>
+<li><b>Tau</b>: waktu rephasing sama dengan waktu dephasing, jadi TE = 2 × tau. Sistem menaruh pulsa 180° pada separuh TE yang Anda pilih.</li>
+<li>Pulsa 180° menghilangkan dephasing T2* karena ketidakhomogenan medan bersifat dapat diprediksi. Peluruhan T2 tidak dikoreksi karena berasal dari interaksi spin-spin yang berfluktuasi acak.</li>
+<li>Echo simetris: sinyal naik perlahan saat momen sefase kembali, lalu turun perlahan saat yang cepat melewati yang lambat dan dephasing terulang.</li>
+</ul>
+</div>
+<p class='a'><b>Larmor Grand Prix:</b> mobil balap, sedan keluarga, dan traktor start bersama di lintasan melingkar, lalu menyebar karena kecepatannya beda. Saat start gun berbunyi lagi (pulsa 180°), semua berbalik arah dengan kecepatan yang sama. Mobil balap yang tadi paling jauh kini paling belakang, tetapi ia lebih cepat, jadi ketiganya tiba di garis start bersamaan. Itu setara echo. Total waktu balapan sama dengan TE.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03A · T1.1 · Spin echo konvensional (SE)</span>
+<b class='sub'>Spin echo konvensional (satu echo dan dua echo)</b>
+<p class='s'>Pulsa 90° diikuti satu atau lebih pulsa 180°, masing-masing menghasilkan satu spin echo. Satu echo (TR pendek, TE pendek) menghasilkan T1w. Dua echo (TR panjang) menghasilkan PD pada echo pertama dan T2w pada echo kedua.</p>
+<div class='l'>
+<p>Kontras terutama ditentukan oleh spin echo, tetapi gradien pemilih irisan dan penyandi frekuensi berpolaritas negatif ikut merefase momen magnetik. Di akhir tiap TR dipasang gradien <i>spoiler</i> agar tidak ada magnetisasi transversal koheren pada awal pengulangan berikutnya.</p>
+<p><b>Satu echo (T1w).</b> TE pendek membuat peluruhan T2 sedikit, sehingga beda T2 antar jaringan tidak dominan. TR pendek membuat vektor lemak dan air belum pulih penuh, sehingga beda T1 mendominasi kontras. Hasilnya satu citra T1w per lokasi irisan.</p>
+<p><b>Dua echo (PD dan T2w).</b> Echo pertama: TE pendek dan TR panjang, sehingga beda T2 dan beda T1 sama-sama kecil, dan citranya berbobot PD. Echo kedua: TE panjang dan TR panjang, sehingga beda peluruhan T2 maksimal dan citranya T2w. Satu irisan menghasilkan dua citra.</p>
+<p><b>Echo pertama "gratis".</b> Pada sekuens dua echo, waktu pindai tidak berkurang jika echo pertama tidak diambil, karena sistem harus menunggu echo kedua. Jadi echo pertama tidak menambah waktu. Ini tidak berlaku pada FSE/TSE.</p>
+<div class='gulir'><table class='tabel'><tr><th>Parameter</th><th>Satu echo (T1w)</th><th>Dua echo (PD / T2w)</th></tr><tr><td>TR</td><td>300 sampai 700 ms</td><td>2000 ms atau lebih</td></tr><tr><td>TE</td><td>10 sampai 30 ms</td><td>TE1 20 ms, TE2 80 ms</td></tr></table></div>
+</div>
+<p class='a'><b>Analogi:</b> dua kali bertepuk di ruang bergema. Tepukan pertama dicatat cepat, tepukan kedua dicatat setelah gema lama menipis. Karena kamu toh menunggu tepukan kedua, mencatat yang pertama tidak menambah waktu.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03a-a1'>A1</a></p>

@@ -1,0 +1,16 @@
+<!-- T2.1 Bagian 1: Apa itu ruang-k? Sumbu, laci, dan penomoran | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04b.json -->
+<p class='s'>Ruang-k adalah tempat penyimpanan data satu irisan. Bentuknya persegi panjang dengan sumbu frekuensi (horizontal) dan sumbu fase (vertikal), dan diisi baris demi baris.</p>
+<div class='l'>
+<p><b>Mengapa dinamai &ldquo;k&rdquo;?</b> Huruf k melambangkan frekuensi spasial, yaitu seberapa cepat fase berubah menurut jarak sepanjang gradien. Secara tepat, k adalah bilangan gelombang sudut, tetapi untuk belajar istilah frekuensi spasial sudah cukup. Satuannya radian per meter (atau per cm), bukan Hz. Hz mengukur perubahan fase terhadap waktu, sedangkan k mengukur perubahan fase terhadap jarak. <!-- TODO-VERIFIKASI: satuan k dan istilah bilangan gelombang sudut berasal dari bab rujukan; cek kembali dengan dosen atau buku. --></p>
+<p><b>Dua sumbu.</b> Sumbu frekuensi mendatar dan berpusat di tengah. Data dari kode frekuensi diletakkan di sepanjang sumbu ini. Sumbu fase tegak dan juga berpusat di tengah. Data dari kode fase diletakkan di sepanjang sumbu ini. Pada cara pengisian paling sederhana, data disimpan sebagai garis mendatar, sejajar sumbu frekuensi dan tegak lurus sumbu fase.</p>
+<p><b>Analogi lemari laci.</b> Satu lemari mewakili ruang-k untuk satu irisan. Satu laci mewakili satu garis ruang-k. Jumlah laci sama dengan matriks fase, dan jumlah lemari sama dengan jumlah irisan. Tumpukan pakaian yang tercampur mewakili semua frekuensi spasial dari seluruh gema. Tugas komputer adalah memilah tumpukan itu ke laci yang tepat.</p>
+<p><b>Empat hal yang harus diketahui sistem</b>, sama seperti saat memilah pakaian:</p>
+<ol>
+<li>Jumlah lemari, yaitu jumlah irisan yang dipilih.</li>
+<li>Jumlah laci tiap lemari, yaitu matriks fase.</li>
+<li>Nomor laci, supaya tiap laci mudah ditemukan.</li>
+<li>Cara pengisian yang efisien (jenis pengisian dibahas di materi lanjutan).</li>
+</ol>
+<p><b>Penomoran garis.</b> Nomor dimulai dari garis tengah (garis 0) yang selalu terisi, lalu bertambah ke arah tepi (&plusmn;1, &plusmn;2, dan seterusnya) hingga nomor tertinggi di garis paling tepi. Pada sebagian gambar, garis 0 tidak digambar dan nomor dimulai dari &plusmn;1. Separuh atas disebut garis positif dan separuh bawah garis negatif. Garis yang terisi ditentukan oleh polaritas gradien fase: positif untuk separuh atas, negatif untuk separuh bawah. <!-- TODO-VERIFIKASI: konvensi nomor dan tanda garis dapat berbeda antar pabrikan; nomor tertinggi pada tepi mengikuti bab rujukan. --></p>
+</div>
+<p class='a'><b>Analogi:</b> Lemari laci. Laci adalah baris data, lemari adalah irisan, dan tumpukan pakaian adalah semua frekuensi spasial yang harus dipilah ke laci yang tepat.</p>

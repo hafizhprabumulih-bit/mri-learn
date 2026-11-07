@@ -1,0 +1,9 @@
+<!-- A6 Jalur ruang-k: EPI, spiral, dan propeller. Judul dan hubungan ke materi diatur di struktur/m04c.json. File ini hanya isi kartu. -->
+<p>Pilih jenis pengisian lalu geser kemajuan pemindaian. Latar adalah ruang-k dari data modul. EPI dan spiral mengisi seluruh ruang-k dalam satu eksitasi (tanpa TR). Propeller memutar strip data mengelilingi pusat, sehingga pusat diambil pada setiap TR.</p>
+<label for='jm'>Jenis pengisian</label>
+<select id='jm'><option value='epi'>EPI single-shot</option><option value='spi'>Spiral</option><option value='pro'>Propeller (radial)</option></select>
+<label for='jp'>Parameter jalur: <span id='jpv'></span></label><input type='range' id='jp' min='4' max='16' step='2' value='12'>
+<label for='jt'>Kemajuan pemindaian: <span id='jtv'></span>%</label><input type='range' id='jt' min='0' max='100' step='1' value='40'>
+<canvas id='cj' width='300' height='300' style='width:300px' role='img' aria-label='Jalur penelusuran ruang-k di atas latar ruang-k'></canvas>
+<p id='ketj' aria-live='polite'></p>
+<div class='stp'><button id='jplay' type='button'>Putar</button><button id='reset19' type='button'>Reset</button></div>

@@ -1,0 +1,16 @@
+<!-- A5 Sinyal dan resolusi: garis tengah vs tepi. Judul dan hubungan ke materi diatur di struktur/m04b.json. File ini hanya isi kartu. -->
+<p>Pilih garis ruang-k mana yang dipakai pada arah fase. Garis tengah membawa sinyal dan kontras, garis tepi membawa resolusi. Bandingkan dengan A7.1, yang memakai mask berbentuk lingkaran.</p>
+<fieldset><legend>Garis yang dipakai</legend>
+<label><input type='radio' name='gmode' value='tengah' checked> Garis tengah</label>
+<label><input type='radio' name='gmode' value='tepi'> Garis tepi</label>
+</fieldset>
+<label for='gl'>Jumlah garis dipakai: <span id='glv'></span> dari 64</label>
+<input type='range' id='gl' min='2' max='64' step='2' value='16'>
+<div class='baris'>
+<figure><canvas id='cg1' class='cit' width='64' height='64' role='img' aria-label='Ruang-k dengan garis terpilih'></canvas><figcaption>Ruang-k</figcaption></figure>
+<figure><canvas id='cg2' class='cit' width='64' height='64' role='img' aria-label='Citra dari garis terpilih'></canvas><figcaption>Citra</figcaption></figure>
+</div>
+<p>Kecerahan rata-rata (sinyal): <b id='msv'></b></p><div class='meter'><i id='msb'></i></div>
+<p>Resolusi arah fase (ky tertinggi yang terpakai): <b id='mrv'></b></p><div class='meter'><i id='mrb'></i></div>
+<p id='ketg2' aria-live='polite'></p>
+<button id='reset12' type='button'>Reset</button>

@@ -1,0 +1,19 @@
+<div class='kartu aktivitas' id='m03a-a1'>
+<span class='tag'>M03A · A1 · menjelaskan T1.1, T2.1</span>
+<b>Animasi spin echo: 90°, dephasing, 180°, rephasing</b>
+<p class='lembut'>Tekan Putar atau geser waktu (satuan tau). Panah biru berputar lebih lambat, merah lebih cepat. Panah tebal adalah jumlah semuanya, yaitu sinyal. Bandingkan dengan mematikan pulsa 180°, dan ubah TE untuk melihat peluruhan T2 yang tidak bisa dikoreksi (T2 contoh = 80 ms).</p>
+<div class='baris'>
+<button type='button' id='m3-r-v' aria-pressed='true'>Tampilan: vektor</button>
+</div>
+<canvas id='m3-cv-r' width='760' height='380' role='img' aria-label='Animasi spin echo'></canvas>
+<label for='m3-r-t'>Waktu: <span id='m3-r-o'></span></label>
+<input type='range' id='m3-r-t' min='0' max='250' step='1' value='0'>
+<label for='m3-r-te'>TE: <span id='m3-r-ote'></span></label>
+<input type='range' id='m3-r-te' min='20' max='200' step='5' value='80'>
+<div class='baris'>
+<button type='button' id='m3-r-play'>Putar</button>
+<button type='button' id='m3-r-se' aria-pressed='true'>Pulsa 180°: aktif</button>
+<button type='button' id='m3-r-rs'>Reset</button>
+</div>
+<p id='m3-r-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

@@ -1,0 +1,46 @@
+<!-- NODE M03A T2.2: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03a-t2-2' class='simpul'><span class='kode'>T2.2</span> TSE: phase reordering & TE efektif</h3>
+<p class='lembut catatan'>⚑ Prasyarat: M04B (ruang-k)</p>
+<div class='kartu bm'>
+<span class='tag'>M03A · T2.2 · TSE: phase reordering & TE efektif</span>
+<b class='sub'>Pembobotan TSE, TE efektif, dan phase reordering</b>
+<p class='s'>Gema dalam <i>echo train</i> punya TE berbeda-beda, jadi TE yang dipilih hanyalah TE efektif. Sistem menata ulang langkah fase (<i>phase reordering</i>) agar gema yang TE-nya dekat TE efektif mengisi baris tengah ruang-k, yang paling menentukan sinyal dan kontras.</p>
+<div class='l'>
+<p>Kemiringan penyandian fase yang sangat curam menghasilkan gema beramplitudo rendah, dan datanya ditempatkan pada baris tepi ruang-k. Kemiringan landai menghasilkan gema beramplitudo tinggi, dan datanya ditempatkan pada baris tengah. Karena itu pada TSE baris tidak diisi berurutan dari atas ke bawah. Urutannya dicocokkan dengan seberapa dekat TE tiap gema dengan TE efektif.</p>
+<p>Contoh dari buku untuk bobot T2: TE efektif 100 ms, TR 4000 ms, turbo factor 16. Penyandian fase paling landai dilakukan pada gema di sekitar 100 ms. Gema paling awal dan paling akhir punya penyandian curam, amplitudonya kecil, dan datanya mengisi tepi ruang-k. Gema awal berisi data PD atau T2 yang sangat kuat. Keduanya tetap ikut membentuk citra, tetapi pengaruhnya jauh lebih kecil, sehingga citra akhir terutama berbobot T2.</p>
+<p>Phase reordering juga dipakai pada beberapa teknik untuk mengurangi artefak gerak (bab 8 buku). Aktivitas di bawah memperlihatkan prinsipnya.</p>
+</div>
+<p class='a'><b>Analogi:</b> panitia yang menaruh peserta terbaik di barisan depan. Gema yang TE-nya paling cocok diberi tempat di tengah ruang-k, dan gema lain di barisan belakang.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03A · T2.2 · TSE: phase reordering & TE efektif</span>
+<b class='sub'>TSE, kegunaan, kelebihan, dan kekurangan</b>
+<p class='s'>Kontras TSE mirip spin echo, sehingga berguna untuk hampir semua aplikasi klinis. Dua beda utama akibat pulsa 180° yang rapat: lemak tetap terang pada citra T2, dan otot tampak lebih gelap.</p>
+<div class='l'>
+<ul>
+<li><b>Lemak tetap terang pada T2.</b> Pulsa 180° berulang mengurangi efek interaksi spin-spin pada lemak (<i>J coupling</i>). Teknik saturasi lemak bisa dipakai untuk mengimbanginya.</li>
+<li><b>Otot lebih gelap.</b> Pulsa 180° berulang dapat menambah efek <i>magnetization transfer</i>.</li>
+<li><b>Efek kerentanan magnetik berkurang.</b> Pulsa 180° berulang mengompensasi ketidakhomogenan medan, sehingga artefak implan logam jauh berkurang. Ini juga bisa merugikan, misalnya perdarahan kecil jadi kurang terdeteksi.</li>
+<li><b>Blur.</b> Tiap baris ruang-k memuat gema ber-TE berbeda. Pada <i>echo train</i> panjang, gema akhir beramplitudo rendah ikut membentuk resolusi, sehingga tepi jaringan ber-T2 berbeda bisa kabur. Blur dikurangi dengan memperkecil jarak antar gema (<i>echo spacing</i>) dan/atau turbo factor.</li>
+</ul>
+<div class='gulir'><table class='tabel'><tr><th>Kelebihan</th><th>Kekurangan</th></tr><tr><td>Waktu pindai singkat</td><td>Sebagian artefak aliran meningkat</td></tr><tr><td>Citra resolusi tinggi</td><td>Tidak cocok dengan sebagian opsi pencitraan</td></tr><tr><td>Bobot T2 meningkat</td><td>Sebagian masalah interpretasi kontras</td></tr><tr><td>Efek kerentanan magnetik berkurang</td><td>Blur citra mungkin terjadi</td></tr></table></div>
+</div>
+<p class='a'><b>Analogi:</b> foto berturut-turut tanpa jeda. Fotonya cepat selesai, tetapi bila jeda antar jepretan terlalu lama atau jumlah fotonya terlalu banyak, foto di ujung deret jadi kabur.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03A · T2.2 · TSE: phase reordering & TE efektif</span>
+<b class='sub'>Parameter TSE, PD dan T2 sekaligus, serta TR dan jumlah irisan</b>
+<p class='s'>TR dan TE memakai prinsip spin echo biasa, tetapi turbo factor ikut menentukan bobot: makin tinggi, makin singkat pindai dan makin campur bobotnya. Pulsa 180° memakan waktu, jadi makin panjang <i>echo train</i>, makin sedikit irisan per TR.</p>
+<div class='l'>
+<div class='gulir'><table class='tabel'><tr><th>Bobot</th><th>TR</th><th>TE efektif</th><th>Turbo factor</th></tr><tr><td>T1</td><td>300 sampai 700 ms</td><td>minimum</td><td>2 sampai 8</td></tr><tr><td>PD</td><td>3000 sampai 10 000 ms (menurut jumlah irisan)</td><td>minimum</td><td>4 sampai 12</td></tr><tr><td>T2</td><td>3000 sampai 10 000 ms (menurut jumlah irisan)</td><td>80 sampai 140 ms</td><td>12 sampai 30</td></tr></table></div>
+<p class='lembut'>Nilai ini saran buku, bukan standar. <!-- TODO-VERIFIKASI: parameter TSE adalah saran buku (Westbrook dan Talbot, Bab 3). --></p>
+<p>Pada bobot T2, bercampurnya bobot tidak terlalu masalah karena data PD tertutupi sebagian oleh data yang sangat berbobot T2. Pada bobot T1 dan PD, turbo factor panjang memasukkan terlalu banyak bobot T2, sehingga dipakai turbo factor pendek. Penghematan waktu pada T1 karenanya tidak sebesar pada T2.</p>
+<p><b>Bila PD dan T2 dibutuhkan bersamaan</b>, ada tiga cara. <i>Full echo train</i>: seluruh rangkaian gema untuk citra PD, lalu seluruh pindai diulang untuk citra T2. <i>Split echo train</i>: separuh pertama gema untuk PD, separuh kedua untuk T2. <i>Shared echo train</i>: gema awal untuk PD, gema akhir untuk T2, dan gema di tengah dipakai bersama. Cara ketiga memungkinkan turbo factor lebih pendek dan irisan per TR lebih banyak.</p>
+<p><b>TR dan jumlah irisan.</b> <code>N irisan = TR / (ETL × ES)</code>, dengan ES jarak antar gema (ms). Untuk 20 irisan T2 berTE panjang, TR kira-kira 2000 ms cukup pada spin echo konvensional, tetapi pada TSE mungkin dibutuhkan TR 4000 ms atau lebih. TR yang lebih panjang ini relevan pada bobot T2, tetapi pengaruhnya jauh lebih kecil daripada penghematan waktu dari <i>echo train</i>. Pada bobot T1, memperpanjang TR bukan strategi baik karena kontras T1 turun, jadi TR dijaga pendek dan sering dibutuhkan beberapa akuisisi untuk menutup anatomi.</p>
+<p><b>Hal yang perlu diingat:</b> gradien penyandi fase dipakai berkali-kali per TR dengan amplitudo dan polaritas berbeda. Jumlah baris ruang-k per TR sama dengan ETL. Waktu pindai berkurang dengan faktor ETL. Pembobotan diatur oleh phase reordering.</p>
+</div>
+<p class='a'><b>Analogi:</b> dapur dengan satu koki. Makin banyak hidangan yang dimasak dalam satu putaran (ETL besar), makin lama koki berdiri di depan satu kompor, sehingga makin sedikit kompor (irisan) yang bisa ditangani per putaran.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03a-a3'>A3</a></p>

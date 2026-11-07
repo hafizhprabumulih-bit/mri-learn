@@ -1,0 +1,33 @@
+{
+  "versi": 1,
+  "dibuat": "2026-11-07 (Fase 2)",
+  "catatan": "Aturan tautan khusus untuk pencegat Fase 4. Isi berkas modul TIDAK diubah (D-04). cocokJalur dibandingkan dengan path URL asset loader. Jenis: tidakTersedia = tampilkan pesan; arahkan = buka layar native modul (dan pecahan bila ada).",
+  "aturan": [
+    {
+      "id": "arsip-m02",
+      "jenis": "tidakTersedia",
+      "cocokJalur": "/assets/modul3/arsip-m02.html",
+      "pesan": "Halaman ini tidak tersedia di aplikasi.",
+      "keputusan": "D-19, D-24"
+    },
+    {
+      "id": "modul2-berikutnya",
+      "jenis": "arahkan",
+      "cocokJalur": "/assets/modul2/m3.html",
+      "tujuan": {
+        "modul": "3"
+      },
+      "keputusan": "D-25"
+    },
+    {
+      "id": "m03c-berikutnya",
+      "jenis": "arahkan",
+      "cocokJalur": "/assets/modul3/m08a.html",
+      "tujuan": {
+        "modul": "8",
+        "pecahan": "m08a"
+      },
+      "keputusan": "D-25"
+    }
+  ]
+}

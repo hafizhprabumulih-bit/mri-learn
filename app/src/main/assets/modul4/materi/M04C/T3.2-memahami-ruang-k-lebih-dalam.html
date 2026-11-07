@@ -1,0 +1,15 @@
+<!-- T3.2 Memahami ruang-k lebih dalam | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04c.json -->
+<p class='s'>Ruang-k adalah tabel data mentah. Satu titik berarti satu pola garis. Pusat memberi kontras, tepi memberi detail.</p>
+<div class='l'>
+<p><b>Apa itu ruang-k?</b> Ruang-k adalah tabel data mentah yang direkam pemindai. Setiap sel berisi bilangan kompleks, yaitu besar sinyal dan fasenya. Tabel ini belum berupa gambar. Gambar baru muncul setelah transformasi Fourier.</p>
+<p><b>Satu titik berarti satu pola garis.</b> Titik (kx, ky) menyatakan seberapa banyak pola garis bergelombang tertentu ada di dalam citra. Nilai kx adalah jumlah siklus ke arah horizontal (frekuensi). Nilai ky adalah jumlah siklus ke arah vertikal (fase). Citra adalah jumlah dari semua pola garis itu, masing-masing dengan takarannya.</p>
+<ul>
+<li><b>Pusat</b> berisi pola garis lebar dan landai. Titik paling tengah adalah rata-rata sinyal seluruh citra. Bagian ini menentukan kecerahan dan kontras.</li>
+<li><b>Tepi</b> berisi pola garis yang sangat rapat. Bagian ini menentukan detail halus dan ketajaman tepi.</li>
+</ul>
+<p><b>Analogi musik.</b> Bayangkan citra sebagai lagu. Ruang-k seperti daftar nada: nada rendah memberi dasar lagu, nada tinggi memberi kerincian. Menghapus nada tinggi membuat lagu terdengar &ldquo;tumpul&rdquo;, sama seperti citra yang buram.</p>
+<p><b>Bergerak di ruang-k.</b> Gradien menentukan titik mana yang sedang direkam. Gradien fase memilih baris. Gradien frekuensi menggeser kita sepanjang baris itu saat sinyal dibaca. Satu TR mengisi satu baris.</p>
+<p><b>Salah kaprah yang umum.</b> Titik kiri atas ruang-k bukan bagian kiri atas tubuh. Setiap titik membawa informasi dari seluruh citra. Karena itu, kehilangan sebagian titik tidak memotong bagian tubuh. Yang berubah adalah kontras, ketajaman, atau muncul pola garis di seluruh gambar.</p>
+<p><b>Jarak titik dan jangkauan.</b> Jarak antartitik (&Delta;k) menentukan FOV, yaitu FOV = 1/&Delta;k. Jangkauan titik sampai ke tepi menentukan seberapa kecil detail yang tampak, yaitu ukuran voksel.</p>
+</div>
+<p class='a'><b>Analogi:</b> Citra seperti lagu dan ruang-k seperti daftar nadanya. Nada rendah memberi dasar, nada tinggi memberi kerincian.</p>

@@ -1,0 +1,22 @@
+<!-- A2 Pemilihan irisan. Ditambah toggle bentuk pulsa sinc (usulan pohon: gabungan M06 'Pulsa RF Sinc dan Ketebalan Irisan'). -->
+<p>Pilih bidang pindai untuk melihat gradien mana yang memilih irisan. Lalu geser posisi irisan (artinya menggeser frekuensi pembawa RF), dan atur amplitudo gradien serta transmit bandwidth untuk mengubah tebal irisan. Garis diagonal adalah frekuensi presesi sepanjang gradien. Pita mendatar adalah transmit bandwidth RF. Irisan adalah bagian yang berada di dalam pita itu.</p>
+<!-- TODO-VERIFIKASI: nilai awal TBW, posisi, dan celah hanya contoh belajar, bukan protokol. Toggle sinc: penyederhanaan, pulsa RF nyata dipotong dan diberi jendela. -->
+<fieldset><legend>Bidang pindai</legend>
+<label><input type='radio' name='bid' value='ax_tubuh' checked> Aksial (tubuh)</label>
+<label><input type='radio' name='bid' value='ax_kepala'> Aksial (kepala)</label>
+<label><input type='radio' name='bid' value='sagital'> Sagital</label>
+<label><input type='radio' name='bid' value='koronal'> Koronal</label>
+</fieldset>
+<div class='gulir' id='tbl5'></div>
+<label for='ib0'>Kuat medan B0 (T)</label>
+<select id='ib0'><option value='1.5' selected>1,5</option><option value='3'>3</option></select>
+<label for='ia'>Amplitudo gradien pemilih irisan: <span id='iav'></span> mT/m</label><input type='range' id='ia' step='1'>
+<label for='itb'>Transmit bandwidth (TBW): <span id='itbv'></span> kHz</label><input type='range' id='itb' min='1' max='20' step='0.5' value='4'>
+<label for='ip'>Posisi irisan dari isosenter: <span id='ipv'></span> cm</label><input type='range' id='ip' min='-8' max='8' step='0.5' value='3'>
+<label for='ig'>Celah antar irisan: <span id='igv'></span> mm</label><input type='range' id='ig' min='0' max='10' step='0.5' value='1'>
+<label style='display:block;margin:.6em 0'><input type='checkbox' id='isinc'> Tampilkan bentuk pulsa RF sinc (domain waktu)</label>
+<canvas id='csl' width='600' height='250' style='width:100%' role='img' aria-label='Garis frekuensi sepanjang gradien, pita transmit bandwidth, dan irisan terpilih beserta irisan berikutnya'></canvas>
+<canvas id='csinc' width='600' height='140' style='width:100%' hidden role='img' aria-label='Pulsa RF berbentuk sinc terhadap waktu; makin sempit TBW makin panjang pulsanya'></canvas>
+<p id='ketsinc' aria-live='polite' hidden></p>
+<p id='keti' aria-live='polite'></p>
+<button id='reset14' type='button'>Reset</button>

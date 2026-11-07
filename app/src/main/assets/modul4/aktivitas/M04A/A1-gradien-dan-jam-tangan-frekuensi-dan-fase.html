@@ -1,0 +1,14 @@
+<!-- A1 Gradien dan jam tangan: frekuensi dan fase. Judul dan hubungan ke materi diatur di struktur/m04a.json. File ini hanya isi kartu. -->
+<p>Hidupkan gradien, lalu lihat bagaimana kuat medan dan frekuensi berubah menurut posisi. Tiga jam mewakili spin di sisi kiri, di isosenter, dan di sisi kanan. Jarum menunjukkan fase relatif terhadap isosenter setelah gradien menyala selama waktu tertentu. Jam yang berdetak lebih cepat maju, dan jam yang lebih lambat tertinggal.</p>
+<label for='b0g'>Kuat medan B0 (T)</label>
+<select id='b0g'><option value='1.5' selected>1,5</option><option value='3'>3</option></select>
+<fieldset><legend>Polaritas gradien</legend>
+<label><input type='radio' name='gpol' value='pos' checked> Positif (medan naik ke kanan)</label>
+<label><input type='radio' name='gpol' value='neg'> Negatif (medan turun ke kanan)</label>
+</fieldset>
+<label for='gg'>Amplitudo gradien: <span id='ggv'></span> mT/m</label><input type='range' id='gg' step='1'>
+<label for='gp'>Jarak dari isosenter: <span id='gpv'></span> cm</label><input type='range' id='gp' min='1' max='20' value='10'>
+<label for='gt'>Lama gradien menyala: <span id='gtv'></span> &micro;s</label><input type='range' id='gt' min='0' max='200' value='50'>
+<canvas id='cgw' width='600' height='260' style='width:100%' role='img' aria-label='Batang medan gradien dan tiga jam yang menunjukkan fase relatif terhadap isosenter'></canvas>
+<p id='ketw' aria-live='polite'></p>
+<button id='reset13' type='button'>Reset</button>

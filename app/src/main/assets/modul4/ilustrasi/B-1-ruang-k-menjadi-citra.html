@@ -1,0 +1,17 @@
+<!-- Ilustrasi bertahap. Langkah-langkahnya diatur di js/ilustrasi.js (kunci: ruangk-ke-citra) -->
+<figure class='kartu ilus' data-langkah='ruangk-ke-citra' style='margin:12px 0'>
+<svg viewBox='0 0 600 205' role='img' aria-labelledby='t5l'><title id='t5l'>Ruang-k diubah menjadi citra oleh transformasi Fourier 2D</title>
+<rect x='30' y='15' width='160' height='160' style='fill:var(--latar);stroke:var(--garis)'/>
+<circle cx='110' cy='95' r='62' style='fill:var(--t2)' opacity='.2'/><circle cx='110' cy='95' r='24' style='fill:var(--aksen)' opacity='.55'/>
+<text class='l' x='110' y='99' text-anchor='middle'>pusat</text><text class='l' x='110' y='38' text-anchor='middle'>tepi</text>
+<text class='b' x='110' y='196' text-anchor='middle'>Ruang-k</text>
+<path class='ax' d='M205 95H282M274 88l8 7-8 7'/><text class='b' x='243' y='84' text-anchor='middle'>FFT 2D</text>
+<rect x='295' y='15' width='160' height='160' style='fill:var(--latar);stroke:var(--garis)'/>
+<ellipse cx='375' cy='95' rx='52' ry='62' style='fill:var(--aksen);stroke:var(--lembut)' fill-opacity='.35'/>
+<circle cx='355' cy='80' r='9' style='fill:var(--t1)'/><circle cx='392' cy='112' r='6' style='fill:var(--t2)'/>
+<text class='b' x='375' y='196' text-anchor='middle'>Citra</text>
+<text class='b' x='472' y='45'>Pusat</text><text class='l' x='472' y='62'>kontras + sinyal</text>
+<text class='b' x='472' y='92'>Tepi</text><text class='l' x='472' y='109'>detail + ketajaman</text>
+<text class='b' x='472' y='139'>FOV = 1/Δk</text><text class='l' x='472' y='156'>voksel = FOV/N</text>
+</svg>
+<figcaption class='lembut'>Ilustrasi B-1. Ruang-k bukan gambar. Pusat dan tepinya membawa informasi berbeda.</figcaption></figure>

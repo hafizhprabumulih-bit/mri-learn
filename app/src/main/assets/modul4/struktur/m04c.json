@@ -1,0 +1,183 @@
+{
+ "id": "M04C",
+ "judul": "Ruang-k Lanjut dan Strategi Akuisisi",
+ "pecahan": "Pecahan 3 dari 3 dari M04 Pembentukan Citra (Tingkat 3)",
+ "prasyarat": [
+  "M04B"
+ ],
+ "dilanjutkan": [
+  "M03B (EPI)",
+  "M09"
+ ],
+ "tujuan": [
+  "Menjelaskan simetri konjugat ruang-k dan dampaknya pada partial Fourier",
+  "Membandingkan jalur ruang-k: kartesian, EPI, spiral, propeller",
+  "Menilai kompromi SNR dan waktu pada tiap strategi pengisian ruang-k"
+ ],
+ "nav": {
+  "kiri": {
+   "teks": "← M04B",
+   "href": "m04b.html"
+  },
+  "induk": {
+   "teks": "M04 (induk)",
+   "href": "index.html"
+  }
+ },
+ "materi": {
+  "judul": "Tingkat 3 (Lanjut)",
+  "node": [
+   {
+    "kode": "T3.1",
+    "judul": "Pseudo-frekuensi",
+    "file": "materi/M04C/T3.1-pseudo-frekuensi.html",
+    "simulasi": [
+     "A1"
+    ],
+    "lanjut": true
+   },
+   {
+    "kode": "T3.2",
+    "judul": "Memahami ruang-k lebih dalam",
+    "file": "materi/M04C/T3.2-memahami-ruang-k-lebih-dalam.html",
+    "simulasi": [
+     "A1",
+     "A2"
+    ],
+    "lanjut": true
+   },
+   {
+    "kode": "T3.3",
+    "judul": "Simetri titik",
+    "file": "materi/M04C/T3.3-simetri-titik.html",
+    "simulasi": [
+     "A2"
+    ],
+    "lanjut": true
+   },
+   {
+    "kode": "T3.4",
+    "judul": "Mengatur garis ruang-k",
+    "file": "materi/M04C/T3.4-mengatur-garis-ruang-k.html",
+    "simulasi": [
+     "A3"
+    ],
+    "lanjut": true
+   },
+   {
+    "kode": "T3.5",
+    "judul": "Tarian ruang-k, cara urutan pulsa menelusuri ruang-k",
+    "file": "materi/M04C/T3.5-tarian-ruang-k-cara-urutan-pulsa-menelusuri-ruan.html",
+    "simulasi": [
+     "A3",
+     "A6"
+    ],
+    "lanjut": true
+   },
+   {
+    "kode": "T3.6",
+    "judul": "Pilihan pengisian (1): partial Fourier, partial echo, parallel imaging",
+    "file": "materi/M04C/T3.6-pilihan-pengisian-1-partial-fourier-partial-echo.html",
+    "simulasi": [
+     "A4"
+    ],
+    "lanjut": true
+   },
+   {
+    "kode": "T3.7",
+    "judul": "Pilihan pengisian (2): single-shot, spiral, propeller, dan jenis akuisisi",
+    "file": "materi/M04C/T3.7-pilihan-pengisian-2-single-shot-spiral-propeller.html",
+    "simulasi": [
+     "A5",
+     "A6"
+    ],
+    "lanjut": true
+   },
+   {
+    "kode": "T3.8",
+    "judul": "SNR dan kompromi (rumah konsep: M09 T2.1 dan T2.3)",
+    "file": "materi/M04C/T3.8-snr-dan-kompromi.html",
+    "simulasi": [],
+    "lanjut": true
+   }
+  ]
+ },
+ "simulasi": [
+  {
+   "kode": "A1",
+   "judul": "Pseudo-frekuensi: bagaimana posisi fase diketahui",
+   "menjelaskan": [
+    "T3.1",
+    "T3.2"
+   ],
+   "html": "aktivitas/M04C/A1-pseudo-frekuensi-bagaimana-posisi-fase-diketahui.html",
+   "js": "aktivitas/M04C/A1-pseudo-frekuensi-bagaimana-posisi-fase-diketahui.js"
+  },
+  {
+   "kode": "A2",
+   "judul": "Simetri konjugat ruang-k",
+   "menjelaskan": [
+    "T3.2",
+    "T3.3"
+   ],
+   "html": "aktivitas/M04C/A2-simetri-konjugat-ruang-k.html",
+   "js": "aktivitas/M04C/A2-simetri-konjugat-ruang-k.js"
+  },
+  {
+   "kode": "A3",
+   "judul": "Tarian ruang-k: gradien menelusuri ruang-k",
+   "menjelaskan": [
+    "T3.4",
+    "T3.5"
+   ],
+   "html": "aktivitas/M04C/A3-tarian-ruang-k-gradien-menelusuri-ruang-k.html",
+   "js": "aktivitas/M04C/A3-tarian-ruang-k-gradien-menelusuri-ruang-k.js"
+  },
+  {
+   "kode": "A4",
+   "judul": "Pilihan pengisian ruang-k: partial Fourier dan parallel imaging",
+   "menjelaskan": [
+    "T3.6"
+   ],
+   "html": "aktivitas/M04C/A4-pilihan-pengisian-ruang-k-partial-fourier-dan-pa.html",
+   "js": "aktivitas/M04C/A4-pilihan-pengisian-ruang-k-partial-fourier-dan-pa.js"
+  },
+  {
+   "kode": "A5",
+   "judul": "Urutan akuisisi: sequential vs 2D volumetrik",
+   "menjelaskan": [
+    "T3.7"
+   ],
+   "html": "aktivitas/M04C/A5-urutan-akuisisi-sequential-vs-2d-volumetrik.html",
+   "js": "aktivitas/M04C/A5-urutan-akuisisi-sequential-vs-2d-volumetrik.js"
+  },
+  {
+   "kode": "A6",
+   "judul": "Jalur ruang-k: EPI, spiral, dan propeller",
+   "menjelaskan": [
+    "T3.5",
+    "T3.7"
+   ],
+   "html": "aktivitas/M04C/A6-jalur-ruang-k-epi-spiral-dan-propeller.html",
+   "js": "aktivitas/M04C/A6-jalur-ruang-k-epi-spiral-dan-propeller.js"
+  }
+ ],
+ "kuis": {
+  "judul": "Kuis dinamis: Tingkat 3 (lanjut)",
+  "file": "kuis/m04c.js"
+ },
+ "tautan": [
+  {
+   "teks": "Sekuens EPI",
+   "tujuan": "M03B T3.2"
+  },
+  {
+   "teks": "Rumus TA dan SNR dengan parallel imaging",
+   "tujuan": "M09 T3.1, T3.2"
+  },
+  {
+   "teks": "Aliasing karena parallel imaging",
+   "tujuan": "M08A"
+  }
+ ]
+}

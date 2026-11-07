@@ -1,0 +1,74 @@
+<!-- NODE M03B T2.2: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03b-t2-2' class='simpul'><span class='kode'>T2.2</span> Tiga sekuens keadaan tunak utama</h3>
+<ul class='cakupan'><li>Koheren / rewound (membaca FID & gema terstimulasi)</li><li>Inkoheren / spoiled (membaca FID saja, RF/gradient spoiling)</li><li>Reverse-echo (membaca gema terstimulasi saja, TE efektif panjang)</li></ul>
+<div class='kartu bm'>
+<span class='tag'>M03B · T2.2 · Tiga sekuens keadaan tunak utama</span>
+<b class='sub'>Gradient echo koheren dan inkoheren</b>
+<p class='s'>Pada gradient echo koheren, FID dan gema terstimulasi sama-sama dibaca, sehingga bobot T1, PD, atau T2* bisa didapat. Pada yang inkoheren (<i>spoiled</i>), sisa magnetisasi dirusak sehingga hanya FID yang dibaca dan bobot T1 serta PD yang dominan.</p>
+<div class='l'>
+<p><b>Koheren (<i>rewound</i>).</b> Sekuens ini sudah dipakai sejak 1980-an, sebelum sekuens cepat seperti turbo muncul. Gradien penyandi fase dibalik untuk merapikan kembali semua magnetisasi transversal, sehingga koherensinya terjaga. Karena FID dan gema terstimulasi dibaca, TR boleh sepanjang TR spin echo T1w (kira-kira 400 ms), dan beberapa irisan bisa direkam dalam satu TR. Kalau sekuens gradient echo lain menghasilkan citra buruk, sekuens koheren layak dicoba. Titik awal parameter yang disarankan buku:</p>
+<div class='gulir'><table class='tabel'><tr><th>Bobot</th><th>TR</th><th>TE</th><th>Sudut flip</th></tr><tr><td>T1</td><td>400 ms</td><td>5 ms</td><td>90°</td></tr><tr><td>PD</td><td>400 ms</td><td>5 ms</td><td>20°</td></tr><tr><td>T2*</td><td>400 ms</td><td>15 ms</td><td>20°</td></tr></table></div>
+<p class='lembut'>Kelebihan koheren: sangat cepat, sangat peka terhadap aliran (berguna untuk angiografi), dan bisa dibuat sebagai akuisisi volume. Kekurangannya: SNR turun pada 2D, efek kerentanan magnetik naik, dan bising gradien keras. Waktu pindai rata-rata: detik untuk satu irisan, menit untuk volume. Gradient moment rephasing dapat dipakai untuk menonjolkan T2* sekaligus mengurangi artefak aliran (dibahas pada bab aliran di buku).</p>
+<p><b>Kegunaan dan parameter menurut buku.</b> Sekuens koheren umumnya dipakai untuk citra berbobot T2* dalam waktu pindai sangat singkat. Karena air bersinyal tinggi, sekuens ini sering dikatakan punya efek angiografik, mielografik, atau artrografik, dan bisa dipakai untuk menilai apakah pembuluh paten atau suatu area berisi cairan. Akuisisinya bisa irisan demi irisan atau volume 3D, dan karena TR pendek, irisan bisa direkam dalam satu tahan napas. Parameter yang disarankan: sudut flip 30° sampai 45° dan TR 20 sampai 50 ms untuk menjaga keadaan tunak, serta TE panjang 10 sampai 15 ms untuk memaksimalkan T2*.</p>
+<p><b>Inkoheren (<i>spoiled</i>).</b> Ada dua cara merusak sisa magnetisasi:</p>
+<ul>
+<li><b>RF spoiling.</b> Fase pulsa RF diubah tiap TR. Penerima dikunci pada fase pulsa terbaru (<i>phase-locked</i>), jadi hanya magnetisasi baru yang terbaca. Sisa dari pulsa sebelumnya berfase lain, tidak terbaca, dan tidak memengaruhi kontras.</li>
+<li><b>Gradient spoiling.</b> Gradien irisan, fase, dan frekuensi dipakai untuk mengacak fase sisa sebelum TR berikutnya. Ini kebalikan dari rewinding dan mengurangi efek T2*. Kebanyakan produsen memakai RF spoiling.</li>
+</ul>
+<p>Gema terstimulasi memuat informasi T2* dan T2, dan karena ia di-spoil, citra didominasi FID yang memberi bobot T1 dan PD. Air yang mengalir tetap dapat bersinyal cukup tinggi. Sekuens ini dipakai untuk 2D dan volume, citra T1 tahan napas, dan anatomi serta kelainan T1 setelah kontras gadolinium (contoh di buku: potongan sagital pergelangan kaki dan potongan koronal pembuluh darah dada setelah kontras). Kelebihan: waktu pindai lebih singkat, dapat dipakai setelah gadolinium, bisa akuisisi volume, SNR dan detail anatomi baik pada 3D. Kekurangan: SNR turun pada 2D, efek kerentanan magnetik naik, bising gradien keras. Parameter yang disarankan: sudut flip 30° sampai 45° dan TR 20 sampai 50 ms untuk menjaga keadaan tunak, serta TE pendek (5 sampai 10 ms) untuk memaksimalkan T1.</p>
+<p class='lembut'>Acuan: Westbrook dan Talbot, <i>MRI in Practice</i>, Bab 4 (ditulis ulang). <!-- TODO-VERIFIKASI: nilai parameter adalah saran buku, bukan standar. --></p>
+</div>
+<p class='a'><b>Analogi:</b> dua orang berteriak bergantian di lembah. Pada sekuens koheren kamu mendengar teriakan baru dan gema teriakan sebelumnya. Pada sekuens inkoheren, gema lama diredam sehingga hanya teriakan baru yang terdengar.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03B · T2.2 · Tiga sekuens keadaan tunak utama</span>
+<b class='sub'>Reverse-echo gradient echo</b>
+<p class='s'>Hanya gema terstimulasi yang dibaca. Gema itu digeser lebih awal oleh gradien rewinder, sehingga TE efektif lebih panjang daripada TR dan bobot T2 sejati dapat dicapai dalam waktu pindai singkat. <code>TE efektif = 2 × TR − TE aktual</code></p>
+<div class='l'>
+<p>Untuk mengukur beda T2 antar jaringan dibutuhkan TE cukup panjang (menurut buku, kira-kira 70 ms atau lebih). Gradient echo biasa didominasi T2*, sehingga kelainan halus, misalnya plak multipel sklerosis kecil di sumsum tulang belakang, dapat terlewat. Spin echo dan TSE punya TE panjang, tetapi memakai TR panjang. Reverse-echo menggabungkan TR pendek dengan TE efektif panjang.</p>
+<p>Gema terstimulasi dipindahkan agar tidak bertepatan dengan pulsa RF eksitasi berikutnya. Gradien rewinder (lobus positif gradien penyandi frekuensi) mempercepat perefokusan, sehingga gema muncul lebih cepat daripada biasanya. Karena itu ada dua TE:</p>
+<ul>
+<li><b>TE aktual:</b> jarak dari puncak gema ke pulsa RF <i>berikutnya</i>. Inilah yang dipilih di konsol, tetapi bukan yang menentukan kontras T2.</li>
+<li><b>TE efektif:</b> jarak dari puncak gema ke pulsa RF <i>sebelumnya</i> yang membentuk FID-nya. Inilah yang menentukan kontras T2. Makin pendek TE aktual, makin panjang TE efektif dan makin kuat bobot T2.</li>
+</ul>
+<p>Sekuens ini dahulu dipakai untuk otak dan sendi (2D maupun volume), tetapi sebagian besar sudah digantikan TSE. Prinsip menggeser gema masih dipakai pada sekuens yang butuh akuisisi cepat dan TE panjang, misalnya pencitraan perfusi. Parameter yang disarankan: sudut flip 30° sampai 45° dan TR 20 sampai 50 ms, dengan TE aktual sependek mungkin. Kelebihan: waktu pindai singkat, T2 lebih sejati, bisa volume, SNR dan detail baik pada 3D. Kekurangan: SNR turun pada 2D, bising keras, rentan artefak, dan kualitas citra bisa buruk.</p>
+</div>
+<p class='a'><b>Analogi:</b> melihat papan jadwal saat kereta berikutnya tiba. Yang kamu catat adalah sisa waktu ke kereta berikutnya (TE aktual). Padahal lamanya kamu menunggu sejak kereta sebelumnya (TE efektif) bisa jauh lebih panjang.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03B · T2.2 · Tiga sekuens keadaan tunak utama</span>
+<b class='sub'>Ringkasan tiga sekuens tunak</b>
+<p class='s'>Ketiganya adalah sekuens keadaan tunak dengan TR pendek dan sudut flip sedang. Bedanya ada pada sinyal yang dibaca: koheren membaca FID dan gema terstimulasi, inkoheren hanya FID, reverse-echo hanya gema terstimulasi.</p>
+<div class='l'>
+<div class='gulir'><table class='tabel'><tr><th>Sekuens</th><th>Sinyal dibaca</th><th>Bobot</th><th>Kelebihan</th><th>Kekurangan</th></tr>
+<tr><td>Koheren</td><td>FID dan gema terstimulasi</td><td>T1, PD, atau T2* (menurut TE)</td><td>Sangat cepat, peka aliran (angiografi), bisa volume</td><td>SNR turun pada 2D, kerentanan magnetik naik, bising keras</td></tr>
+<tr><td>Inkoheren</td><td>FID saja</td><td>T1 dan PD</td><td>Pindai singkat, bisa setelah gadolinium, bisa volume, SNR dan detail 3D baik</td><td>SNR turun pada 2D, kerentanan magnetik naik, bising keras</td></tr>
+<tr><td>Reverse-echo</td><td>Gema terstimulasi saja</td><td>T2 (TE efektif panjang)</td><td>Pindai singkat, T2 lebih sejati, bisa volume, SNR dan detail 3D baik</td><td>SNR turun pada 2D, bising keras, rentan artefak, kualitas bisa buruk</td></tr></table></div>
+<p><b>Hal yang perlu diingat:</b></p>
+<ul>
+<li><b>Koheren:</b> pembalikan gradien penyandi fase merapikan kembali semua magnetisasi transversal sehingga koherensinya terjaga. Biasanya dipakai dengan bobot T2* dan TE panjang untuk mencitrakan air.</li>
+<li><b>Inkoheren:</b> RF spoiling memastikan sisa magnetisasi transversal tidak terbaca, dengan mengubah fase tiap pulsa RF di setiap TR dan mengunci penerima pada fase itu. Hanya FID yang dibaca, sehingga bobot T1 dominan.</li>
+<li><b>Reverse-echo:</b> perefokusan gema terstimulasi dimulai oleh pulsa RF, tetapi gemanya digeser oleh gradien rephasing. Hanya gema itu yang dibaca, dan TE-nya cukup panjang untuk kontras T2, bukan T2*.</li>
+</ul>
+<p class='lembut'>Acuan: Westbrook dan Talbot, <i>MRI in Practice</i>, Bab 4, Tabel 4.7 sampai 4.12 (ditulis ulang).</p>
+</div>
+<p class='a'><b>Analogi:</b> tiga koki mencicipi kuah. Koki koheren mencicipi kuah baru dan sisa kuah lama sekaligus. Koki inkoheren membuang sisa kuah lama dan hanya mencicipi yang baru. Koki reverse-echo hanya mencicipi sisa kuah yang sudah matang.</p>
+</div>
+
+<div class='kartu bm lanjut'>
+<span class='tag'>M03B · T2.2 · Tiga sekuens keadaan tunak utama</span>
+<b class='sub'>Membedakan tiga sekuens tunak</b>
+<p class='s'>Keadaan tunak menghasilkan dua sinyal: FID dari magnetisasi yang baru terbentuk, dan gema terstimulasi dari sisa magnetisasi yang menumpuk. Ketiga sekuens dibedakan oleh sinyal mana yang dibaca.</p>
+<div class='l'>
+<ul>
+<li><b>Koheren:</b> membaca keduanya, bobot T1, PD, atau T2* menurut TE.</li>
+<li><b>Inkoheren:</b> hanya FID, citra terutama berbobot T1 dan PD.</li>
+<li><b>Reverse-echo:</b> hanya gema terstimulasi, citra berbobot T2.</li>
+</ul>
+<p>Aktivitas di bawah memperlihatkan perbedaan ini, juga cara RF spoiling membuat sisa magnetisasi tidak terbaca.</p>
+</div>
+<p class='a'><b>Analogi:</b> dua mikrofon di lembah. Satu hanya menangkap suara teriakan, satu lagi hanya gemanya, dan satu menangkap keduanya sekaligus.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03b-a2'>A2</a>, <a href='#m03b-a7'>A7</a>, <a href='#m03b-a9'>A9</a>, <a href='#m03b-a11'>A11</a>, <a href='#m03b-a12'>A12</a></p>

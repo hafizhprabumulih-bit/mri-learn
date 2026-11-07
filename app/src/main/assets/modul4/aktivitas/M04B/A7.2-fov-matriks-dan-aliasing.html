@@ -1,0 +1,11 @@
+<!-- A7.2 FOV, matriks, dan aliasing. Judul dan hubungan ke materi diatur di struktur/m04b.json. File ini hanya isi kartu. -->
+<p>Objek yang sama difoto dengan FOV berbeda pada arah fase. FOV 100% pas menutupi objek. Di bawah itu, objek terlipat.</p>
+<label for='fov'>FOV: <span id='fovv'></span>% dari ukuran objek</label>
+<input type='range' id='fov' min='50' max='150' value='100'>
+<label for='mat'>Matriks (N &times; N)</label>
+<select id='mat'><option>32</option><option selected>64</option><option>128</option></select>
+<div class='baris'>
+<figure><canvas id='ca' class='cit' width='64' height='64' role='img' aria-label='Citra dengan FOV terpilih'></canvas><figcaption>Citra (fase: atas-bawah)</figcaption></figure>
+</div>
+<p id='keta' aria-live='polite'></p>
+<button id='reset2' type='button'>Reset</button>

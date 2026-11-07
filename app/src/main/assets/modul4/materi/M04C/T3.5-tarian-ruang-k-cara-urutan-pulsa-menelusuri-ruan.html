@@ -1,0 +1,25 @@
+<!-- T3.5 Tarian ruang-k, cara urutan pulsa menelusuri ruang-k | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04c.json -->
+<p class='s'>Kombinasi pulsa RF serta polaritas dan amplitudo gradien frekuensi dan fase menentukan jalur penelusuran ruang-k. Eksitasi RF memusatkan titik awal, gradien fase memilih garis atas atau bawah, dan gradien frekuensi menentukan arah kiri-kanan.</p>
+<div class='l'>
+<p><b>Tarian di lantai dansa.</b> Urutan pulsa adalah rangkaian pulsa RF, penerapan gradien, dan jeda waktu. Bayangkan seperti tarian: lengan dan kaki bergerak, dan kombinasi serta waktunya menentukan jenis tarian. Ruang-k adalah lantai dansanya, sedangkan pulsa RF dan gradien adalah dua penari yang menggerakkan sistem di atas lantai itu. Aturan tariannya:</p>
+<ul>
+<li>Pulsa RF eksitasi memusatkan sistem ke tengah ruang-k, tempat sumbu fase dan frekuensi bersilangan.</li>
+<li>Amplitudo gradien fase menentukan seberapa jauh ke atas atau ke bawah suatu garis terisi. Kemiringan gradien fase paling curam dalam akuisisi menentukan garis terluar yang terisi, dan itu menentukan ukuran piksel pada arah fase.</li>
+<li>Polaritas gradien fase menentukan separuh atas (positif) atau separuh bawah (negatif) yang terisi.</li>
+<li>Amplitudo gradien frekuensi (di antara faktor lain) menentukan seberapa jauh ruang-k ditelusuri ke kiri dan kanan, dan itu menentukan ukuran piksel pada arah frekuensi.</li>
+<li>Polaritas gradien frekuensi menentukan arah penelusuran: positif dari kiri ke kanan, negatif dari kanan ke kiri.</li>
+</ul>
+<p><b>Contoh gradient-echo.</b> Titik awal ada di pusat ruang-k saat pulsa RF eksitasi. Lobus negatif gradien frekuensi menggeser ruang-k dari pusat ke kiri sejauh A, yang bergantung pada amplitudo lobus itu. Gradien fase (pada contoh ini positif) memilih garis di separuh atas. Amplitudonya menentukan jarak B: makin besar amplitudo, makin tinggi garis yang terisi. Gabungan keduanya menentukan titik awal penyimpanan data. Gradien frekuensi lalu dinyalakan positif, dan data dibaca dari kiri ke kanan sepanjang garis. Jarak tempuhnya bergantung pada amplitudo lobus positif dan menentukan ukuran piksel arah frekuensi. Jika gradien fase negatif, garis di separuh bawah yang terisi dengan cara yang sama.</p>
+<p><b>Spin-echo lebih rumit.</b> Gradien frekuensi biasanya dinyalakan positif bersamaan dengan gradien fase. Titik ruang-k lalu berada di sisi kanan suatu garis (garis yang mana bergantung pada kemiringan dan polaritas gradien fase). Pulsa rephasing 180&deg; kemudian memutar titik itu dari kanan ke kiri dan ke garis yang setara di bagian berlawanan. Misalnya, jika sebelum pulsa 180&deg; terpilih garis +N, setelahnya titik itu berada di sisi kiri garis &minus;N. Gradien frekuensi dinyalakan positif lagi untuk mengisi garis itu dari kiri ke kanan.</p>
+<p><b>Hal yang perlu diingat (tarian ruang-k):</b></p>
+<ul>
+<li>Kombinasi pulsa RF dan gradien menentukan jenis urutan pulsa, yang menentukan cara ruang-k ditelusuri.</li>
+<li>Gradien pemilih irisan menentukan area ruang-k mana yang sedang ditelusuri.</li>
+<li>Pulsa eksitasi RF memusatkan sistem di pusat ruang-k.</li>
+<li>Pulsa rephasing RF membalik suatu titik ke titik cermin di sisi berlawanan ruang-k.</li>
+<li>Polaritas gradien fase menentukan garis di separuh atas atau bawah. Amplitudonya mengatur garis yang mana, dan itu menentukan ukuran piksel arah fase.</li>
+<li>Polaritas gradien frekuensi menentukan arah telusur. Amplitudonya mengatur jarak telusur pada sumbu itu, yaitu ukuran piksel arah frekuensi dan secara tidak langsung FOV frekuensi.</li>
+</ul>
+<p><b>Ringkasan lemari laci.</b> Tinggi lemari menentukan ukuran piksel pada arah fase, dan lebar lemari menentukan ukuran piksel pada arah frekuensi. Jumlah laci sama dengan matriks fase, dan jumlah kaus kaki per laci sama dengan matriks frekuensi. FOV fase berbanding terbalik dengan kedalaman tiap laci (jarak antar garis), dan FOV frekuensi berbanding terbalik dengan interval sampling. Artinya, jika piksel berukuran tertentu bertambah banyak, FOV bertambah, dan di ruang-k jarak antar laci (atau antar titik data) mengecil agar semuanya muat.</p>
+</div>
+<p class='a'><b>Analogi:</b> Lantai dansa. Pulsa RF adalah penari yang membawa Anda ke tengah lantai. Gradien fase menentukan lantai bagian atas atau bawah, dan gradien frekuensi menentukan Anda melangkah ke kiri atau ke kanan.</p>

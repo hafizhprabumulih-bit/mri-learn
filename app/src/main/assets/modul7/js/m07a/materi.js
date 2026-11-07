@@ -1,0 +1,54 @@
+/* M07A: materi (T1.1-T2.6)
+   Satu objek = satu simpul pohon (kode T). Edit teks di sini; HTML sederhana diperbolehkan.
+   Placeholder: <span data-d='kunci'></span> (NIL di util.js), <span data-p='KR.k'></span> (DATA). */
+const MATERI=[
+ {kode:'T1.1',tingkat:1,judul:'Empat zona',sim:["A1"],tautan:[],
+  singkat:`Fasilitas MRI dibagi menjadi empat zona. Makin besar nomornya, makin ketat aksesnya. Medan magnet utama (B0) selalu menyala.`,
+  lengkap:`<p>Zona I untuk umum. Zona II adalah area antara, tempat pasien diterima dan ditanyai. Zona III terkontrol: hanya orang yang sudah diskrining. Zona IV adalah ruang magnet. Setiap orang diskrining sebelum masuk.</p>
+<ul><li>Benda ferromagnetik bisa tertarik dan menjadi proyektil.</li><li>Magnet tetap menyala walau tidak ada pemindaian.</li></ul>`,
+  analogi:`Zona seperti lapisan keamanan di bandara. Makin dalam, makin ketat pemeriksaannya. Magnetnya seperti arus sungai yang tidak pernah berhenti: periksa dulu apa yang Anda bawa sebelum mendekat.`},
+ {kode:'T1.2',tingkat:1,judul:'Prinsip keselamatan',sim:["A2"],tautan:[],
+  singkat:`Setiap kasus berbeda dan dinilai sendiri-sendiri. Pasien tidak dikeluarkan tanpa alasan dari pemeriksaan yang ia butuhkan, tetapi risikonya tetap ditimbang.`,
+  lengkap:`<p>Untuk pasien dengan implan, perlu analisis risiko dan manfaat. Tanggung jawab utama ada pada dokter perujuk dan radiology lead. Praktisi MRI juga boleh memutuskan lanjut atau menunda sampai bukti keselamatan cukup, sebab hal baru seperti tindik bisa muncul saat pasien datang. Saran fisikawan medis dan ahli lain boleh diminta. Karena perangkat baru terus bermunculan, pengetahuan perlu diperbarui.</p>`,
+  analogi:`Seperti menimbang obat: manfaatnya nyata, tetapi efek sampingnya tetap dihitung kasus per kasus.`},
+ {kode:'T1.3',tingkat:1,judul:'Lima sumber bahaya',sim:["A4"],tautan:[],
+  singkat:`Bahaya MRI berasal dari lima hal: faktor psikologis, medan statis yang berubah menurut jarak, medan RF, gradien yang berubah menurut waktu, dan kriogen.`,
+  lengkap:`<p>Sebagian efeknya sementara dan tidak berdampak jangka panjang, tetapi sebagian dapat menyebabkan cedera berat atau kematian. Bagian ini hanya pengantar umum, bukan panduan keselamatan lengkap. Pemindai, kekuatan medan, koil, lebar bore, tubuh pasien, dan implan sangat beragam. Implan bahkan bisa aman hanya di bawah kekuatan medan, gradien ruang, atau SAR tertentu. Keamanan zat kontras berbasis gadolinium bukan bahaya fisik MR dan dibahas terpisah di T2.6. Rincian: medan statis dan kriogen di M07B, RF dan gradien di M07C.</p>`,
+  analogi:`Seperti peta bahaya sebuah pabrik: ada lima titik rawan, dan tiap titik punya cara pencegahannya sendiri.`},
+ {kode:'T2.1',tingkat:2,judul:'Zona menurut ACR',sim:["A1"],tautan:[["M01 T1.1", "Kontraindikasi sebagai pendahuluan"]],
+  singkat:`ACR menyarankan fasilitas MRI dizonakan menurut risiko, agar orang yang tidak berwenang tidak masuk ke area bermedan magnet kuat.`,
+  lengkap:`<p>Zona I adalah area umum. Zona II adalah batas antara area umum dan zona terkontrol: pasien disambut dan tidak bebas bergerak, dan jawaban skrining serta riwayat diambil di sini. Zona III adalah tempat orang tanpa skrining atau benda ferromagnetik dapat menyebabkan cedera berat, jadi aksesnya dibatasi fisik, misalnya dengan kunci atau sistem passkey yang bisa membedakan personel MRI dari non-MRI. Zona IV adalah ruang magnet. Ia ditandai lampu merah dan tanda The Magnet is On yang menyala terus (kecuali sistem resistif), dengan cadangan energi sedikitnya <span data-d='jam'></span> jam bila listrik padam.</p>`,
+  analogi:`Seperti zona di rumah sakit isolasi: tiap pintu punya aturan dan penjaganya sendiri.`},
+ {kode:'T2.2',tingkat:2,judul:'Tiga tingkat personel',sim:["A1"],tautan:[],
+  singkat:`Ada personel non-MRI, personel Level 1, dan personel Level 2.`,
+  lengkap:`<p>Non-MRI: pasien, pengunjung, atau staf fasilitas yang belum menjalani pelatihan keselamatan formal dalam <span data-d='bln'></span> bulan terakhir. Level 1: staf kantor dan pembantu pasien yang lulus pendidikan keselamatan minimal agar aman bekerja di Zona III. Level 2: teknolog MRI, radiolog, dan perawat yang dilatih mendalam, termasuk soal pemanasan, luka bakar, dan rangsangan saraf-otot akibat gradien.</p>`,
+  analogi:`Seperti tingkat izin keamanan: tamu, staf umum, dan ahli yang bertanggung jawab.`},
+ {kode:'T2.3',tingkat:2,judul:'Keselamatan perangkat: standar ASTM dan label implan',sim:["A2", "A3"],tautan:[],
+  singkat:`Perangkat dibagi menjadi MR Safe, MR Conditional, dan MR Unsafe. Ikonnya: kotak hijau, segitiga kuning, dan lingkaran merah yang dicoret.`,
+  lengkap:`<p>MR Safe: tidak ada bahaya yang diketahui di semua lingkungan MR, misalnya cawan petri plastik. MR Conditional: terbukti aman pada lingkungan MR dan syarat tertentu, seperti kekuatan medan statis, gradien ruang, laju perubahan medan (dB/dt), medan RF, SAR, dan pengaturan kabel. Pengujiannya mencakup gaya tarik, torsi, dan pemanasan RF, dan hasilnya tercantum pada label. Setiap parameter yang memengaruhi keselamatan harus dicantumkan, begitu pula kondisi yang diketahui menghasilkan keadaan tidak aman. Isu lain yang diperhatikan: cedera termal, arus atau tegangan induksi, kompatibilitas elektromagnetik, perangsangan saraf, bising, interaksi antarperangkat, fungsi aman perangkat, dan pengoperasian aman sistem MR. Status MR Safe dapat ditetapkan lewat alasan ilmiah, tidak harus dengan data uji. MR Unsafe: diketahui berbahaya di semua lingkungan MR, misalnya gunting ferromagnetik. Perangkat yang aman bersyarat pada <span data-d='ut'></span> T belum tentu aman pada medan yang lebih tinggi.</p><div class='gulir'><p><b>Ringkasan label:</b></p><table class='tabel'><tr><th>Label</th><th>Arti</th></tr>
+<tr><td>MR Safe</td><td>Tidak menimbulkan bahaya di lingkungan MR.</td></tr>
+<tr><td>MR Conditional</td><td>Aman hanya bila syarat pada label dipenuhi.</td></tr>
+<tr><td>MR Unsafe</td><td>Berbahaya di lingkungan MR.</td></tr></table>
+<p>Syarat dibaca dari label atau dokumen implan, bukan ditebak.</p></div>`,
+  analogi:`Seperti lampu lalu lintas: hijau jalan, kuning hati-hati dengan syarat, merah berhenti.`},
+ {kode:'T2.4',tingkat:2,judul:'Efek psikologis',sim:["A5"],tautan:[],
+  singkat:`Desain bore tertutup dapat memicu cemas dan klaustrofobia. Kecemasan biasanya paling tinggi di awal, saat pasien dimasukkan ke bore, lalu menurun.`,
+  lengkap:`<p>Pada studi tahun 1998, <span data-d='sed'></span> persen pasien membutuhkan sedasi atau anestesi, sebagian besar untuk pemeriksaan otak. Pemindai tertutup awal memakai bore yang sangat panjang agar volume citra homogen, sehingga pasien nyaris seluruhnya berada di dalam bore. Pada pemeriksaan otak, kepala berada di isosenter dengan atap bore dekat wajah. Faktor lainnya: koil kepala, rasa terisolasi, lama pemindaian, bising, dan takut hasil yang buruk. Pasien juga dapat takut sesak, takut pingsan, atau mengalami serangan panik. Ketidakpatuhan berdampak nyata: sulit diam atau menahan napas merusak citra (artefak pergeseran fase), dan serangan panik dapat menghentikan pemeriksaan sebelum ada citra. Pasien lalu dirujuk ke CT. Pada pencitraan jantung, <span data-d='ct'></span> persen pasien lebih memilih CT dan hanya <span data-d='mri'></span> persen memilih MRI. Waktu mesin terbuang, biaya naik, dan jadwal tertunda. Cara menenangkan: bore lebih pendek dan lebar (kejadian klaustrofobia turun sekitar <span data-d='tiga'></span> kali), kipas, lampu dan panel pemandangan, video, hitung mundur, dan pada pemindai terbuka kerabat dapat duduk dekat pasien. Manfaat aromaterapi belum pasti. Anak kecil atau pasien yang sangat klaustrofobia mungkin butuh sedasi dan pemantauan tambahan. Kabel pemantau tidak boleh menempel pada kulit pasien yang dibius.</p>`,
+  analogi:`Seperti masuk air dingin: bagian paling berat adalah saat pertama kali masuk.`},
+ {kode:'T2.5',tingkat:2,judul:'Tips keselamatan',sim:["A6"],tautan:[],
+  singkat:`Jangan berasumsi. Periksa staf seketat pasien, dan jangan pernah merasa wajib memindai bila ragu.`,
+  lengkap:`<ul>
+<li>Jangan anggap staf tahu bahaya ruang magnet, dan hindari kunci kode digital untuk Zona III.</li>
+<li>Jangan anggap pasien yang dipindai di tempat lain kemarin aman hari ini: medan dan gradien bisa berbeda, dan kondisi pasien bisa berubah.</li>
+<li>Tanyakan kontraindikasi sebelum jadwal, beri informasi yang cukup, dan tanyakan juga secara lisan selain formulir.</li>
+<li>Untuk pasien yang sulit memberi riwayat, tanyakan keluarga dan ganti pakaian dengan baju pasien. Citra rontgen terbaru dapat membantu menyingkirkan pacu jantung atau klip aneurisma.</li>
+<li>Beri stiker peringatan pada benda ferromagnetik besar dan pilih alternatif non-ferrous, misalnya tangga pijakan dan alat pemadam.</li>
+<li>Bila ragu, tunda pemeriksaan.</li></ul>
+<p>Korban jiwa terkait MRI yang dilaporkan sangat sedikit, kurang dari satu per tahun, berkat kewaspadaan staf dan dokter perujuk.</p>`,
+  analogi:`Seperti daftar periksa pilot: bukan karena tidak percaya, tetapi karena taruhannya besar.`},
+ {kode:'T2.6',tingkat:2,judul:'Keselamatan agen kontras: retensi gadolinium, NSF, skrining ginjal dan kehamilan',sim:["A7"],tautan:[],baru:true,
+  // [BARU] simpul usulan, perlu dikonfirmasi
+  singkat:`Kontras berbasis gadolinium umumnya aman, tetapi pasien perlu diskrining sebelum disuntik: fungsi ginjal, kehamilan, dan riwayat alergi. Ini keselamatan obat, bukan bahaya fisik MR.`,
+  lengkap:`<p>Pada pasien dengan gangguan ginjal berat atau cedera ginjal akut, gadolinium dapat berkaitan dengan <i>nephrogenic systemic fibrosis</i> (NSF), pengerasan kulit dan jaringan yang dapat berat. Karena itu fungsi ginjal (eGFR) diperiksa pada pasien berisiko, misalnya usia lanjut, penyakit ginjal, diabetes, atau hipertensi. Risiko berbeda antar jenis agen, dan fasilitas biasanya memilih agen dengan risiko terendah bila ginjal terganggu.</p><p>Gadolinium juga dapat tertahan (retensi) di jaringan tubuh, termasuk otak, bahkan pada orang dengan ginjal normal. Makna klinisnya belum pasti. Prinsipnya: kontras diberikan bila manfaat diagnostiknya jelas, dengan dosis seperlunya.</p><p>Kehamilan: gadolinium melewati plasenta, jadi kontras dihindari kecuali manfaatnya jelas lebih besar daripada risikonya, dan keputusannya ada pada radiolog dan dokter perujuk. Untuk ibu menyusui, ikuti SOP fasilitas.</p><p>Reaksi alergi terhadap kontras jarang dan umumnya ringan, tetapi riwayat reaksi sebelumnya menaikkan peluangnya. Tim perlu siap menangani reaksi.</p><!-- TODO-VERIFIKASI: simpul usulan, tidak ada di Bab 10 sumber asli. Cek ACR Manual on Contrast Media dan SOP lokal (ambang eGFR, kehamilan, menyusui) -->`,
+  analogi:`Seperti memeriksa saluran pembuangan sebelum menuang air: bila ginjal (saluran) bermasalah, zat tidak terbuang dengan baik dan bisa menumpuk.`},
+];

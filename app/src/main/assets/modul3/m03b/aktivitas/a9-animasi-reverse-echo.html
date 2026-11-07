@@ -1,0 +1,19 @@
+<div class='kartu aktivitas' id='m03b-a9'>
+<span class='tag'>M03B · A9 · tambahan dari modul lama (belum ada di pohon) · terkait T2.2</span>
+<b>Animasi reverse-echo: lima pulsa RF dan gema yang digeser</b>
+<p class='lembut'>Tekan Putar untuk melihat urutannya. Tiap pulsa RF membentuk FID. Gema terstimulasi dari FID itu muncul setelah pulsa RF berikutnya, lalu digeser lebih awal oleh gradien rewinder agar tidak bertepatan dengan pulsa RF selanjutnya. Warna gema sama dengan warna pulsa RF asalnya. Pilih gema untuk melihat TE efektif (dari RF asal ke puncak gema) dan TE aktual (dari puncak gema ke RF berikutnya). Diagram ini ilustrasi, bukan skala nyata.</p>
+<canvas id='m3x-cv-r' width='760' height='300' role='img' aria-label='Animasi reverse-echo'></canvas>
+<label for='m3x-r-t'>Waktu: <span id='m3x-r-ot'></span></label>
+<input type='range' id='m3x-r-t' min='0' max='100' step='1'>
+<label for='m3x-r-tr'>TR: <span id='m3x-r-otr'></span></label>
+<input type='range' id='m3x-r-tr' min='15' max='60' step='1'>
+<label for='m3x-r-te'>TE aktual: <span id='m3x-r-ote'></span></label>
+<input type='range' id='m3x-r-te' min='2' max='30' step='1'>
+<div class='pilih' role='group' aria-label='Gema yang ditandai'>
+<button type='button' data-re='0' aria-pressed='true'>Gema 1</button>
+<button type='button' data-re='1' aria-pressed='false'>Gema 2</button>
+<button type='button' data-re='2' aria-pressed='false'>Gema 3</button>
+</div>
+<div class='baris'><button type='button' id='m3x-r-play'>Putar</button><button type='button' id='m3x-r-rs'>Reset</button></div>
+<p id='m3x-r-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

@@ -1,0 +1,19 @@
+<!-- T1.5 Tebal irisan, transmit bandwidth, dan celah | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04a.json -->
+<p class='s'>Tebal irisan sama dengan transmit bandwidth dibagi (&gamma; &times; amplitudo gradien). Irisan tipis: gradien curam dan/atau TBW sempit. Irisan tebal: gradien landai dan/atau TBW lebar.</p>
+<div class='l'>
+<p><b>Pita frekuensi.</b> Agar irisan punya ketebalan, pulsa RF mengeksitasi satu &ldquo;pita&rdquo; inti. Kemiringan gradien pemilih irisan menentukan selisih frekuensi presesi antara dua titik: gradien curam menghasilkan selisih besar, gradien landai selisih kecil. Pulsa RF memuat rentang frekuensi yang cocok dengan selisih di tepi-tepi irisan. Rentang itu disebut bandwidth, dan karena dipancarkan disebut <b>transmit bandwidth</b> (TBW).</p>
+<p><span class='rumus'>Tebal irisan = TBW / (&gamma; &middot; G)</span>, dengan &gamma; rasio giromagnetik (MHz/T) dan G amplitudo gradien (mT/m). Jadi tebal irisan diatur lewat amplitudo gradien, TBW, atau keduanya.</p>
+<p><b>Frekuensi pembawa.</b> Irisan dieksitasi dengan RF pada frekuensi tengah yang cocok dengan presesi inti di tengah irisan. Frekuensi ini disebut frekuensi pembawa, dan nilainya dekat dengan frekuensi Larmor (skala MHz). TBW hanyalah rentang kecil (skala kHz) di kedua sisi pembawa. Kemiringan gradien dan TBW menentukan rentang inti yang beresonansi di sekitar pusat. Celah antar irisan ditentukan oleh kemiringan gradien dan tebal irisan, dan ukurannya penting untuk mengurangi artefak. <!-- TODO-VERIFIKASI: bab rujukan menunjuk bab lain untuk artefak akibat celah; detailnya tidak dimasukkan di modul ini. --></p>
+<p><b>Di balik layar.</b> Saat tebal irisan dan celah dipilih di protokol, sistem menentukan seberapa besar arus dialirkan melalui gradien pemilih irisan. Arus besar menghasilkan gradien curam, yaitu selisih frekuensi antar titik besar. Bersama TBW sempit, hasilnya irisan tipis. Arus kecil menghasilkan gradien landai, dan bersama TBW lebar menghasilkan irisan tebal. Setelah tebal irisan ditentukan, besaran-besaran ini tetap selama urutan pulsa. Posisi tiap irisan diubah dengan menggeser frekuensi tengah (pembawa).</p>
+<p><b>Pilihan TBW.</b> Sebagian sistem menyediakan TBW rendah, sedang, atau tinggi. TBW rendah memberi profil irisan yang baik dan berguna untuk menurunkan SAR, tetapi citra lebih rentan terhadap distorsi dan TE minimum naik. TBW tinggi berefek sebaliknya dan kadang dipakai pada urutan gradient-echo cepat untuk memendekkan TE.</p>
+<p><b>Hal yang perlu diingat:</b></p>
+<ul>
+<li>Irisan dipilih dengan gradien yang menyala bersamaan dengan pulsa RF eksitasi (dan pulsa rephasing pada spin-echo).</li>
+<li>Gradien pemilih irisan mengubah kuat medan dan frekuensi presesi momen magnetik di sepanjangnya.</li>
+<li>Pulsa RF pada frekuensi spesifik irisan tertentu membuat irisan itu beresonansi.</li>
+<li>RF dipancarkan dengan bandwidth, yaitu rentang frekuensi di kedua sisi frekuensi tengah irisan.</li>
+<li>Tebal irisan diubah lewat kemiringan gradien dan TBW.</li>
+<li>Irisan tipis membutuhkan gradien curam dan TBW sempit. Irisan tebal membutuhkan gradien landai dan TBW lebar.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> Tangga dengan anak tangga bernada berbeda. Gradien curam membuat nada antar anak tangga berjauhan. Pita RF yang sempit hanya membunyikan satu atau dua anak tangga (irisan tipis), sedangkan pita yang lebar membunyikan banyak anak tangga (irisan tebal).</p>

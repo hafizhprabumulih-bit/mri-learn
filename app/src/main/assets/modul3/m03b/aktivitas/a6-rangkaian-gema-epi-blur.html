@@ -1,0 +1,20 @@
+<div class='kartu aktivitas' id='m03b-a6'>
+<span class='tag'>M03B · A6 · tambahan dari modul lama (belum ada di pohon) · terkait T3.2</span>
+<b>Rangkaian gema EPI dan blur</b>
+<p class='lembut'>Pilih jenis EPI, jumlah gema, jarak antar gema (ESP), TE efektif, dan jaringan. Tinggi garis menunjukkan kekuatan tiap gema. Amati bagaimana gema di ujung bacaan melemah pada GE-EPI, dan bagaimana SE-EPI memusatkan sinyal di pusat ruang-k. Modul ini memakai T2 sebagai pengganti T2*.</p>
+<div class='pilih' role='group' aria-label='Jenis EPI'>
+<button type='button' data-q='ge' aria-pressed='true'>GE-EPI</button>
+<button type='button' data-q='se' aria-pressed='false'>SE-EPI</button>
+</div>
+<canvas id='m3-cv-p' width='760' height='290' role='img' aria-label='Rangkaian gema EPI'></canvas>
+<label for='m3-p-n'>Jumlah gema: <span id='m3-p-on'></span></label>
+<input type='range' id='m3-p-n' min='4' max='64' step='1'>
+<label for='m3-p-esp'>Jarak antar gema (ESP): <span id='m3-p-oe'></span></label>
+<input type='range' id='m3-p-esp' min='5' max='30' step='1'>
+<label for='m3-p-te'>TE efektif (permintaan): <span id='m3-p-ot'></span></label>
+<input type='range' id='m3-p-te' min='20' max='150' step='1'>
+<label for='m3-p-j'>Jaringan</label>
+<select id='m3-p-j'></select>
+<div class='baris'><button type='button' id='m3-p-rs'>Reset</button></div>
+<p id='m3-p-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

@@ -1,0 +1,66 @@
+<!-- NODE M03B T2.1: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03b-t2-1' class='simpul'><span class='kode'>T2.1</span> Keadaan tunak (steady state)</h3>
+<ul class='cakupan'><li>Keadaan tunak: TR pendek, sinyal tidak sempat pulih penuh [← M03 1.3 + M02 5.1]</li><li>Pulsa persiapan (dummy pulses) [← M03 1.3 + M02 5.1]</li></ul>
+<!-- CATATAN: kartu 'Kontras T1, saturasi, dan keadaan tunak' berasal dari M03 1.3 (sumber simpul ini menurut pohon). Bagian kontras T1 di awal kartu juga dibahas di M02; pertimbangkan memangkasnya. -->
+<div class='kartu bm'>
+<span class='tag'>M03B · T2.1 · Keadaan tunak (steady state)</span>
+<b class='sub'>Kontras T1, saturasi, dan keadaan tunak</b>
+<p class='s'>Kontras T1 muncul bila vektor belum pulih penuh di antara dua pulsa RF, jadi TR pendek memperkuatnya. Lemak (T1 pendek) pulih lebih cepat daripada air (T1 panjang), sehingga lemak terang dan air relatif gelap. Bila TR lebih panjang daripada T1 jaringan, semua pulih penuh dan kontras T1 hilang.</p>
+<div class='l'>
+<p>Saat pulsa RF berikutnya tiba, pulsa itu membalik magnetisasi longitudinal menjadi transversal. Karena lemak sudah lebih pulih, magnetisasi longitudinalnya lebih besar, sehingga magnetisasi transversalnya juga lebih besar. Lemak bersinyal tinggi (hiperintens). Air belum banyak pulih, jadi sinyalnya rendah (relatif hipointens).</p>
+<p><b>Saturasi.</b> Bila vektor terdorong melewati 90°, ia disebut <b>jenuh sebagian</b>. Bila terdorong sampai 180°, ia <b>jenuh penuh</b>. Jenuh sebagian pada lemak dan air membuat kontras T1 maksimal. Pada TR pendek, vektor yang belum pulih penuh terdorong melewati 90° oleh pulsa berikutnya, dan besar jenuhnya berbeda karena titik pemulihannya berbeda. Pada TR panjang, keduanya pulih penuh, langsung terbalik ke bidang transversal, dan tidak jenuh. Besar sinyalnya kemudian hanya ditentukan oleh kerapatan proton. Sudut flip juga memengaruhi saturasi, dan ini dibahas lebih lanjut pada bagian gradient echo.</p>
+<p><b>Keadaan tunak.</b> Bila TR lebih pendek daripada T1, beberapa pulsa RF pertama menghasilkan magnetisasi transversal yang berbeda-beda, karena jaringan mulai dari titik pemulihan yang berbeda. Perlu beberapa TR sampai semuanya mantap. Pada keadaan tunak, vektor pulih ke titik yang sama di tiap TR dan selalu terbalik ke titik yang sama. Pulsa-pulsa sebelumnya disebut <b>pulsa persiapan</b> atau <i>dummy</i> karena sinyalnya diabaikan. Lamanya tergantung pada B0, kerapatan proton, sudut flip, T1, dan durasi pulsa RF.</p>
+<ul>
+<li>Pemulihan T1 disebabkan oleh pertukaran energi spin-kisi. Efisiensinya bergantung pada energi bawaan jaringan dan seberapa cocok laju gerak molekul dengan frekuensi Larmor.</li>
+<li>Pada medan yang lebih kuat, jaringan memerlukan waktu pemulihan lebih lama.</li>
+<li>Kontras T1 dikendalikan oleh TR. Untuk kontras T1 yang baik, TR harus pendek.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> dua ember diisi dari keran. Ember kecil (lemak) cepat penuh, ember besar (air) lambat. Bila isinya dituang tiap kali dalam jeda singkat (TR pendek), ember kecil selalu menuang lebih banyak.</p>
+</div>
+
+<div class='kartu bm lanjut'>
+<span class='tag'>M03B · T2.1 · Keadaan tunak (steady state)</span>
+<b class='sub'>Keadaan tunak (steady state)</b>
+<p class='s'>Pada TR yang sangat pendek, energi yang masuk lewat pulsa RF dan energi yang keluar lewat relaksasi menjadi seimbang, sehingga sinyal stabil dari satu TR ke TR berikutnya.</p>
+<div class='l'>
+<p>Keadaan tunak adalah kondisi yang tidak lagi berubah terhadap waktu. Pada MRI, sudut flip menentukan energi yang masuk, dan TR menentukan energi yang keluar lewat relaksasi spin-kisi (T1). Setelah beberapa TR, keduanya seimbang. Berapa TR yang dibutuhkan bergantung pada TR, sudut flip, dan waktu relaksasi jaringan.</p>
+<p>Pada gradient echo, TR sengaja pendek, bahkan lebih pendek daripada T1 dan T2 jaringan. Akibatnya, sebagian magnetisasi transversal belum sempat meluruh saat pulsa berikutnya datang, dan sisa itu ikut memengaruhi sinyal. Pada sekuens koheren, kontras tunak lebih ditentukan oleh perbandingan T1 terhadap T2 daripada oleh T1 atau T2 sendiri. Lemak (T1 dan T2 sama-sama pendek) dan air (sama-sama panjang) bersinyal tinggi, sedangkan otot (T2 pendek, T1 panjang) bersinyal rendah.</p>
+</div>
+<p class='a'><b>Analogi:</b> panci di atas kompor. Bila panas yang masuk dari api sama dengan panas yang hilang ke udara, suhu panci tetap, padahal api terus menyala.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03B · T2.1 · Keadaan tunak (steady state)</span>
+<b class='sub'>Rasio T2/T1 dan sinyal pada keadaan tunak</b>
+<p class='s'>Pada keadaan tunak, kontras tidak ditentukan oleh T1 atau T2 sendiri, melainkan oleh perbandingan keduanya. Jaringan yang T1 dan T2-nya sebanding bersinyal tinggi, sedangkan yang tidak sebanding bersinyal rendah.</p>
+<div class='l'>
+<p>Karena TR lebih pendek daripada T1 dan T2, jaringan tidak sempat pulih atau meluruh penuh sebelum pulsa RF berikutnya. Jaringan yang T1 dan T2-nya hampir sama (rasio mendekati 1) bersinyal tinggi. Air dan lemak punya keserasian ini, sedangkan otot tidak (T2 sangat pendek, T1 sangat panjang), sehingga bersinyal rendah.</p>
+<div class='gulir'><table class='tabel'><tr><th>Jaringan</th><th>T1 (ms)</th><th>T2 (ms)</th><th>T2/T1</th><th>Sinyal tunak</th></tr>
+<tr><td>Air</td><td>2500</td><td>2500</td><td>1,00</td><td>tinggi</td></tr>
+<tr><td>Lemak</td><td>200</td><td>100</td><td>0,50</td><td>tinggi</td></tr>
+<tr><td>CSF</td><td>2000</td><td>300</td><td>0,15</td><td>rendah</td></tr>
+<tr><td>Substansia alba</td><td>500</td><td>200</td><td>0,40</td><td>rendah</td></tr></table></div>
+<p class='lembut'>Nilai pada 1 T menurut Tabel 4.5 buku (ditulis ulang). Rasio saya hitung ulang sebagai T2/T1. Buku menulis kolom itu "T1/T2" dan mencantumkan 0,2 untuk substansia alba, padahal 200/500 = 0,4. Nilai ini juga berbeda dari data bersama modul (1,5 T), yang dipakai pada aktivitas lain. <!-- TODO-VERIFIKASI: ketidakkonsistenan Tabel 4.5 buku (judul kolom dan rasio substansia alba). --></p>
+<p>Hal yang perlu diingat (Tabel 4.6): keadaan tunak terbentuk bila TR lebih pendek daripada T1 dan T2 jaringan, sehingga magnetisasi transversal residual menumpuk. Residu itu direfokus oleh pulsa RF berikutnya menjadi gema terstimulasi. Kontras akhir ditentukan oleh rasio T1 dan T2 serta oleh sinyal yang dibaca, FID atau gema terstimulasi.</p>
+</div>
+<p class='a'><b>Analogi:</b> bak air dengan keran (pemulihan T1) dan lubang pembuangan (peluruhan T2). Bila lajunya sebanding, muka air stabil dan tinggi. Bila tidak sebanding, muka air rendah.</p>
+</div>
+
+<div class='kartu bm lanjut'>
+<span class='tag'>M03B · T2.1 · Keadaan tunak (steady state)</span>
+<b class='sub'>Magnetisasi transversal residual</b>
+<p class='s'>Pada keadaan tunak, sisa magnetisasi transversal menumpuk dari TR ke TR dan ikut menyumbang sinyal, terutama dari jaringan ber-T2 panjang seperti air. Akibatnya kontras T2 menguat.</p>
+<div class='l'>
+<p>Karena TR lebih pendek daripada T1 maupun T2, magnetisasi transversal belum sempat meluruh atau kembali sejajar B0 ketika pulsa RF berikutnya tiba. Sisa itu disebut <b>magnetisasi transversal residual</b>. Ia ikut terbaca RF coil dan memengaruhi kontras.</p>
+<p>Pada spin echo, sisa ini hampir tidak ada: TR dan TE panjang, dan sering dipasang gradien spoiling serta pulsa <i>crusher</i> untuk menghapus yang tersisa. Pada gradient echo keadaan tunak, strategi itu tidak dipakai. Maka setiap pulsa RF sekaligus mengeksitasi dan merefokus sisa magnetisasi sebelumnya.</p>
+<ul>
+<li>Setiap pulsa RF menghasilkan sebuah FID dan sebuah gema.</li>
+<li>Pasangan pulsa RF mana pun dapat menghasilkan gema. Besar sudutnya hanya mengatur kuat-lemahnya. Frekuensi pulsa tetap harus frekuensi Larmor.</li>
+<li>Gema semacam ini disebut gema Hahn atau gema terstimulasi.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> teriakan di lembah. Teriakan kedua memantulkan kembali sisa suara teriakan pertama, sehingga kamu mendengar dua suara: teriakannya sendiri dan gemanya.</p>
+<p class='a'><b>Analogi lain:</b> nada dari sintesizer. Nadanya selalu terdengar, hanya kerasnya berubah: keras lalu mengecil (FID meluruh), keras lagi lalu mengecil (gema terstimulasi), keras lagi (FID pada TR berikutnya), dan seterusnya.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03b-a3'>A3</a></p>

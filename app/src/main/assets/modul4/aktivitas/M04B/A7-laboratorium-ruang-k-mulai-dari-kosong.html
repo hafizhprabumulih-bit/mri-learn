@@ -1,0 +1,20 @@
+<!-- A7 Laboratorium ruang-k: mulai dari kosong. Judul dan hubungan ke materi diatur di struktur/m04b.json. File ini hanya isi kartu. -->
+<p>Ruang-k di bawah mulai kosong. Klik atau seret untuk mengisi titik. Dengan keyboard: fokus ke kotak ruang-k, geser dengan tombol panah, lalu tekan Spasi atau Enter. Titik pasangan di seberang pusat ikut terisi. Arahkan kursor ke titik mana pun untuk melihat pola garisnya.</p>
+<fieldset><legend>Mode kuas</legend>
+<label><input type='radio' name='kmode' value='isi' checked> Isi</label>
+<label><input type='radio' name='kmode' value='hapus'> Hapus</label>
+</fieldset>
+<label for='kuas'>Ukuran kuas: <span id='kuasv'></span></label>
+<input type='range' id='kuas' min='0' max='8' value='2'>
+<p class='lembut'>Baca dari kiri ke kanan: titik yang Anda isi di <b>(1) ruang-k</b> menghasilkan <b>(2) citra</b>, dan setiap titik terpilih berarti <b>(3) satu pola garis</b> yang ikut menyusun citra itu.</p>
+<div class='baris sejajar'>
+<figure><canvas id='kk' class='cit' width='64' height='64' tabindex='0' role='application' aria-label='Ruang-k interaktif. Gunakan panah untuk bergerak dan Spasi untuk mengisi.' style='cursor:crosshair;touch-action:none'></canvas><figcaption><b>1. Ruang-k</b> (horizontal = sumbu frekuensi, vertikal = sumbu fase)</figcaption></figure>
+<figure><canvas id='cp' class='cit' width='64' height='64' role='img' aria-label='Citra hasil dari titik yang terisi'></canvas><figcaption><b>2. Citra hasil</b></figcaption></figure>
+<figure><canvas id='cg' class='cit' width='64' height='64' role='img' aria-label='Pola garis dari titik terpilih'></canvas><figcaption><b>3. Pola garis</b> titik terpilih</figcaption></figure>
+</div>
+<p id='ketl' aria-live='polite'></p>
+<p id='ketg' class='lembut'></p>
+<p><b>Coba:</b> (1) isi hanya satu titik di pusat, (2) isi pusat lalu tambahkan tepi, (3) isi hanya baris tengah dan lihat citra yang terbentuk.</p>
+<div class='stp'>
+<button id='bpusat' type='button'>Isi pusat</button><button id='btepi' type='button'>Isi tepi</button><button id='bbaris' type='button'>Isi baris tengah</button><button id='bkol' type='button'>Isi kolom tengah</button><button id='bsemua' type='button'>Isi semua</button><button id='reset5' type='button'>Reset (kosongkan)</button>
+</div>

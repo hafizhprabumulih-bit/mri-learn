@@ -1,0 +1,18 @@
+<!-- T2.3 Gradien fase: mengapa harus berubah tiap TR? | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04b.json -->
+<p class='s'>Hanya gradien fase yang boleh berubah dari TR ke TR tanpa efek samping. Perubahan itu membuat data tampak berbeda, sehingga masuk ke garis ruang-k yang berbeda.</p>
+<div class='l'>
+<p><b>Pseudo-frekuensi di isosenter.</b> Contoh paling mudah adalah piksel di isosenter, tepat di tengah irisan pada arah frekuensi dan fase. Spin di sana tidak mengalami perubahan frekuensi maupun fase, karena gradien tidak mengubah kuat medan di titik itu. Pada pengodean frekuensi, spin selalu berpresesi pada frekuensi Larmor berapa pun amplitudo gradiennya. Pada pengodean fase, frekuensinya tidak berubah sehingga fasenya pun tidak berubah. Saat data fase dipetakan ke ruang-k, posisi titik tengah dari satu garis ke garis berikutnya sama. Jika titik-titik itu dihubungkan, hasilnya garis lurus, yaitu tidak ada pseudo-frekuensi. FFT memetakan perubahan frekuensi nol dan perubahan fase nol ini ke piksel di isosenter. Sinyal yang berperilaku seperti itu pasti berasal dari titik tersebut. Jika sinyalnya banyak (amplitudo tinggi), piksel menjadi putih. Jika sedikit, piksel menjadi hitam. Cobalah posisi 0 pada simulasi M04C A1 (Pseudo-frekuensi).</p>
+<p><b>Mengapa gradien fase harus berubah?</b> Agar data tampak berbeda dari TR sebelumnya, sehingga sistem tahu harus meletakkannya di garis ruang-k yang baru. Jika data sama pada setiap TR, data ditaruh di garis yang sama dan citra hanya punya satu piksel pada arah fase. Untuk membentuk matriks fase, data harus berbeda di setiap TR.</p>
+<p><b>Mengapa gradien lain tidak boleh berubah?</b> Jika kemiringan gradien frekuensi berubah tiap TR, ukuran piksel dan FOV pada arah frekuensi ikut berubah, dan itu tidak diinginkan. Jika kemiringan gradien pemilih irisan berubah tiap TR, tebal irisan berubah, dan itu juga tidak diinginkan. Hanya kemiringan gradien fase yang dapat diubah tanpa akibat buruk yang serius. Akibatnya hanya data fase yang berubah.</p>
+<p><b>Hal yang perlu diingat tentang data fase:</b></p>
+<ul>
+<li>Kemiringan gradien fase berubah tiap TR (anggap NEX 1), sehingga derajat pergeseran fase pada jarak tertentu di pasien berubah.</li>
+<li>Gradien fase curam memberi pergeseran fase lebih besar daripada gradien landai.</li>
+<li>Posisi fase momen magnetik di seluruh irisan membentuk gelombang. Frekuensi spasialnya bergantung pada besar pergeseran fase sepanjang jarak.</li>
+<li>Tiap voksel mempunyai pseudo-frekuensi sendiri, yang diperoleh dengan mengamati perubahan fase selama seluruh pemindaian.</li>
+<li>Setiap piksel di irisan punya pseudo-frekuensi unik, sehingga ratusan pseudo-frekuensi diperoleh sepanjang pemindaian.</li>
+<li>Pseudo-frekuensi disampel bersama frekuensi dari pengodean frekuensi, sehingga satu titik data memuat informasi dari kedua proses.</li>
+<li>Jadi tiap titik data memuat informasi pengodean spasial seluruh irisan, dan FFT diperlukan untuk membukanya serta menghitung intensitas tiap piksel.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> Seperti memotret benda yang sama dari sudut berbeda pada setiap pengambilan. Jika sudutnya selalu sama, semua foto identik dan tidak ada informasi baru.</p>

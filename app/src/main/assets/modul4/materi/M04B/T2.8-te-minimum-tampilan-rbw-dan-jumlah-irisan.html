@@ -1,0 +1,23 @@
+<!-- T2.8 TE minimum, tampilan RBW, dan jumlah irisan | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04b.json -->
+<p class='s'>Mengubah RBW atau matriks frekuensi mengubah jendela sampling, dan itu menggeser TE minimum. Pabrikan juga menampilkan RBW dengan cara berbeda, dan perubahan jendela dapat memengaruhi jumlah irisan serta waktu pindai.</p>
+<div class='l'>
+<p><b>Menghitung jendela.</b> <span class='rumus'>W<sub>s</sub> = &Delta;T<sub>s</sub> &times; M(f)</span>, dengan M(f) matriks frekuensi. Matriks frekuensi menentukan jumlah titik data per garis ruang-k, dan jendela adalah jumlah itu dikali interval sampling.</p>
+<p><b>Menghitung TE minimum.</b> Waktu dari pulsa RF eksitasi sampai awal jendela sampling tidak berubah. Yang berubah adalah panjang jendela. Karena puncak gema berada di tengah jendela, TE minimum kira-kira sama dengan waktu tetap itu ditambah separuh jendela. Jika jendela bertambah panjang, TE minimum naik sebesar separuh pertambahan itu. <!-- TODO-VERIFIKASI: model TE = waktu tetap + separuh jendela mengikuti contoh bab rujukan untuk spin-echo; urutan pulsa lain bisa berbeda. --></p>
+<p><b>Matriks naik sama dengan RBW turun.</b> Menaikkan matriks frekuensi memberi efek yang sama dengan menurunkan RBW: jendela sampling lebih panjang. Jika matriks dan RBW sama-sama berubah dengan faktor sama, jendela tidak berubah. Cobalah pada simulasi A3 di bawah.</p>
+<p><b>Hal yang perlu diingat tentang sampling:</b></p>
+<ul>
+<li>Jendela sampling adalah lamanya sistem mengumpulkan data, yaitu saat gradien frekuensi menyala.</li>
+<li>Frekuensi sampling digital adalah seberapa sering frekuensi disampel per detik. Jika Nyquist dipenuhi, nilainya sama dengan RBW.</li>
+<li>Matriks frekuensi menentukan jumlah titik data selama jendela sampling.</li>
+<li>Frekuensi sampling dan jendela sampling bersama-sama menentukan jumlah titik data yang bisa dikumpulkan.</li>
+<li>Jika RBW atau matriks frekuensi diubah, jendela berubah dan TE ikut terpengaruh.</li>
+</ul>
+<p><b>Cara pabrikan menampilkan RBW.</b> Istilahnya tidak seragam. Ada tiga bentuk umum:</p>
+<ol>
+<li>RBW untuk seluruh FOV, biasanya dalam kHz.</li>
+<li>RBW per piksel, yaitu RBW seluruh FOV dibagi matriks frekuensi, biasanya dalam Hz per piksel.</li>
+<li>Pergeseran lemak-air dalam piksel. Lemak dan air berpresesi pada frekuensi berbeda pada B0 yang sama, dan RBW menentukan berapa piksel jarak kedua sinyal itu pada citra. Selisih frekuensinya dapat dihitung dari <code>geser_kimia_lemak_air_ppm</code> dan frekuensi Larmor (lihat simulasi A3).</li>
+</ol>
+<p><b>Jumlah irisan dan TE.</b> TE bukan parameter waktu pindai, tetapi pada kondisi tertentu ikut memengaruhinya. Misalkan jumlah irisan sudah maksimum untuk TR yang dipilih, lalu matriks frekuensi dinaikkan dan RBW dipertahankan. Jendela menjadi lebih panjang, puncak gema bergeser lebih lambat, dan TE naik. Sistem harus menunggu lebih lama di tiap irisan, sehingga tidak semua irisan muat dalam TR yang sama. Sistem lalu menaikkan TR, atau mengambil separuh irisan pada satu akuisisi dan mengulang seluruh pemindaian untuk separuh lainnya. Kedua cara menaikkan waktu pindai.</p>
+</div>
+<p class='a'><b>Analogi:</b> Seperti dokter yang menunggu satu pasien selesai menjalani pemeriksaan sebelum memanggil pasien berikutnya. Pemeriksaan yang lebih lama berarti lebih sedikit pasien yang tertangani dalam satu sesi.</p>

@@ -1,0 +1,24 @@
+<!-- T2.10.5 Fakta 6: Dimensi ruang-k menentukan ukuran piksel | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04b.json -->
+<p class='s'>Ukuran piksel sama dengan FOV dibagi matriks pada tiap arah. Resolusi naik jika FOV tetap dan matriks naik, atau matriks tetap dan FOV turun.</p>
+<div class='l'>
+<p><b>Resolusi spasial.</b> Resolusi spasial adalah ukuran tiap piksel, yaitu seberapa baik dua titik yang berdekatan pada pasien dapat dibedakan. Ukuran piksel ditentukan oleh FOV dan matriks citra. Pada arah fase, ia bergantung pada FOV fase dan matriks fase. Pada arah frekuensi, ia bergantung pada FOV frekuensi dan matriks frekuensi. Sederhananya, ukuran piksel bergantung pada besar FOV dan berapa kotak (piksel) yang membaginya. Di ruang-k, resolusi disebut resolusi frekuensi, karena ruang-k adalah domain frekuensi spasial.</p>
+<p><b>Matriks citra</b> ditentukan jumlah titik data di ruang-k. Matriks fase adalah jumlah garis yang terisi (jumlah titik data di tiap kolom), dan matriks frekuensi adalah jumlah titik data di tiap baris.</p>
+<p><b>Ukuran piksel arah fase</b> ditentukan amplitudo gradien fase paling curam, positif dan negatif, dan setara dengan tinggi lemari. Untuk kedalaman laci tertentu (FOV fase) dan jumlah laci tertentu (matriks fase), tinggi keseluruhan lemari menentukan seberapa besar piksel itu. Jika kedalaman laci dua kali tetapi tinggi lemari tetap, laci yang muat tinggal separuh, jadi matriks fase menjadi setengah. Itu menjelaskan mengapa FOV fase menjadi setengah ketika langkah antar garis dua kali.</p>
+<p><b>Ukuran piksel arah frekuensi</b> ditentukan jendela sampling, dan setara dengan lebar lemari. Jika interval sampling menjadi dua kali (setara RBW setengah) tetapi lebar lemari tetap, titik data yang muat tinggal separuh, jadi matriks frekuensi menjadi setengah. Itu menjelaskan mengapa FOV frekuensi menjadi setengah ketika interval sampling dua kali.</p>
+<p><b>Di balik layar.</b> Saat ukuran piksel diubah di protokol, sistem menentukan dimensi vertikal dan horizontal ruang-k. Ukuran piksel pada arah fase bergantung pada dimensi vertikal ruang-k, dan pada arah frekuensi bergantung pada dimensi horizontal. Keduanya dipengaruhi FOV dan matriks citra, itulah sebabnya kedua parameter ini menentukan ukuran piksel dan resolusi spasial.</p>
+<p><b>Mengapa FOV berbanding terbalik dengan jarak antar titik?</b> Di citra, FOV dihitung dengan mengalikan ukuran piksel dengan jumlah piksel. Di ruang-k, FOV dihitung dengan membagi dimensi ruang-k dengan jarak antar titik data. Jadi di citra ada perkalian, sedangkan di ruang-k ada pembagian. Bayangkan bingkai kayu tempat laci dipasang dan kaus kaki diletakkan: tinggi bingkai sama dengan ukuran piksel arah fase, jumlah laci dalam bingkai sama dengan matriks fase, lebar laci sama dengan ukuran piksel arah frekuensi, dan jumlah kaus kaki per laci sama dengan matriks frekuensi.</p>
+<p><b>Ringkasan: apa yang diatur di balik layar</b></p>
+<div class='gulir'><table class='tabel'>
+<tr><th>Parameter</th><th>Di balik layar</th></tr>
+<tr><td>Tebal irisan</td><td>Amplitudo gradien pemilih irisan dan transmit bandwidth</td></tr>
+<tr><td>Celah irisan</td><td>Amplitudo gradien pemilih irisan dan transmit bandwidth</td></tr>
+<tr><td>FOV frekuensi</td><td>Amplitudo gradien frekuensi dan langkah antar titik data pada tiap baris ruang-k (interval sampling)</td></tr>
+<tr><td>FOV fase</td><td>Langkah antar titik data pada tiap kolom ruang-k, yaitu derajat perubahan fase dari satu garis ke garis berikutnya</td></tr>
+<tr><td>Matriks frekuensi</td><td>Jumlah titik data pada tiap garis ruang-k</td></tr>
+<tr><td>Matriks fase</td><td>Jumlah titik data pada tiap kolom ruang-k</td></tr>
+<tr><td>Resolusi fase (ukuran piksel)</td><td>Amplitudo gradien fase paling curam, positif dan negatif (tinggi lemari)</td></tr>
+<tr><td>Resolusi frekuensi (ukuran piksel)</td><td>Jendela sampling (lebar lemari)</td></tr>
+<tr><td>NSA atau NEX</td><td>Berapa kali garis ruang-k yang sama diisi, dicapai dengan mempertahankan kemiringan dan polaritas gradien fase pada TR berurutan</td></tr>
+</table></div>
+</div>
+<p class='a'><b>Analogi:</b> Bingkai kayu berisi laci. Tinggi bingkai dan jumlah laci menentukan ketebalan tiap laci (piksel arah fase). Lebar laci dan jumlah kaus kaki menentukan ukuran tiap kaus kaki (piksel arah frekuensi).</p>

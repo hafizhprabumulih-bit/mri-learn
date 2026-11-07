@@ -1,0 +1,19 @@
+<div class='kartu aktivitas' id='m03c-a1'>
+<span class='tag'>M03C · A1 · menjelaskan T1.1, T2.3</span>
+<b>Difusi dan faktor b: mengapa jaringan ber-ADC rendah tampak terang</b>
+<p class='lembut'>Atur amplitudo gradien G, durasi δ, dan jarak Δ. Nilai b dihitung dari <code>b = γ² G² δ² (Δ − δ/3)</code> dengan γ = 2,675×10⁸ rad/s/T. Kurva menunjukkan <code>S/S0 = e^(−b·ADC)</code>. Nilai ADC otak dari Tabel 2.13. "Lesi" memakai ADC 0,30 ×10⁻³ mm²/s sebagai contoh difusi terbatas (angka ilustrasi).</p>
+<div class='pilih' role='group' aria-label='Preset b'>
+<button type='button' data-df='lo'>b rendah</button>
+<button type='button' data-df='hi'>b sekitar 1000</button>
+<button type='button' data-df='mx'>b tinggi</button>
+</div>
+<canvas id='m3-cv-d' width='760' height='340' role='img' aria-label='Sinyal difusi terhadap b'></canvas>
+<label for='m3-d-g'>Amplitudo gradien G: <span id='m3-d-og'></span></label>
+<input type='range' id='m3-d-g' min='10' max='80' step='1' value='40'>
+<label for='m3-d-dl'>Durasi gradien δ: <span id='m3-d-odl'></span></label>
+<input type='range' id='m3-d-dl' min='2' max='20' step='1' value='20'>
+<label for='m3-d-D'>Jarak antar gradien Δ: <span id='m3-d-oD'></span></label>
+<input type='range' id='m3-d-D' min='5' max='50' step='1' value='30'>
+<p>Nilai b: <span id='m3-d-b' class='lencana ok'></span></p>
+<p id='m3-d-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

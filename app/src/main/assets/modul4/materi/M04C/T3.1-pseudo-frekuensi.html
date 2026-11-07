@@ -1,0 +1,8 @@
+<!-- T3.1 Pseudo-frekuensi | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04c.json -->
+<p class='s'>Pada satu voksel, titik tengah tiap garis ruang-k berubah dari TR ke TR. Rangkaian perubahan itu membentuk gelombang baru yang disebut pseudo-frekuensi, dan FFT memakainya untuk menemukan posisi pada sumbu fase.</p>
+<div class='l'>
+<p><b>Contoh spin di tepi FOV.</b> Spin di tepi FOV mengalami variasi besar pada kemiringan gradien fase sepanjang pemindaian. Pada sebagian TR gradiennya sangat curam (positif dan negatif), pada TR lain sangat landai. Fase spin bergeser sangat bervariasi, sehingga frekuensi spasial turunannya juga bervariasi dari rendah sampai tinggi.</p>
+<p><b>Titik merah.</b> Variasi itu terpetakan ke ruang-k: gelombang pada tiap garis terbentuk dari kemiringan gradien fase yang berbeda, sehingga informasi fasenya berbeda. Titik tengah tiap garis (titik merah pada gambar buku) berada pada posisi berbeda di gelombangnya. Jika titik-titik itu dihubungkan, muncul gelombang lain, yaitu <b>pseudo-frekuensi</b>. Gelombang ini mewakili perubahan fase spin di lokasi itu sepanjang seluruh pemindaian, dari TR pertama sampai terakhir.</p>
+<p>Lokasi lain di irisan mengalami pola perubahan kemiringan yang berbeda, sehingga pseudo-frekuensinya juga berbeda. Karena itulah posisi sepanjang sumbu fase dapat dibedakan. <!-- TODO-VERIFIKASI: aktivitas pseudo-frekuensi adalah penyederhanaan (idealisasi): tanpa relaksasi, tanpa derau, dan memakai fase linier sempurna. --></p>
+</div>
+<p class='a'><b>Analogi:</b> Seperti lampu yang berkedip dengan irama berbeda di tiap rumah. Dari irama kedipnya saja, Anda bisa tahu rumah mana yang sedang Anda lihat.</p>

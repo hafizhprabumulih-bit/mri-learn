@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang='id'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>MODUL 2: Relaksasi T1 dan T2</title>
+<style>
+/* TETAP: awal */
+:root{--latar:#fff;--permukaan:#f4f6f8;--teks:#1b1f24;--lembut:#5a6572;--aksen:#1f6feb;--t1:#d9480f;--t2:#0b7285;--b0:#2f6bff;--benar:#2b8a3e;--salah:#c92a2a;--garis:#d5dbe3;--radius:10px;--font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+@media(prefers-color-scheme:dark){:root{--latar:#14171a;--permukaan:#1e2328;--teks:#e8ecef;--lembut:#9aa5b1;--aksen:#5aa2ff;--t1:#ff922b;--t2:#3bc9db;--b0:#6f9bff;--garis:#2e353d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--latar);color:var(--teks);font:16px/1.6 var(--font)}
+main{max-width:860px;margin:0 auto;padding:16px}
+a{color:var(--aksen)}
+.atas{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+h1{font-size:1.6rem;margin:.6em 0 .2em}
+h2{font-size:1.25rem;margin-top:1.6em}
+.lembut{color:var(--lembut)}
+.kartu{background:var(--permukaan);border:1px solid var(--garis);border-radius:var(--radius);padding:14px;margin:12px 0}
+.lanjut{border-left:4px solid var(--aksen)}
+button{font:inherit;padding:8px 14px;border-radius:8px;border:1px solid var(--garis);background:var(--permukaan);color:var(--teks);cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--aksen);outline-offset:2px}
+canvas{max-width:100%;background:var(--permukaan);border-radius:var(--radius)}
+input[type=range]{width:100%}
+.ok{color:var(--benar)}
+.no{color:var(--salah)}
+/* TETAP: akhir */
+/* ISI MODUL: CSS tambahan di sini */
+h3{font-size:1.05rem;margin:.2em 0 .5em}
+fieldset{border:1px solid var(--garis);border-radius:var(--radius);margin:8px 0;padding:8px 12px}
+legend{padding:0 6px;color:var(--lembut)}
+label{cursor:pointer}
+.jar{display:flex;flex-wrap:wrap;gap:6px 16px}
+.kotak{display:inline-block;width:.8em;height:.8em;border-radius:2px;margin:0 6px 0 4px}
+.kv{width:100%;height:auto;display:block}
+.tabel{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border-bottom:1px solid var(--garis);padding:4px 8px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+select{font:inherit;padding:6px;border-radius:8px;border:1px solid var(--garis);background:var(--permukaan);color:var(--teks)}
+select:focus-visible,summary:focus-visible{outline:2px solid var(--aksen);outline-offset:2px}
+summary{cursor:pointer;font-weight:600}
+.baca{font-size:.95rem;margin:.4em 0}
+.pilih{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.pilih button[aria-pressed=true]{background:var(--aksen);color:var(--latar);border-color:var(--aksen);font-weight:600}
+.bm .s,.bm .l,.bm .a{display:none}
+.bm[data-mode=singkat] .s,.bm[data-mode=lengkap] .l,.bm[data-mode=analogi] .a{display:block;animation:masuk .4s ease}
+.bm .a{border-left:3px solid var(--t2);padding-left:10px}
+.sumber{font-size:.85rem}
+.opsi{display:block;width:100%;text-align:left;margin:6px 0}
+.opsi.benar{background:var(--benar);border-color:var(--benar);color:#fff;font-weight:600}
+.opsi.salah{background:var(--salah);border-color:var(--salah);color:#fff}
+.navkuis{display:flex;gap:8px;justify-content:space-between;margin-top:10px}
+button:disabled{opacity:.55;cursor:not-allowed}
+.tag{font-size:.8rem;font-weight:700;color:var(--aksen);text-transform:uppercase;letter-spacing:.04em}
+@keyframes masuk{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--garis);font-size:.85rem;margin:3px 4px 3px 0}
+.baris6{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+.sw{flex:none;width:96px;padding:6px;border-radius:8px;text-align:center;font-size:.8rem;font-weight:700;border:1px solid var(--garis)}
+.sw.t{background:#f2f2f2;color:#111}.sw.r{background:#7a7a7a;color:#fff}.sw.n{background:#111;color:#fff}
+table.ringkas td,table.ringkas th{white-space:normal;text-align:left;vertical-align:top}
+.akt{border-top:1px dashed var(--garis);margin-top:14px;padding-top:10px}
+.akt h3{color:var(--aksen)}
+.sub{font-weight:600;margin:.9em 0 .2em}
+button.ik{width:44px;height:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}
+.kompor{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0}
+.unit{flex:1 1 300px;display:flex;gap:6px;align-items:center;min-width:0}
+.unit canvas{flex:1 1 0;width:auto;min-width:0}
+.vs{flex:none;width:64px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.85rem;text-align:center}
+.vsw{position:relative;width:44px;height:260px}
+.vsw input[type=range]{position:absolute;width:260px;height:44px;left:-108px;top:108px;margin:0;transform:rotate(-90deg)}
+@media(prefers-reduced-motion:reduce){.bm .l,.bm .s,.bm .a{animation:none}}
+</style>
+</head>
+<body>
+<main>
+<nav class='atas'><a href='index.html'>&larr; Beranda</a><a href='m3.html'>Modul berikutnya &rarr;</a></nav>
+<h1>MODUL 2: Relaksasi T1 dan T2</h1>
+<p class='lembut'>Media belajar, bukan untuk keputusan klinis.</p>
+<!-- ISI MODUL: materi. Tingkat 3 memakai class='kartu lanjut' -->
+<h2>Tujuan belajar</h2>
+<ul>
+<li>Membedakan relaksasi T1 (spin-kisi) dan relaksasi T2 (spin-spin).</li>
+<li>Membaca kurva pemulihan T1 dan peluruhan T2 dari beberapa jaringan.</li>
+<li>Menjelaskan kontras T1 dan pengaruh TR, saturasi, serta keadaan tunak.</li>
+<li>Menjelaskan mengapa lemak dan air punya T1 dan T2 yang berbeda.</li>
+<li>Menjelaskan dephasing akibat interaksi spin-spin dan ketidakhomogenan medan.</li>
+<li>Menjelaskan mengapa T2* lebih pendek dari T2, dan apa yang dilakukan <i>spin echo</i>.</li>
+<li>Menjelaskan pengaruh medan magnet utama (B0) 1,5 T dan 3 T pada T1 dan T2.</li>
+<li>Menjelaskan kontras T2 dan kontras kerapatan proton (PD), serta pengaruh TE.</li>
+<li>Memakai persamaan sinyal SI = PD · e^(−TE/T2) · (1 − e^(−TR/T1)) untuk menjelaskan pembobotan T1, T2, dan PD.</li>
+<li>Memakai analogi kompor (kenop TR dan TE) dan petunjuk sinyal air untuk menebak pembobotan sebuah citra.</li>
+<li>Mengenali contoh jaringan dan kelainan bersinyal tinggi, rendah, atau tanpa sinyal pada citra berbobot T1.</li>
+</ul>
+
+<h2>Materi</h2>
+<p class='lembut'>Tiap kartu punya tiga pilihan: materi singkat, materi lengkap, atau analogi. Aktivitas interaktif ada di bagian bawah kartu yang relevan.</p>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 1: Kontras intrinsik dan ekstrinsik</span>
+<p>Citra diagnostik harus menunjukkan kontras, yaitu perbedaan antara struktur normal, dan antara struktur normal dengan kelainan. Faktor yang memengaruhi kontras dibagi dua.</p>
+<p><b>Parameter kontras intrinsik</b> melekat pada jaringan dan tidak bisa diubah. <b>Parameter kontras ekstrinsik</b> berada di bawah kendali kita dan bisa diubah.</p>
+<p class='s'>Intrinsik: T1, T2, kerapatan proton (PD), aliran, dan ADC. Ekstrinsik: TR, TE, sudut flip, TI, turbo factor, dan nilai b.</p>
+<p class='l'>Parameter intrinsik di MRI adalah waktu pemulihan T1, waktu peluruhan T2, kerapatan proton (PD), aliran, dan koefisien difusi tampak (ADC). Modul ini membahas T1 dan T2. Aliran dan ADC tidak dibahas di sini.</p>
+<p class='l'>Parameter ekstrinsik adalah TR (waktu pengulangan), TE (waktu gema), sudut flip, TI, turbo factor atau panjang echo train, dan nilai b. Semuanya dipilih pada protokol pemindaian, dan sebagian bergantung pada sekuens yang dipakai (lihat Modul 3).</p>
+<p class='l'>Sebagai perbandingan, pada radiografi sinar-X, kepadatan struktur yang dilewati berkas adalah parameter intrinsik, sedangkan faktor eksposi adalah parameter ekstrinsik.</p>
+<p class='a'>Bayangkan memotret dengan kamera. Warna asli benda tidak bisa kita ubah (intrinsik). Pengaturan cahaya dan lama rana bisa kita ubah (ekstrinsik). Hasil foto ditentukan oleh keduanya.</p>
+<!-- PROPOSAL-ISTILAH (untuk PROPOSALS.md): parameter kontras intrinsik dan ekstrinsik, kerapatan proton (PD), ADC, TI, turbo factor, nilai b. Dipakai di Modul 2. -->
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 1: Relaksasi, dua proses sekaligus</span>
+<p>Ketika pulsa RF dihentikan, inti hidrogen hanya berada di bawah pengaruh B0. Sistem selalu mencari tingkat energi terendah. Proses kembali ke keadaan itu disebut relaksasi.</p>
+<p>Selama relaksasi, inti melepas energi RF yang tadi diserap, dan vektor magnetisasi neto (NMV) kembali searah B0. Pada saat yang sama tetapi terpisah, momen magnetik inti kehilangan koherensi fase.</p>
+<p><b>Relaksasi T1 (spin-kisi)</b> adalah pemulihan magnetisasi longitudinal (kurva naik). <b>Relaksasi T2 (spin-spin)</b> adalah peluruhan magnetisasi transversal yang koheren (kurva turun).</p>
+<p class='s'>Ingat: T1 berarti pulih (naik), T2 berarti meluruh (turun).</p>
+<p class='l'>Kedua proses berjalan sendiri-sendiri, bukan berurutan. Nama T1 menandakan proses relaksasi utama, tetapi T1 bukan proses yang terjadi lebih dulu. Peluruhan T2 berjalan lebih cepat daripada pemulihan T1. Pada data modul ini, T1 sekitar <span data-isi='rmin'></span> sampai <span data-isi='rmax'></span> kali lebih panjang daripada T2.</p>
+<p class='a'>Bayangkan T1 sebagai bola di dalam mangkuk yang digoyang. Ia perlahan kembali ke dasar mangkuk, tempat energinya paling rendah. Bayangkan T2 sebagai sekelompok pelari yang mulai serempak, lalu makin berpencar. Keduanya berlangsung bersamaan.</p>
+<!-- TODO-VERIFIKASI: buku acuan menyebut kisaran umum perbandingan T1 dan T2 yang berbeda dari data.js. Modul ini hanya memakai perbandingan yang dihitung dari DATA. -->
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Pemulihan T1 (spin-kisi)</span>
+<p>Pemulihan T1 terjadi ketika inti hidrogen melepas energinya ke lingkungan sekitar, yang disebut kisi molekul. Proses ini disebut transfer energi spin-kisi. Energi yang dilepas membuat momen magnetik inti kembali menyearah B0, sehingga magnetisasi longitudinal pulih.</p>
+<p class='s'>Makin cepat energi dilepas ke kisi, makin pendek T1.</p>
+<p class='l'>Menurut teori kuantum, jumlah spin berenergi tinggi berkurang dan jumlah spin berenergi rendah bertambah. Menurut teori klasik, NMV perlahan menyearahkan diri di bidang longitudinal, sehingga jumlah spin-up dan spin-down berubah.</p>
+<p class='l'>Pemulihan T1 berbentuk eksponensial dan lajunya berbeda antar jaringan. Pemulihan terbanyak terjadi di awal, lalu makin lama makin sedikit, sampai magnetisasi longitudinal pulih penuh.</p>
+<p class='l'>Waktu pemulihan T1 adalah waktu yang dibutuhkan agar <span data-isi='p63'></span> magnetisasi longitudinal pulih. Nilainya parameter intrinsik jaringan. Waktu yang tersedia untuk pemulihan adalah TR, yaitu jarak waktu antara satu pulsa RF dan pulsa berikutnya. Jadi TR menentukan seberapa banyak pemulihan T1 sempat terjadi. Karena itu TR ada di sumbu mendatar kurva T1.</p>
+<p class='a'>Bayangkan secangkir kopi panas yang mendingin menuju suhu ruang. Perubahan paling cepat di awal, lalu melambat. T1 menunjukkan seberapa cepat proses itu berjalan. TR seperti lama kita menunggu sebelum menaruh termometer lagi.</p>
+<!-- TODO-VERIFIKASI: Tabel 2.1 pada buku acuan memakai nilai pada 1 T yang berbeda dari data.js, sehingga tidak dipakai di modul ini. -->
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Kurva dan rumus</span>
+<p>Setelah pulsa RF 90°, kedua proses dapat ditulis sebagai teks berikut.</p>
+<p><code>Mz(t) = M0 · (1 − e^(−t/T1))</code><br><code>Mxy(t) = M0 · e^(−t/T2)</code></p>
+<p class='s'>Pada t = T1, Mz pulih sampai <b data-isi='p63'></b> dari M0. Pada t = T2, Mxy tinggal <b data-isi='p37'></b> dari M0.</p>
+<p class='l'>M0 adalah magnetisasi penuh. T1 dan T2 adalah konstanta waktu: makin kecil nilainya, makin cepat prosesnya.</p>
+<p class='l'>Pada t = T1, Mz pulih sampai <b data-isi='p63'></b> dari M0. Pada t = 2·T1, pulih sampai <b data-isi='p86'></b>, dan pada t = 3·T1 sampai <b data-isi='p95'></b>. Pada t = 5·T1 pulihnya <b data-isi='p99'></b>, hampir penuh. Pada t = T2, Mxy tinggal <b data-isi='p37'></b> dari M0. Periksa dengan kursor waktu pada aktivitas di bawah kartu ini.</p>
+<p class='a'>Pada kopi tadi, setelah waktu sebesar T1, suhunya sudah lebih dari separuh jalan menuju suhu ruang (<span data-isi='p63'></span>). Setelah beberapa kali T1, selisihnya hampir habis.</p>
+<!-- TODO-VERIFIKASI: Mz dimulai dari 0 tepat setelah pulsa RF 90° (idealisasi). Pemulihan setelah pulsa 180° tidak dibahas. -->
+<div class='akt'>
+<h3>Aktivitas: kurva pemulihan T1 dan peluruhan T2</h3>
+<p class='baca'>Pilih jaringan, lalu geser kursor waktu dan bandingkan. B0 mengikuti pilihan pada kartu Efek B0.</p>
+<fieldset><legend>Jaringan yang ditampilkan di grafik</legend><div class='jar' id='daftar'></div></fieldset>
+<p class='sub'>Pemulihan T1: Mz(t) / M0</p>
+<canvas id='c1' class='kv' width='640' height='300' role='img' aria-label='Grafik pemulihan magnetisasi longitudinal terhadap waktu untuk jaringan terpilih'></canvas>
+<label for='s1'>Kursor waktu: <output id='o1' aria-live='polite'></output></label>
+<input type='range' id='s1' min='0' step='1' value='0'>
+<p class='sub'>Peluruhan T2: Mxy(t) / M0</p>
+<canvas id='c2' class='kv' width='640' height='300' role='img' aria-label='Grafik peluruhan magnetisasi transversal terhadap waktu untuk jaringan terpilih'></canvas>
+<label for='s2'>Kursor waktu: <output id='o2' aria-live='polite'></output></label>
+<input type='range' id='s2' min='0' step='1' value='0'>
+<p class='sub'>Nilai pada kursor waktu</p>
+<div class='tabel'><table><thead><tr><th>Jaringan</th><th>T1 (ms)</th><th>T2 (ms)</th><th>Mz/M0</th><th>Mxy/M0</th><th>Tampilan</th></tr></thead><tbody id='isi'></tbody></table></div>
+<p class='lembut baca'>Mz/M0 dihitung pada kursor T1 dan Mxy/M0 pada kursor T2. Cari waktu ketika jarak antarjaringan paling besar. Di situ kontras paling kuat. Kolom Tampilan: makin terang kotaknya, makin tinggi sinyal transversal pada kursor T2 (hiperintens). Makin gelap, makin rendah (hipointens). <!-- TODO-VERIFIKASI: tampilan abu-abu hanya dari Mxy/M0 dan mengabaikan PD serta T1. --></p>
+<p><button type='button' class='ik' data-ik='reset' id='resetKv'></button></p>
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Peluruhan T2 (spin-spin)</span>
+<p>Peluruhan T2 terjadi karena medan magnet inti hidrogen yang bertetangga saling berinteraksi. Proses ini disebut relaksasi spin-spin dan membuat fase momen magnetik tidak serempak (<i>dephasing</i>). Satu spin memindahkan energi ke spin lain, bukan ke kisi.</p>
+<p class='s'>T2: sinyal transversal meluruh karena spin tidak lagi serempak. TE menentukan seberapa banyak peluruhan terjadi.</p>
+<p class='l'>Kata peluruhan merujuk pada hilangnya magnetisasi transversal yang koheren. Angka 2 pada T2 menandakan bahwa ini proses relaksasi kedua. Pada T1, energi dilepas ke kisi. Pada T2, energi hanya berpindah antar spin.</p>
+<p class='l'>Peluruhan T2 berbentuk eksponensial dan lajunya berbeda antar jaringan. Waktu peluruhan T2 adalah waktu yang dibutuhkan agar <span data-isi='p63'></span> magnetisasi transversal tidak lagi serempak, sehingga <span data-isi='p37'></span> masih sefase. Nilainya parameter intrinsik jaringan.</p>
+<p class='l'>Waktu yang tersedia untuk peluruhan T2 adalah jarak dari pulsa RF sampai sinyal dikumpulkan oleh RF coil, yaitu TE. Jadi TE menentukan seberapa banyak peluruhan T2 terjadi. Karena itu TE ada di sumbu mendatar kurva T2.</p>
+<p class='a'>Bayangkan sekelompok penabuh drum yang awalnya kompak. Karena tiap penabuh sedikit terganggu bunyi tetangganya, ketukan mereka lambat laun tidak serempak. Bunyi gabungannya melemah, tetapi bunyi tidak dibuang ke luar ruangan.</p>
+<p class='a'>TE seperti saat tombol rekam ditekan. Makin lama kita menunggu, makin sedikit penabuh yang masih kompak.</p>
+</div>
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Mengapa spin tidak serempak (dephasing)</span>
+<p>Ada dua penyebab dephasing. Pertama, interaksi spin-spin yang melekat pada jaringan. Kedua, ketidakhomogenan B0.</p>
+<p class='s'>Medan yang sedikit berbeda berarti frekuensi presesi sedikit berbeda. Perbedaan frekuensi itu menggeser fase.</p>
+<p class='l'><b>Interaksi spin-spin.</b> Bayangkan dua spin yang berdekatan. Spin yang momen magnetiknya searah B0 mengalami medan sedikit lebih besar, sehingga frekuensi presesinya naik. Spin yang berlawanan arah dengan B0 mengalami medan sedikit lebih kecil, sehingga frekuensinya turun. Perubahan kecil ini cukup untuk membuat fase tidak serempak.</p>
+<p class='l'><b>Ketidakhomogenan B0.</b> Ada area di dalam medan yang kekuatannya sedikit lebih rendah atau sedikit lebih tinggi daripada medan utama. Menurut persamaan Larmor, frekuensi Larmor sebanding dengan kekuatan medan yang dialami. Di area bermedan lebih tinggi, momen magnetik berputar lebih cepat. Di area bermedan lebih rendah, lebih lambat.</p>
+<p class='l'>Percepatan dan perlambatan relatif ini membuat momen magnetik segera tidak serempak, dan menghasilkan <i>free induction decay</i> (FID). Lihat visualisasi dephasing pada aktivitas di bawah kartu ini.</p>
+<p class='a'>Bayangkan beberapa jam tangan yang jarumnya berputar dengan kecepatan sedikit berbeda. Mulai dari waktu yang sama, makin lama makin menunjukkan jam yang berbeda. Pada visualisasi, panah biru berputar lebih lambat dan panah merah lebih cepat.</p>
+<!-- TODO-VERIFIKASI: arah efek spin tetangga mengikuti penjelasan buku acuan. Periksa ke sumber lain sebelum dipakai di luar modul. -->
+<div class='akt'>
+<h3>Aktivitas: dephasing, vektor spin dan sinyal (FID dan spin echo)</h3>
+<p class='baca'>Kiri: tiap panah adalah satu kelompok spin pada bingkai yang berputar bersama frekuensi Larmor. Panah biru berputar lebih lambat, panah merah lebih cepat, dan garis hitam tebal adalah vektor neto. Kanan: grafik panjang vektor neto terhadap waktu. Garis putus-putus biru menghubungkan ujung vektor neto dengan titik pada grafik, dan tinggi titik itu sama dengan panjang vektor neto. Tekan putar atau geser waktu. Di sini TE sama dengan T2 jaringan yang dipilih.</p>
+<p><label>Jaringan: <select id='selV'></select></label></p>
+<p><label for='sp'>Ketidakhomogenan medan (relatif): <output id='oSp'></output></label><input type='range' id='sp' min='0' max='100' step='5' value='40'></p>
+<p><label><input type='checkbox' id='ec'> Beri pulsa RF 180° pada TE/2 (spin echo)</label></p>
+<p><label for='tv'>Waktu setelah pulsa RF 90°: <output id='oTv'></output></label><input type='range' id='tv' min='0' max='1' step='1' value='0'></p>
+<canvas id='cV' class='kv' width='720' height='330' role='img' aria-label='Kiri: panah spin yang berpencar seiring waktu. Kanan: grafik panjang vektor neto terhadap waktu, dihubungkan dengan garis putus-putus ke ujung vektor neto'></canvas>
+<p class='baca' id='infoV'></p>
+<div class='jar'><button type='button' class='ik' data-ik='play' id='pv'></button><button type='button' class='ik' data-ik='reset' id='resetV'></button></div>
+<!-- TODO-VERIFIKASI: skala ketidakhomogenan dan sebaran frekuensi 24 spin adalah pengaturan didaktik. Kurva FID tidak persis eksponensial karena sebaran dipilih merata. -->
+</div>
+</div>
+
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: T2* dan spin echo</span>
+<p>Medan magnet tidak sempurna homogen, sehingga proton di tempat berbeda berpresesi dengan frekuensi sedikit berbeda dan fasenya cepat tidak serempak. Peluruhan yang teramati disebut T2* dan selalu lebih pendek dari T2.</p>
+<p><code>1/T2* = 1/T2 + (suku akibat ketidakhomogenan, sebanding dengan γ·ΔB0)</code></p>
+<p>Di sini γ/2π = <span data-isi='gamma'></span> MHz/T.</p>
+<!-- TODO-VERIFIKASI: persamaan di buku acuan memuat faktor 1/2 pada suku γ·ΔB0 dan ΔB0 dalam ppm. Modul ini hanya menulis kesebandingannya. -->
+<p class='s'>Pada <i>spin echo</i>, pulsa RF 180° menghilangkan bagian dephasing ini. Pada waktu gema (TE), sinyal hanya meluruh menurut T2.</p>
+<p class='l'>Sinyal yang meluruh dengan T2* setelah satu pulsa RF disebut <i>free induction decay</i> (FID). Pada <i>spin echo</i>, pulsa RF 180° diberikan pada TE/2. Pulsa ini membalik fase sehingga proton berkumpul lagi pada waktu gema (TE).</p>
+<p class='l'>Ketidakhomogenan B0 menghasilkan kurva peluruhannya sendiri, yaitu T2*. Begitu pulsa RF dihentikan, momen magnetik menjadi tidak serempak dengan sangat cepat. Peluruhan T2 dari dephasing bawaan jaringan berlangsung lebih lama daripada T2*.</p>
+<p class='l'>Tujuan sekuens pulsa adalah memfokuskan ulang (<i>rephase</i>) momen magnetik. Dengan begitu dephasing bawaan jaringan diukur pada TE, dan citra dengan kontras berbeda dapat diperoleh (Modul 3).</p>
+<p class='l'>Yang dipulihkan hanya dephasing akibat ketidakhomogenan medan. Peluruhan T2 sejati tidak bisa dipulihkan, sehingga amplitudo gema tetap lebih kecil daripada awal.</p>
+<p class='a'>Kembali ke para pelari: pulsa RF 180° seperti peluit yang menyuruh semua berbalik arah. Yang tadi lebih cepat kini lebih jauh dari garis awal, jadi mereka tiba bersamaan di garis awal pada waktu gema. Pelari yang kelelahan (T2 sejati) tidak bisa dipulihkan.</p>
+<div class='akt'>
+<h3>Aktivitas: FID dibanding spin echo</h3>
+<p class='baca'>Pilih jaringan, atur seberapa pendek T2* dibanding T2, lalu geser TE. Gema pada spin echo hanya meluruh menurut T2. B0 mengikuti pilihan pada kartu Efek B0.</p>
+<p><label>Jaringan: <select id='selJ'></select></label></p>
+<p><label for='rasio'>T2* sebagai persen dari T2: <output id='oR' aria-live='polite'></output></label><input type='range' id='rasio' min='20' max='100' step='5' value='50'></p>
+<p><label for='te'>TE (waktu gema): <output id='oTE' aria-live='polite'></output></label><input type='range' id='te' min='0' max='1' step='1' value='0'></p>
+<canvas id='cE' class='kv' width='640' height='380' role='img' aria-label='Dua panel: sinyal FID yang meluruh dengan T2*, dan spin echo dengan gema pada TE'></canvas>
+<p class='baca' id='infoE' aria-live='polite'></p>
+<p><button type='button' class='ik' data-ik='reset' id='resetE'></button></p>
+<!-- TODO-VERIFIKASI: rentang geser T2* (persen dari T2) adalah pengaturan didaktik, bukan nilai pengukuran. Kurva adalah selubung ideal tanpa difusi dan tanpa efek lain. -->
+</div>
+</div>
+<div class='kartu bm'>
+<span class='tag'>Tingkat 1: Hal yang perlu diingat tentang relaksasi</span>
+<p class='s'>Relaksasi = energi hilang. T1 = energi ke kisi, Mz pulih. T2 = koherensi fase hilang dan tidak dapat dipulihkan. Sekuens pulsa memfokuskan ulang spin.</p>
+<p class='l'>Relaksasi adalah istilah umum untuk hilangnya energi. Di MRI, energi ini diberikan ke spin lewat pulsa RF, lalu hilang setelah pulsa dihentikan.</p>
+<p class='l'>Transfer energi spin-kisi adalah proses relaksasi ketika spin melepas energi yang diserap dari pulsa RF ke kisi molekul jaringan. Akibatnya, magnetisasi longitudinal pulih (T1).</p>
+<p class='l'>Peluruhan T2 adalah hilangnya koherensi fase yang tidak dapat dipulihkan, akibat interaksi spin-spin pada tingkat atom dan molekul.</p>
+<p class='l'>Sekuens pulsa adalah mekanisme untuk memfokuskan ulang spin, sehingga citra dengan berbagai jenis kontras dapat diperoleh.</p>
+<p class='a'>Bayangkan sebuah konser. Pulsa RF memberi tenaga kepada pemain. Relaksasi adalah tenaga yang hilang setelah musik berhenti. Spin-kisi seperti suara yang diserap dinding ruangan. Spin-spin seperti pemain yang saling mengacaukan tempo. Sekuens pulsa seperti dirigen yang menyatukan tempo mereka lagi.</p>
+</div>
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Mekanisme kontras, sinyal tinggi dan rendah</span>
+<p>Citra MR punya kontras jika ada area bersinyal tinggi (hiperintens, tampak putih) dan area bersinyal rendah (hipointens, tampak hitam). Area bersinyal sedang tampak abu-abu. NMV dipisahkan menjadi vektor tiap jaringan, misalnya lemak, cairan serebrospinal, dan otot.</p>
+<p><b>Sinyal tinggi</b> terjadi jika komponen magnetisasi transversal yang koheren besar pada TE. <b>Sinyal rendah</b> terjadi jika komponen itu kecil atau tidak ada.</p>
+<p class='s'>Kontras citra terutama berasal dari pemulihan T1, peluruhan T2, dan kerapatan proton (PD).</p>
+<p class='l'>PD adalah jumlah proton hidrogen mobil per satuan volume jaringan. Makin tinggi PD, makin banyak sinyal yang tersedia dari jaringan itu. Pada data modul ini, PD relatif cairan serebrospinal dan lemak <span data-isi='pdCsf'></span>, substansia grisea <span data-isi='pdGm'></span>, dan substansia alba <span data-isi='pdWm'></span>.</p>
+<p class='l'>Relaksasi T1 dan T2 bergantung pada dua faktor, yaitu kecocokan laju gerak molekul dengan frekuensi Larmor dan kerapatan molekul. Keduanya dibahas di kartu Lanjut.</p>
+<p class='a'>Bayangkan paduan suara yang direkam pada saat TE. Suaranya keras jika penyanyinya banyak (PD tinggi) dan menyanyi serempak (koherensi transversal besar). Suara lemah berarti penyanyinya sedikit atau mereka sudah tidak serempak.</p>
+</div>
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Lemak dan air, dua kutub kontras</span>
+<p>Secara umum, dua kutub kontras di MRI adalah lemak dan air. Keduanya berisi hidrogen, tetapi tersusun berbeda.</p>
+<p><b>Lemak</b> terdiri dari molekul besar bernama lipid. Molekulnya rapat dan geraknya (<i>tumbling</i>) relatif lambat. <b>Air</b> (H<sub>2</sub>O) terdiri dari dua atom hidrogen dan satu atom oksigen. Molekulnya berjauhan dan geraknya relatif cepat.</p>
+<p class='s'>Hidrogen pada lemak pulih lebih cepat di sumbu longitudinal dan kehilangan magnetisasi transversal lebih cepat daripada air.</p>
+<p class='l'>Pada air, oksigen cenderung menarik elektron menjauh dari inti hidrogen, sehingga inti lebih terbuka terhadap pengaruh B0. Pada lemak, karbon tidak menarik elektron itu. Awan elektron tetap melindungi inti dari pengaruh medan utama.</p>
+<p class='l'>Akibatnya, hidrogen pada lemak pulih lebih cepat di sumbu longitudinal dan kehilangan magnetisasi transversal lebih cepat daripada air. Karena itu lemak dan air tampak berbeda pada citra MR.</p>
+<p class='l'>Pada data modul ini, T1 lemak <span data-isi='fatT1'></span> ms dan T1 cairan serebrospinal <span data-isi='csfT1'></span> ms. T2 lemak <span data-isi='fatT2'></span> ms dan T2 cairan serebrospinal <span data-isi='csfT2'></span> ms. Cairan serebrospinal dipakai sebagai pendekatan untuk air, karena data tidak memuat air murni.</p>
+<p class='a'>Bayangkan dua ruangan. Ruangan pertama penuh orang yang berdesakan dan bergerak pelan (lemak). Ruangan kedua berisi orang yang berlari-lari dan berjauhan (air).</p>
+<!-- TODO-VERIFIKASI: penjelasan awan elektron mengikuti buku acuan dan bersifat penyederhanaan. -->
+<!-- TODO-VERIFIKASI: data.js tidak memuat air murni. Cairan serebrospinal dipakai sebagai pendekatan. -->
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Pemulihan T1 pada lemak dan air</span>
+<p>Pemulihan T1 terjadi ketika inti hidrogen melepas energi dari pulsa RF ke kisi molekul di sekitarnya. Lemak dan air melakukannya dengan efisiensi yang sangat berbeda.</p>
+<p class='s'>Lemak: gerak lambat yang cocok dengan frekuensi Larmor, jadi T1 pendek. Air: gerak cepat yang tidak cocok, jadi T1 panjang.</p>
+<p class='l'><b>Lemak</b> punya energi bawaan yang rendah dan mudah menyerap energi dari inti hidrogen ke kisinya. Gerak molekul yang lambat membuat laju geraknya cocok dengan frekuensi Larmor. Pertukaran energi jadi efisien, momen magnetik hidrogen cepat berelaksasi, dan NMV cepat menyearah dengan B0. Jadi T1 lemak pendek.</p>
+<p class='l'><b>Air</b> punya energi bawaan yang tinggi dan tidak mudah menyerap energi dari inti hidrogen ke kisinya. Mobilitas molekul tinggi, sehingga laju geraknya tidak cocok dengan frekuensi Larmor. Pertukaran energi kurang efisien, NMV lebih lama menyearah dengan B0, dan T1 air panjang.</p>
+<p class='a'>Lemak seperti spons yang cepat menyerap air, sehingga energi cepat berpindah ke kisi. Air seperti permukaan kaca yang licin: energi sulit diserap, sehingga prosesnya lama. Bandingkan keduanya pada aktivitas di bawah kartu ini.</p>
+<div class='akt'>
+<h3>Aktivitas: pemulihan T1 pada lemak dan cairan</h3>
+<p class='baca'>Panah menunjukkan komponen longitudinal yang pulih menuju B0. Bandingkan lemak (atas) dan cairan serebrospinal (bawah, sebagai pendekatan untuk air) pada waktu yang sama. Geser waktu atau tekan putar. B0 mengikuti pilihan pada kartu Efek B0.</p>
+<p><label for='tl1'>Waktu: <output id='oTl1'></output></label><input type='range' id='tl1' min='0' max='1' step='1' value='0'></p>
+<canvas id='cL1' class='kv' width='640' height='400' role='img' aria-label='Perbandingan lemak dan cairan serebrospinal: panah magnetisasi dan kurva terhadap waktu'></canvas>
+<p class='baca' id='infoL1'></p>
+<div class='jar'><button type='button' class='ik' data-ik='play' id='pl1'></button><button type='button' class='ik' data-ik='reset' id='resetL1'></button></div>
+<!-- TODO-VERIFIKASI: panah T1 digambar dengan panjang tetap, hanya untuk menunjukkan komponen Mz. Kipas panah T2 memakai sebaran frekuensi sampel agar mendekati peluruhan eksponensial, dan panah neto memakai nilai teori. -->
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Peluruhan T2 pada lemak dan air</span>
+<p>Peluruhan T2 bergantung pada interaksi antara medan magnet inti hidrogen yang bertetangga.</p>
+<p class='s'>Lemak: molekul rapat, spin-spin sering terjadi, T2 pendek. Air: molekul berjauhan, spin-spin jarang, T2 panjang.</p>
+<p class='l'><b>Lemak.</b> Molekulnya rapat, sehingga interaksi spin-spin lebih mungkin terjadi. Selain itu, momen magnetik inti hidrogen pada lemak berpresesi dengan frekuensi yang mirip dengan gerak molekul. Akibatnya momen magnetik cepat tidak serempak dan magnetisasi transversal yang koheren cepat hilang. T2 lemak pendek.</p>
+<p class='l'><b>Air.</b> Molekulnya berjauhan, sehingga interaksi spin-spin kurang mungkin terjadi. Momen magnetik inti hidrogen pada air berpresesi jauh lebih cepat daripada gerak molekul. Akibatnya momen magnetik tidak serempak secara perlahan, dan magnetisasi transversal hilang bertahap. T2 air panjang.</p>
+<p class='a'>Bayangkan dua kelompok penabuh drum. Yang duduk berdempetan (lemak) saling mengganggu, sehingga ketukannya cepat tidak kompak. Yang duduk berjauhan (air) jarang saling mengganggu, sehingga lama tetap kompak.</p>
+<div class='akt'>
+<h3>Aktivitas: peluruhan T2 pada lemak dan cairan</h3>
+<p class='baca'>Kipas panah menunjukkan spin yang makin tidak serempak, dan panah hitam adalah magnetisasi transversal neto. Bandingkan lemak (atas) dan cairan serebrospinal (bawah, sebagai pendekatan untuk air) pada waktu yang sama. Geser waktu atau tekan putar. B0 mengikuti pilihan pada kartu Efek B0.</p>
+<p><label for='tl2'>Waktu: <output id='oTl2'></output></label><input type='range' id='tl2' min='0' max='1' step='1' value='0'></p>
+<canvas id='cL2' class='kv' width='640' height='400' role='img' aria-label='Perbandingan lemak dan cairan serebrospinal: panah magnetisasi dan kurva terhadap waktu'></canvas>
+<p class='baca' id='infoL2'></p>
+<div class='jar'><button type='button' class='ik' data-ik='play' id='pl2'></button><button type='button' class='ik' data-ik='reset' id='resetL2'></button></div>
+<!-- TODO-VERIFIKASI: panah T1 digambar dengan panjang tetap, hanya untuk menunjukkan komponen Mz. Kipas panah T2 memakai sebaran frekuensi sampel agar mendekati peluruhan eksponensial, dan panah neto memakai nilai teori. -->
+</div>
+</div>
+<div class='kartu bm'>
+<span class='tag'>Tingkat 1 dan 2: Kontras jaringan</span>
+<p>Jaringan dengan T1 atau T2 berbeda memberi sinyal berbeda pada waktu yang sama. Perbedaan sinyal inilah yang disebut kontras jaringan.</p>
+<p class='s'>Contoh pada 1,5 T: T1 cairan serebrospinal <span data-isi='csfT1'></span> ms, sedangkan T1 lemak <span data-isi='fatT1'></span> ms.</p>
+<p class='l'>Contoh pada 1,5 T: T1 cairan serebrospinal <span data-isi='csfT1'></span> ms, sedangkan T1 lemak <span data-isi='fatT1'></span> ms. T2 cairan serebrospinal <span data-isi='csfT2'></span> ms, sedangkan T2 hati <span data-isi='liverT2'></span> ms.</p>
+<p class='l'>Ketika kurva-kurva masih berjauhan, kontras besar. Ketika kurva sudah berdekatan, kontras hilang. Jadi, saat sinyal diambil menentukan perbedaan mana yang tampak. Pengaturan waktu itu (TR dan TE) dibahas di Modul 3.</p>
+<p class='a'>Bayangkan dua pelari dengan kecepatan berbeda. Jarak antara mereka bergantung pada kapan kita memotret. Kontras jaringan juga bergantung pada kapan sinyal diambil.</p>
+</div>
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Kontras T1</span>
+<p>Kontras T1 berarti kontras citra berasal dari perbedaan waktu pemulihan T1 antar jaringan, bukan dari mekanisme lain. Kontras ini muncul jika vektor magnetisasi belum pulih penuh di antara dua pulsa RF.</p>
+<p class='s'>Makin pendek TR, makin besar kontras T1. Jika TR lebih panjang daripada waktu relaksasi semua jaringan, semua jaringan pulih penuh dan kontras T1 tidak terbentuk.</p>
+<p class='l'>Waktu pemulihan T1 lemak jauh lebih pendek daripada air, sehingga vektor lemak menyearah dengan B0 lebih cepat. Pada data modul ini, T1 lemak <span data-isi='fatT1'></span> ms dan T1 cairan serebrospinal <span data-isi='csfT1'></span> ms.</p>
+<p class='l'>Jika TR lebih pendek daripada waktu pemulihan total jaringan, komponen longitudinal lemak lebih besar daripada air. Pulsa RF berikutnya (anggap 90°) membalik komponen longitudinal itu ke bidang transversal. Karena komponen longitudinal lemak lebih besar, komponen transversalnya juga lebih besar. Lemak bersinyal tinggi (hiperintens), sedangkan air bersinyal lebih rendah (relatif hipointens).</p>
+<p class='l'>Jika TR panjang, semua jaringan pulih penuh, sehingga tidak mungkin membuat citra yang memperlihatkan perbedaan waktu pemulihan T1.</p>
+<p class='a'>Bayangkan dua ember yang diisi lewat keran dengan laju berbeda, lalu dikuras seluruhnya setiap TR. Jika selang pengurasan pendek, ember yang cepat terisi (lemak) memuat lebih banyak daripada ember yang lambat (air). Jika kita menunggu sangat lama, kedua ember penuh dan tidak ada beda. Coba pada aktivitas di bawah kartu ini.</p>
+<div class='akt'>
+<h3>Aktivitas: pengaruh TR pada kontras T1</h3>
+<p class='baca'>Lemak (kuning) dan cairan serebrospinal (biru) diberi pulsa RF 90° berulang. Geser TR dan lihat besar komponen longitudinal sebelum pulsa. Besar itu menjadi komponen transversal, yaitu sinyal, sesudah pulsa. TE dianggap sangat pendek, jadi T2 diabaikan. B0 mengikuti pilihan pada kartu Efek B0.</p>
+<fieldset><legend>Pulsa RF yang diamati</legend><div class='jar'><label><input type='radio' name='pulsa' value='p1'> Pulsa pertama</label><label><input type='radio' name='pulsa' value='pn' checked> Pulsa kedua dan seterusnya</label></div></fieldset>
+<p><label for='trs'>TR: <output id='oTR'></output></label><input type='range' id='trs' min='0' max='1' step='1' value='0'></p>
+<canvas id='cT' class='kv' width='640' height='460' role='img' aria-label='Panah komponen longitudinal sebelum pulsa RF dan komponen transversal sesudahnya untuk lemak dan cairan, serta kurva pemulihan terhadap TR'></canvas>
+<p class='baca' id='infoT'></p>
+<div class='tabel'><table><thead><tr><th>Jaringan</th><th>T1 (ms)</th><th>PD</th><th>Sinyal</th><th>Tampilan</th></tr></thead><tbody id='isiT'></tbody></table></div>
+<p><button type='button' class='ik' data-ik='reset' id='resetT'></button></p>
+<!-- TODO-VERIFIKASI: sinyal = PD × (1 − e^(−TR/T1)) untuk pulsa 90° kedua dan seterusnya, dan = PD untuk pulsa pertama. TE dianggap sangat pendek. Hanya empat jaringan yang punya PD pada data.js. -->
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Saturasi dan TR pendek</span>
+<p>Jika NMV terdorong melewati 90°, ia disebut tersaturasi sebagian. Jika terdorong sampai 180°, ia tersaturasi penuh. Saturasi sebagian pada lemak dan air memaksimalkan kontras T1.</p>
+<p class='s'>TR pendek: pemulihan belum selesai saat pulsa RF berikutnya datang, sehingga terjadi saturasi sebagian dan lemak lebih terang daripada air. TR panjang: tidak ada saturasi, dan sinyal hanya bergantung pada kerapatan proton.</p>
+<p class='l'><b>TR pendek.</b> Sebelum pulsa RF pertama, vektor lemak dan air searah B0. Pulsa 90° pertama membalik keduanya ke bidang transversal. Setelah pulsa dihentikan, keduanya mulai pulih, dan lemak menyearah lebih cepat. Karena TR lebih pendek daripada waktu pemulihan T1, pulsa berikutnya mendorong vektor melewati 90° dan terjadi saturasi sebagian, sebab pemulihannya belum selesai.</p>
+<p class='l'>Lemak dan air tersaturasi pada tingkat berbeda, karena keduanya berada di titik pemulihan yang berbeda sebelum pulsa 90° diberikan. Komponen transversal lemak lebih besar, sehingga lemak hiperintens dan air relatif hipointens.</p>
+<p class='l'><b>TR panjang.</b> Lemak dan air pulih penuh sebelum pulsa RF berikutnya. Keduanya dibalik langsung ke bidang transversal dan tidak tersaturasi. Besar komponen transversal hanya bergantung pada kerapatan proton masing-masing, bukan pada laju pemulihan.</p>
+<p class='l'>Sudut flip sangat memengaruhi efek saturasi. Hal itu tidak dibahas di modul ini.</p>
+<p class='l'>Bandingkan pulsa pertama dan pulsa berikutnya pada aktivitas di kartu Kontras T1.</p>
+<p class='a'>Bayangkan lampu kilat kamera. Jika kita memotret lagi sebelum lampu terisi penuh, kilatannya lebih lemah. Jaringan yang pulih lebih cepat (lemak) memberi kilatan lebih terang pada TR pendek. Jika kita menunggu sampai lampu terisi penuh, semua kilatan sama kuat.</p>
+<!-- TODO-VERIFIKASI: buku acuan menulis "TI contrast" pada kalimat saturasi. Kemungkinan salah ketik untuk kontras T1. -->
+<!-- TODO-VERIFIKASI: gambaran vektor melewati 90° adalah penyederhanaan buku. Visualisasi memakai sinyal = PD × (1 − e^(−TR/T1)) untuk pulsa 90° berulang, dengan TE sangat pendek. -->
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Efek B0</span>
+<p>Jika B0 naik dari 1,5 T ke 3 T, T1 otak memanjang sekitar <span data-isi='t1pct'></span> persen dan T2 memendek sekitar <span data-isi='t2pct'></span> persen (faktor <span data-isi='f1'></span> dan <span data-isi='f2'></span>).</p>
+<p class='lembut'>Faktor ini hanya diverifikasi untuk otak.</p>
+<p class='s'>Gunakan pilihan B0 pada aktivitas di bawah kartu ini untuk melihat perubahannya.</p>
+<p class='l'>Contoh substansia grisea: T1 berubah dari <span data-isi='gmT1'></span> ms menjadi <span data-isi='gmT1b'></span> ms, dan T2 dari <span data-isi='gmT2'></span> ms menjadi <span data-isi='gmT2b'></span> ms.</p>
+<p class='l'>Modul ini memakai faktor yang sama untuk lemak, otot, ginjal, dan hati. Itu penyederhanaan didaktik, bukan hasil pengukuran.</p>
+<p class='l'>Mengapa T1 memanjang? Frekuensi Larmor sebanding dengan B0. Saat B0 naik, makin sedikit molekul yang bergerak pada frekuensi penyebab relaksasi, sehingga pertukaran energi ke kisi kurang efisien. T2 hanya sedikit dipengaruhi oleh B0.</p>
+<!-- TODO-VERIFIKASI: buku acuan (hlm. 35) menyebut T2 sedikit memanjang saat B0 naik, sedangkan data.js menunjukkan T2 memendek (faktor 0,9). Modul ini mengikuti data.js. Perlu keputusan koordinator. -->
+<p class='a'>Pakai ini hanya untuk mengingat arah perubahan: menaikkan B0 membuat pemulihan T1 lebih lambat (T1 memanjang) dan peluruhan T2 sedikit lebih cepat (T2 memendek). Analogi ini tidak menjelaskan mekanismenya.</p>
+<!-- TODO-VERIFIKASI: faktor 3 T hanya diverifikasi untuk otak. Memakainya pada lemak, otot, ginjal, dan hati adalah penyederhanaan didaktik. -->
+<div class='akt'>
+<h3>Aktivitas: ganti B0 dan lihat T1 serta T2</h3>
+<p class='baca'>Pilihan B0 di sini dipakai oleh semua aktivitas lain di modul ini. Nilai adalah tipikal didaktik, bukan nilai pengukuran.</p>
+<fieldset><legend>Kuat medan magnet utama (B0)</legend><div class='jar' id='pilihB0'></div></fieldset>
+<div class='tabel'><table><thead><tr><th>Jaringan</th><th>T1 (ms)</th><th>T2 (ms)</th></tr></thead><tbody id='isiB0'></tbody></table></div>
+<p class='lembut baca'>Pindah dari 1,5 T ke 3 T: kolom T1 membesar dan kolom T2 mengecil. Kurva pada aktivitas lain ikut berubah.</p>
+<p><button type='button' class='ik' data-ik='reset' id='resetB0'></button></p>
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Kontras T2</span>
+<p>Kontras T2 berarti kontras citra berasal dari perbedaan waktu peluruhan T2 antar jaringan, bukan dari mekanisme lain. Kontras ini muncul jika vektor mengalami dephasing dan magnetisasi transversal yang koheren berbeda antar jaringan.</p>
+<p class='s'>Makin panjang TE, makin besar kontras T2. Air (T2 panjang) bersinyal tinggi (hiperintens), lemak (T2 pendek) relatif hipointens.</p>
+<p class='l'>Momen magnetik hidrogen mengalami dephasing dengan laju berbeda di tiap jaringan. Jika TE pendek, dephasing masih sedikit sehingga perbedaan waktu peluruhan T2 belum tampak. Jika TE panjang, perbedaan itu menjadi nyata.</p>
+<p class='l'>T2 lemak lebih pendek daripada air, sehingga magnetisasi transversal lemak meluruh lebih cepat. Pada TE panjang, air masih punya lebih banyak magnetisasi transversal yang koheren. Pada data modul ini, T2 lemak <span data-isi='fatT2'></span> ms dan T2 cairan serebrospinal <span data-isi='csfT2'></span> ms.</p>
+<p class='l'>Ringkasnya, TE mengendalikan kontras T2. Untuk kontras T2 yang baik, TE harus panjang. Lihat kurva T2 pada aktivitas di bawah kartu ini, lalu coba simulator pada kartu Pembobotan.</p>
+<p class='a'>Bayangkan merekam paduan suara. Jika rekaman dimulai segera (TE pendek), semua penyanyi masih kompak. Jika menunggu lama (TE panjang), kelompok yang saling mengganggu (lemak) sudah kacau dan suaranya lemah, sedangkan kelompok yang berjauhan (air) masih kompak.</p>
+<!-- TODO-VERIFIKASI: Tabel 2.5 buku acuan menyebut waktu peluruhan T2 bergantung pada B0 (makin kuat medan, makin lama dephasing). Data.js memakai faktor T2 0,9 pada 3 T. Pernyataan ini tidak dimasukkan sampai ada keputusan koordinator. -->
+<div class='akt'>
+<h3>Aktivitas: TE pendek dan TE panjang pada kontras T2</h3>
+<p class='baca'>Magnetisasi transversal yang koheren pada lemak dan cairan serebrospinal (pendekatan untuk air). Geser TE: pada TE pendek selisihnya kecil, pada TE yang lebih panjang selisihnya besar. B0 mengikuti pilihan pada kartu Efek B0.</p>
+<p><label for='teC'>TE: <output id='oTEC'></output></label><input type='range' id='teC' min='5' max='360' step='5' value='100'></p>
+<canvas id='cC' class='kv' width='640' height='300' role='img' aria-label='Kurva peluruhan magnetisasi transversal lemak dan cairan serebrospinal dengan penanda TE dan selisih kontras'></canvas>
+<p class='baca' id='infoC' aria-live='polite'></p>
+<p><button type='button' class='ik' data-ik='reset' id='resetC'></button></p>
+<!-- TODO-VERIFIKASI: PD lemak dan cairan sama (1,00) pada data.js, jadi selisih hanya berasal dari T2. Titik selisih terbesar dihitung dari model eksponensial ideal. -->
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Kontras kerapatan proton (PD) dan persamaan sinyal</span>
+<p>Kontras PD berasal dari perbedaan jumlah proton hidrogen mobil per satuan volume antar jaringan. Jaringan dengan PD tinggi punya magnetisasi transversal besar dan bersinyal tinggi. Jaringan dengan PD rendah punya magnetisasi transversal kecil dan bersinyal rendah.</p>
+<p><code>SI = PD · e^(−TE/T2) · (1 − e^(−TR/T1))</code></p>
+<p class='s'>Intrinsik: PD, T1, T2 (milik jaringan). Ekstrinsik: TR dan TE (kita yang mengatur). Suku TR mengatur pengaruh T1, suku TE mengatur pengaruh T2.</p>
+<p class='l'>SI adalah intensitas sinyal. PD adalah kerapatan proton, TE waktu gema (ms), T2 waktu peluruhan T2 jaringan (ms), TR waktu pengulangan (ms), dan T1 waktu pemulihan T1 jaringan (ms).</p>
+<p class='l'>Kontras PD selalu ada, dan besarnya bergantung pada pasien serta area yang diperiksa. Karena itu sinyal suatu jaringan ditentukan oleh sifat intrinsiknya (PD, T1, T2) dan juga oleh parameter ekstrinsik (TR dan TE).</p>
+<p class='l'>Persamaan ini menunjukkan mengapa mengubah TR dan TE mengubah kontras. Jika TE mendekati nol, suku e^(−TE/T2) mendekati 1 sehingga T2 tidak berpengaruh. Jika TR sangat panjang, suku (1 − e^(−TR/T1)) mendekati 1 sehingga T1 tidak berpengaruh. Pada gradient echo, persamaan ini dimodifikasi (di luar modul ini).</p>
+<p class='a'>Bayangkan PD sebagai jumlah penyanyi di panggung. Suku TR menentukan berapa banyak penyanyi yang sudah siap saat aba-aba berikutnya, dan suku TE menentukan berapa banyak yang masih kompak saat direkam.</p>
+<!-- TODO-VERIFIKASI: persamaan mengikuti Persamaan 2.4 buku acuan untuk pulsa RF 90° berulang. Simulator pembobotan memakai persamaan yang sama dengan PD relatif dari data.js. -->
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Pembobotan (weighting)</span>
+<p>Semua parameter kontras intrinsik memengaruhi citra sekaligus, sehingga citra tampak campuran dan sulit diketahui kontribusi tiap parameter. Untuk mengatasinya, TR dan TE dipilih agar satu mekanisme kontras mendominasi dua lainnya. Inilah pembobotan.</p>
+<p class='s'>T1-weighted: TR pendek, TE pendek. T2-weighted: TR panjang, TE panjang. PD-weighted: TR panjang, TE pendek.</p>
+<p class='l'><b>Pembobotan T1.</b> Kontras terutama berasal dari perbedaan waktu pemulihan T1 (lemak, air, dan jaringan berwaktu T1 menengah). TR menentukan seberapa jauh tiap vektor pulih sebelum pulsa RF berikutnya. Karena itu TR harus cukup pendek sehingga vektor lemak maupun air belum pulih penuh ke arah B0. Jika TR terlalu panjang, keduanya pulih penuh dan perbedaan T1 tidak tampak. TE juga harus pendek agar efek T2 kecil.</p>
+<p class='l'>Citra berbobot T1 dipakai untuk memperlihatkan anatomi dan kelainan setelah pemberian agen kontras. Ringkasnya, TR mengendalikan jumlah kontras T1.</p>
+<p class='l'><b>Pembobotan T2.</b> Kontras terutama berasal dari perbedaan waktu peluruhan T2 lemak dan air (dan jaringan lain berwaktu T2 menengah). TE menentukan seberapa banyak peluruhan T2 terjadi sebelum sinyal diterima, sehingga TE harus cukup panjang agar vektor lemak dan air sempat mengalami dephasing. Jika TE terlalu pendek, perbedaan T2 tidak tampak. TR juga harus panjang: jika TR sangat panjang, suku (1 − e^(−TR/T1)) mendekati 1, kontras T1 minimal, dan sinyal bergantung pada PD dan kontras T2 (Persamaan 2.6).</p>
+<p class='l'>Citra berbobot T2 dipakai untuk memperlihatkan kelainan, karena sebagian besar kelainan berkadar air tinggi sehingga relatif hiperintens. Ringkasnya, TE mengendalikan jumlah kontras T2.</p>
+<p class='l'><b>Pembobotan PD.</b> Faktor penentu utama kontras adalah perbedaan jumlah inti hidrogen mobil per satuan volume jaringan. Kontras PD selalu ada sampai tingkat tertentu. Agar PD dominan, pengaruh T1 dan T2 harus dikurangi. TR panjang memberi waktu vektor lemak dan air pulih penuh, sehingga kontras T1 berkurang. TE pendek tidak memberi waktu dephasing, sehingga kontras T2 berkurang (Persamaan 2.7). Citra berbobot PD dipakai untuk anatomi dan kelainan.</p>
+<p class='l'>Pada Persamaan 2.5, jika TE sangat pendek maka e^(−TE/T2) = 1, kontras T2 minimal, dan sinyal bergantung terutama pada PD dan kontras T1.</p>
+<p class='a'>Bayangkan dua tombol: tombol TR memutuskan apakah kita memperhatikan perbedaan laju pulih, dan tombol TE memutuskan apakah kita memperhatikan perbedaan laju kacau fase. Pembobotan berarti memutar satu tombol ke posisi yang menonjolkan satu perbedaan saja.</p>
+<div class='akt'>
+<h3>Aktivitas: simulator TR, TE, dan persamaan sinyal</h3>
+<p class='baca'>SI = PD × e^(−TE/T2) × (1 − e^(−TR/T1)), dengan pulsa RF 90° berulang. Pilih pembobotan siap pakai atau geser TR dan TE. Citra model di kiri atas dinormalisasi: jaringan dengan sinyal tertinggi digambar putih. Lingkaran dari luar ke dalam: lemak, substansia grisea (GM), substansia alba (WM), cairan serebrospinal (CSF). B0 mengikuti pilihan pada kartu Efek B0.</p>
+<div class='pilih' id='preK' role='group' aria-label='Pembobotan siap pakai'></div>
+<p><label for='trK'>TR: <output id='oTRK'></output></label><input type='range' id='trK' min='50' max='5000' step='50' value='500'></p>
+<p><label for='teK'>TE: <output id='oTEK'></output></label><input type='range' id='teK' min='5' max='300' step='5' value='15'></p>
+<canvas id='cK' class='kv' width='760' height='450' role='img' aria-label='Citra model empat jaringan, diagram batang sinyal relatif, dan kurva faktor T1 terhadap TR serta faktor T2 terhadap TE'></canvas>
+<p class='baca' id='infoK' aria-live='polite'></p>
+<div class='tabel'><table><thead><tr><th>Jaringan</th><th>PD</th><th>Faktor T1</th><th>Faktor T2</th><th>SI</th><th>Tampilan</th></tr></thead><tbody id='isiK'></tbody></table></div>
+<p class='lembut baca'>Faktor T1 = 1 − e^(−TR/T1). Faktor T2 = e^(−TE/T2). Coba: pada pembobotan T1, lemak terang dan cairan gelap. Pada pembobotan T2, urutannya terbalik.</p>
+<p><button type='button' class='ik' data-ik='reset' id='resetK'></button></p>
+<!-- TODO-VERIFIKASI: batas "pendek" dan "panjang" untuk label pembobotan (TR dibanding T1 substansia grisea, TE dibanding setengah T2 substansia grisea) adalah pengaturan didaktik. Preset TR dan TE adalah nilai ilustrasi, bukan protokol klinis. Citra model adalah lingkaran konsentris sederhana, bukan anatomi. -->
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 1: Ringkasan tiga pembobotan</span>
+<p class='s'>TR mengendalikan kontras T1 dan TE mengendalikan kontras T2. TR pendek dan TE pendek: T1. TR panjang dan TE panjang: T2. TR panjang dan TE pendek: PD.</p>
+<div class='tabel'><table class='ringkas'><thead><tr><th>Pembobotan</th><th>TR</th><th>TE</th><th>Yang dominan</th><th>Kegunaan</th></tr></thead><tbody>
+<tr><td>T1</td><td>Pendek</td><td>Pendek</td><td>Beda waktu pemulihan T1</td><td>Anatomi dan kelainan pascakontras</td></tr>
+<tr><td>T2</td><td>Panjang</td><td>Panjang</td><td>Beda waktu peluruhan T2</td><td>Kelainan (kadar air tinggi)</td></tr>
+<tr><td>PD</td><td>Panjang</td><td>Pendek</td><td>Kerapatan proton</td><td>Anatomi dan kelainan</td></tr>
+</tbody></table></div>
+<p class='l'>TR pendek bersama TE pendek memaksimalkan kontras T1 dan meminimalkan kontras T2. TR panjang bersama TE panjang meminimalkan kontras T1 dan memaksimalkan kontras T2. TR panjang bersama TE pendek meminimalkan keduanya, sehingga PD dominan.</p>
+<p class='a'>Dua tombol TR dan TE punya dua posisi (pendek, panjang). Empat kombinasi, tiga di antaranya memberi citra "bersih" satu mekanisme, dan satu (TR pendek, TE panjang) memberi campuran.</p>
+<div class='akt'>
+<h3>Aktivitas: contoh kontras jaringan pada citra berbobot T1, T2, dan PD</h3>
+<p class='baca'>Daftar mengikuti Tabel 2.6 (T1), 2.8 (T2), dan 2.10 (PD) pada buku acuan. Tulang kortikal dan kalsifikasi muncul di dua kelompok pada tabel aslinya. Pilih pembobotan, filter kelompok, lalu uji tebakan Anda.</p>
+<fieldset><legend>Pembobotan</legend><div class='pilih' id='w6' role='group' aria-label='Pilih pembobotan'></div></fieldset>
+<div class='pilih' id='f6' role='group' aria-label='Filter kelompok sinyal'></div>
+<div id='t6'></div>
+<p class='sub'>Tebak sinyal</p>
+<p id='tbK'></p>
+<div class='pilih' id='tbP' role='group' aria-label='Pilih kelompok sinyal'></div>
+<p class='baca' id='tbI' role='status' aria-live='polite'></p>
+<div class='jar'><button type='button' id='tbN'>Soal berikutnya</button><span id='tbS' class='lembut'></span><button type='button' class='ik' data-ik='reset' id='reset6'></button></div>
+<!-- TODO-VERIFIKASI: daftar mengikuti tabel buku apa adanya, termasuk tulang kortikal dan kalsifikasi pada dua kelompok. Tabel 2.10 hanya punya dua kelompok (tinggi, serta rendah atau tanpa sinyal). Contoh klinis ini hanya untuk latihan, bukan untuk diagnosis. -->
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Analogi kompor, kenop TR dan TE</span>
+<p>Pada citra apa pun, kontras dari kerapatan proton, T1, dan T2 terjadi bersamaan. Untuk membuat satu mekanisme dominan, pengaruh yang lain diperkecil. Bayangkan kompor dengan dua kenop.</p>
+<p class='s'>Kenop TR mengatur api kontras T1: TR diturunkan, kontras T1 naik. Kenop TE mengatur api kontras T2: TE dinaikkan, kontras T2 naik.</p>
+<p class='l'><b>Pembobotan T1:</b> TR pendek (kenop TR turun) membesarkan api T1, dan TE pendek (kenop TE turun) mengecilkan api T2.</p>
+<p class='l'><b>Pembobotan T2:</b> TE panjang (kenop TE naik) membesarkan api T2, dan TR panjang (kenop TR naik) mengecilkan api T1.</p>
+<p class='l'><b>Pembobotan PD:</b> TR panjang (kenop TR naik) dan TE pendek (kenop TE turun) mengecilkan kedua api, sehingga kontras PD yang dominan. PD bergantung pada jumlah relatif proton dan tidak dapat diubah untuk area tertentu.</p>
+<p class='l'>Perhatikan arah yang berlawanan: menurunkan TR menaikkan kontras T1, sedangkan menaikkan TE menaikkan kontras T2. Coba pada aktivitas di bawah kartu ini.</p>
+<p class='a'>Bayangkan kompor gas dengan dua kenop berlabel TR dan TE. Kenop TR mengatur tinggi api T1, kenop TE mengatur tinggi api T2. Untuk memasak satu "rasa" saja, besarkan satu api dan kecilkan yang lain.</p>
+<!-- TODO-VERIFIKASI: arah kenop mengikuti analogi buku acuan. Gambar kompor pada aktivitas digambar ulang sebagai ilustrasi sederhana, bukan salinan gambar buku. -->
+<div class='akt'>
+<h3>Aktivitas: kenop TR dan TE pada kompor</h3>
+<p class='baca'>Geser slider ke atas atau ke bawah di samping tiap kompor. Slider TR mengatur api kontras T1 (TR turun, api T1 naik). Slider TE mengatur api kontras T2 (TE naik, api T2 naik). Atau pilih pembobotan siap pakai.</p>
+<div class='pilih' id='preH' role='group' aria-label='Pembobotan siap pakai'></div>
+<div class='kompor'>
+<div class='unit'>
+<div class='vs'><b>TR</b><span class='lembut'>naik</span><div class='vsw'><input type='range' id='trH' min='100' max='5000' step='100' value='500' aria-label='Slider kenop TR' aria-orientation='vertical'></div><span class='lembut'>turun</span><output id='oTRH' aria-live='polite'></output></div>
+<canvas id='cH1' class='kv' width='320' height='380' role='img' aria-label='Kompor dengan api kontras T1 dan kenop TR'></canvas>
+</div>
+<div class='unit'>
+<canvas id='cH2' class='kv' width='320' height='380' role='img' aria-label='Kompor dengan api kontras T2 dan kenop TE'></canvas>
+<div class='vs'><b>TE</b><span class='lembut'>naik</span><div class='vsw'><input type='range' id='teH' min='5' max='150' step='5' value='15' aria-label='Slider kenop TE' aria-orientation='vertical'></div><span class='lembut'>turun</span><output id='oTEH' aria-live='polite'></output></div>
+</div>
+</div>
+</div>
+<p class='baca' id='infoH' aria-live='polite'></p>
+<p><button type='button' class='ik' data-ik='reset' id='resetH'></button></p>
+<!-- TODO-VERIFIKASI: tinggi api adalah pemetaan didaktik (api T1 = 1 dikurangi TR relatif terhadap 5000 ms, api T2 = TE relatif terhadap 150 ms), bukan besaran fisik. -->
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 2: Tip membaca pembobotan</span>
+<p>Langkah awal yang baik untuk menebak pembobotan sebuah citra adalah melihat sinyal air.</p>
+<p class='s'>Air bersinyal tinggi: kemungkinan berbobot T2 (TE panjang). Air bersinyal rendah: kemungkinan berbobot T1 (TR pendek), meski sebagian citra PD juga punya air gelap. Lemak bukan penanda yang andal.</p>
+<p class='l'>Lemak terang pada banyak jenis pembobotan, sehingga kurang bisa diandalkan. Tidak semua area bersinyal tinggi adalah lemak, dan tidak semua area bersinyal rendah adalah air.</p>
+<p class='l'><b>Contoh citra sagital otak berbobot T1 (spin echo standar).</b> Kontras terutama berasal dari perbedaan T1, sesuai TR dan TE pendek: lemak pada kulit kepala dan sumsum tulang klivus hiperintens, dan air pada cairan serebrospinal hipointens. Namun area bersinyal tinggi di sinus sagitalis superior bukan lemak melainkan darah mengalir lambat. Area bersinyal rendah di sinus sfenoid bukan air melainkan udara.</p>
+<p class='l'>Jadi, meski citra itu dominan berbobot T1, efek aliran dan kerapatan proton juga ikut membentuk kontras.</p>
+<p class='a'>Seperti menebak resep dari rasa masakan: rasa air (apakah "pedas" atau tidak) memberi petunjuk awal, tetapi bumbu lain (lemak, darah mengalir lambat, udara) bisa menyesatkan jika dijadikan satu-satunya patokan.</p>
+<!-- TODO-VERIFIKASI: aturan sinyal air adalah panduan awal buku acuan, bukan aturan mutlak. -->
+<div class='akt'>
+<h3>Aktivitas: langkah awal membaca pembobotan, sinyal air</h3>
+<p class='baca'>Pilih bagaimana air (misalnya cairan serebrospinal) tampak pada sebuah citra.</p>
+<div class='pilih' id='airP' role='group' aria-label='Sinyal air pada citra'></div>
+<p class='baca' id='airI' aria-live='polite'></p>
+<p class='lembut baca'>Lemak adalah penanda yang tidak andal karena terang pada banyak jenis pembobotan. Pada citra sagital otak berbobot T1, area terang di sinus sagitalis superior adalah darah mengalir lambat (bukan lemak), dan area gelap di sinus sfenoid adalah udara (bukan air).</p>
+<p><button type='button' class='ik' data-ik='reset' id='resetA'></button></p>
+</div>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 1: Ringkasan T1 dan T2</span>
+<p class='s'>T1: spin-kisi, dikendalikan TR, kontras baik jika TR pendek. T2: spin-spin, dikendalikan TE, kontras baik jika TE panjang. Lemak: T1 dan T2 pendek. Air: keduanya panjang.</p>
+<div class='tabel'><table class='ringkas'><thead><tr><th>Aspek</th><th>T1 (pemulihan)</th><th>T2 (peluruhan)</th></tr></thead><tbody>
+<tr><td>Penyebab</td><td>Spin-kisi: energi dilepas ke molekul sekitar</td><td>Spin-spin: spin bertetangga saling mengganggu fase</td></tr>
+<tr><td>Lemak</td><td>Pendek</td><td>Pendek</td></tr>
+<tr><td>Air</td><td>Panjang</td><td>Panjang</td></tr>
+<tr><td>Dikendalikan oleh</td><td>TR</td><td>TE</td></tr>
+<tr><td>Kontras baik jika</td><td>TR pendek</td><td>TE panjang</td></tr>
+<tr><td>Pengaruh B0</td><td>T1 memanjang saat B0 naik</td><td>Lihat kartu Efek B0</td></tr>
+</tbody></table></div>
+<p class='l'>Efisiensi proses spin-kisi bergantung pada energi bawaan jaringan dan pada seberapa cocok laju gerak molekul dengan frekuensi Larmor. Efisiensi proses spin-spin bergantung pada seberapa rapat molekul tersusun.</p>
+<p class='a'>Seperti dua pengaturan pada kamera: satu mengatur seberapa lama kita menunggu cahaya terisi kembali (TR), satu lagi mengatur kapan foto diambil setelah pemain mulai tidak kompak (TE).</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>Tingkat 1: Istilah yang sering tertukar</span>
+<p>Penting membedakan pemulihan T1, waktu pemulihan T1, kontras T1, dan pembobotan T1. Hal yang sama berlaku untuk proses T2.</p>
+<div class='tabel'><table class='ringkas'><thead><tr><th>Istilah</th><th>Artinya</th></tr></thead><tbody>
+<tr><td>Pemulihan T1</td><td>Proses kembalinya magnetisasi longitudinal menuju B0.</td></tr>
+<tr><td>Waktu pemulihan T1</td><td>Waktu agar <span data-isi='p63'></span> magnetisasi longitudinal pulih. Sifat intrinsik jaringan.</td></tr>
+<tr><td>Kontras T1</td><td>Perbedaan sinyal citra yang berasal dari perbedaan waktu pemulihan T1 antar jaringan.</td></tr>
+<tr><td>Pembobotan T1</td><td>Pemilihan TR dan TE (keduanya pendek) agar kontras T1 mendominasi citra.</td></tr>
+<tr><td>Peluruhan T2</td><td>Proses hilangnya magnetisasi transversal yang koheren.</td></tr>
+<tr><td>Waktu peluruhan T2</td><td>Waktu hingga tinggal <span data-isi='p37'></span> magnetisasi transversal yang masih sefase. Sifat intrinsik jaringan.</td></tr>
+<tr><td>Kontras T2</td><td>Perbedaan sinyal citra yang berasal dari perbedaan waktu peluruhan T2 antar jaringan.</td></tr>
+<tr><td>Pembobotan T2</td><td>Pemilihan TR dan TE (keduanya panjang) agar kontras T2 mendominasi citra.</td></tr>
+</tbody></table></div>
+<p class='s'>Proses dan waktu adalah sifat jaringan. Kontras adalah hasil di citra. Pembobotan adalah pilihan kita lewat TR dan TE.</p>
+<p class='l'>Selain kontras utama yang dibahas di modul ini, ada teknik lain untuk kontras yang sangat spesifik, yaitu pencitraan berbobot difusi (DWI) dan MRI fungsional (fMRI). Keduanya tidak dibahas di sini.</p>
+<p class='a'>Seperti membedakan: kecepatan pelari (proses), catatan waktu pelari (waktu), selisih jarak dua pelari pada foto (kontras), dan keputusan kapan memotret (pembobotan).</p>
+<!-- TODO-VERIFIKASI: Tabel 2.12 buku acuan (daftar definisi istilah) tidak ada pada halaman yang diberikan. Tabel ini dirangkum dari isi modul sendiri dan perlu dicocokkan dengan Tabel 2.12. -->
+</div>
+
+<div class='kartu lanjut bm'>
+<span class='tag'>Lanjut (boleh dilewati): keadaan tunak dan pulsa persiapan</span>
+<p class='s'>Pada beberapa pulsa RF pertama, besar sinyal berbeda-beda. Setelah keadaan tunak tercapai, sinyal sama setiap TR dan baru dipakai untuk citra.</p>
+<p class='l'>Jika TR lebih pendek daripada waktu pemulihan T1 jaringan, beberapa pulsa RF pertama menghasilkan magnetisasi transversal yang berbeda-beda, karena jumlah pemulihan longitudinal sebelum tiap pulsa berbeda. Perlu beberapa TR sampai keadaan menjadi stabil. Keadaan stabil itu disebut keadaan tunak (<i>steady-state</i>).</p>
+<p class='l'>Pada keadaan tunak, vektor pulih sampai titik yang sama selama TR dan selalu dibalik ke titik yang sama oleh pulsa RF 90°. Jadi besar magnetisasi transversal sama setiap TR.</p>
+<p class='l'>Sinyal (gema) baru dideteksi oleh RF coil setelah keadaan tunak. Beberapa pulsa RF pertama disebut pulsa persiapan atau <i>dummy pulses</i>, karena sinyalnya diabaikan. Waktu untuk mencapai keadaan tunak bergantung pada B0, kerapatan proton, sudut flip, T1, dan lama pulsa RF.</p>
+<p class='a'>Seperti pemanasan sebelum lomba lari: beberapa putaran pertama tidak dihitung. Waktu baru dicatat setelah para pelari mencapai kecepatan yang stabil.</p>
+<!-- TODO-VERIFIKASI: visualisasi Kontras T1 hanya membedakan pulsa pertama dan pulsa berikutnya. Itu penyederhanaan, bukan simulasi keadaan tunak lengkap. -->
+</div>
+<div class='kartu lanjut bm'>
+<span class='tag'>Lanjut (boleh dilewati): molekul dan gadolinium</span>
+<p class='s'>T1 dan T2 bergantung pada kecocokan laju gerak molekul dengan frekuensi Larmor dan pada kerapatan molekul. Gadolinium memperpendek T1 sehingga kurva Mz naik lebih cepat.</p>
+<p class='l'>Relaksasi T1 dan T2 bergantung pada dua faktor. Pertama, apakah laju jungkir-balik (<i>tumbling</i>) molekul cocok dengan frekuensi Larmor hidrogen. Jika cocok, pertukaran energi antara inti hidrogen dan kisi molekul efisien. Jika tidak cocok, pertukaran kurang efisien.</p>
+<p class='l'>Kedua, kerapatan molekul. Pada jaringan dengan molekul yang berdekatan, interaksi antara medan magnet inti hidrogen bertetangga lebih efisien. Sebaliknya jika molekul berjauhan.</p>
+<p class='l'>Air bebas bergerak sangat cepat, sehingga T1 dan T2-nya panjang. Contohnya cairan serebrospinal. Air yang terikat pada makromolekul bergerak lebih lambat, sehingga T1 dan T2-nya lebih pendek. Lemak tersusun dari molekul besar yang geraknya lambat, sehingga T1 lemak pendek dan T2-nya lebih pendek daripada cairan.</p>
+<p class='l'>Agen kontras gadolinium bersifat paramagnetik. Zat ini memperpendek T1 jaringan di sekitarnya, sehingga kurva pemulihan Mz naik lebih cepat. Bagian ini hanya konsep, tanpa dosis.</p>
+<p class='a'>Kecocokan laju seperti mendorong ayunan: dorongan paling efisien jika selaras dengan irama ayunan. Kerapatan seperti kerumunan: yang berdesakan mudah saling mengoper energi, yang berjauhan jarang bersenggolan. Gadolinium seperti banyak penyambut kecil di sekitar proton yang mempercepat pelepasan energi.</p>
+<!-- TODO-VERIFIKASI: halaman acuan terpotong setelah faktor kerapatan molekul. Bagian lanjutannya belum dipakai. -->
+<!-- TODO-VERIFIKASI: pada data.js, T2 lemak hanya sedikit lebih pendek dari jaringan otak. Pernyataan lemak ber-T2 pendek hanya dibuat relatif terhadap cairan. -->
+<!-- TODO-VERIFIKASI: analogi molekul dan gadolinium bersifat heuristik. Pengaruh gadolinium pada T2 dan konsentrasi tidak dibahas. -->
+</div>
+<p class='lembut sumber'>Sumber isi tambahan: Westbrook &amp; Talbot, <i>MRI in Practice</i>, edisi ke-5 (2019), Bab 2, hlm. 24&ndash;51. Ditulis ulang dengan kata-kata sendiri.</p>
+
+<h2>Cek pemahaman</h2>
+<p class='lembut'>Pilih tingkat soal. Soal Tingkat 3 bersifat lanjutan dan boleh dilewati.</p>
+<div class='pilih' id='kuis-pilih' role='group' aria-label='Pilih tingkat soal kuis'></div>
+<p class='lembut' id='kuis-info' role='status' aria-live='polite'></p>
+<div id='kuis'></div>
+</main>
+<script>
+/* TETAP: awal */
+const DATA={
+ FISIKA:{gamma_MHz_per_T:42.58,larmor_MHz:{1.5:63.87,3:127.74},geser_kimia_lemak_air_ppm:3.5},
+ JARINGAN:[
+  {id:'csf',nama:'Cairan serebrospinal',T1_ms:2400,T2_ms:180,PD:1.00},
+  {id:'gm',nama:'Substansia grisea',T1_ms:925,T2_ms:100,PD:0.86},
+  {id:'wm',nama:'Substansia alba',T1_ms:790,T2_ms:92,PD:0.77},
+  {id:'fat',nama:'Lemak',T1_ms:260,T2_ms:85,PD:1.00},
+  {id:'muscle',nama:'Otot',T1_ms:875,T2_ms:47},
+  {id:'kidney',nama:'Ginjal',T1_ms:650,T2_ms:58},
+  {id:'liver',nama:'Hati',T1_ms:500,T2_ms:43}],
+ SKALA_B0:{1.5:{T1:1,T2:1},3:{T1:1.17,T2:0.9}},
+ INSTRUMEN:{suhu_K:4.2,gradien_mT_per_m:[20,80],slew_T_per_m_per_s:[100,200],bore_cm:[60,70]},
+ KESELAMATAN:{sar_tubuh_W_per_kg:{normal:2,tingkat1:4},sar_kepala_normal_W_per_kg:3.2,garis_gauss_mT:{standar:0.5,alternatif:0.9}}
+};
+function waktuRelaksasi(j,B0){const s=DATA.SKALA_B0[B0];return{T1:Math.round(j.T1_ms*s.T1),T2:Math.round(j.T2_ms*s.T2)};}
+function jalankanKuis(el,soal){
+ let i=0,skor=0;
+ function tampil(){
+  if(i>=soal.length){el.innerHTML='<div class=\'kartu\'><b>Skor: '+skor+' / '+soal.length+'</b></div>';return;}
+  const s=soal[i];
+  const kartu=document.createElement('div');kartu.className='kartu';
+  const p=document.createElement('p');p.innerHTML='<b>'+(i+1)+'/'+soal.length+'.</b> '+s.pertanyaan;
+  kartu.appendChild(p);
+  s.pilihan.forEach((teks,k)=>{
+   const b=document.createElement('button');b.textContent=teks;b.style.display='block';b.style.margin='6px 0';
+   b.onclick=()=>{
+    kartu.querySelectorAll('button').forEach(x=>x.disabled=true);
+    const benar=(k===s.jawaban);if(benar)skor++;
+    const info=document.createElement('p');info.className=benar?'ok':'no';
+    info.textContent=(benar?'Benar. ':'Belum tepat. ')+s.penjelasan;
+    const n=document.createElement('button');n.textContent='Lanjut';n.onclick=()=>{i++;tampil();};
+    kartu.append(info,n);
+   };
+   kartu.appendChild(b);
+  });
+  el.innerHTML='';el.appendChild(kartu);
+ }
+ tampil();
+}
+/* TETAP: akhir */
+/* ISI MODUL: JavaScript aktivitas di sini */
+const fmt=n=>String(n).replace('.',',');
+const pers=x=>fmt((x*100).toFixed(0))+' %';
+const J=id=>DATA.JARINGAN.find(x=>x.id===id);
+const PILIHAN_B0=Object.keys(DATA.SKALA_B0).map(Number).sort((a,b)=>a-b);
+const SK3=DATA.SKALA_B0[3];
+const ISI={gamma:fmt(DATA.FISIKA.gamma_MHz_per_T),t1pct:fmt(Math.round((SK3.T1-1)*100)),t2pct:fmt(Math.round((1-SK3.T2)*100)),f1:fmt(SK3.T1),f2:fmt(SK3.T2),p63:pers(1-Math.exp(-1)),p37:pers(Math.exp(-1)),p86:pers(1-Math.exp(-2)),csfT1:J('csf').T1_ms,fatT1:J('fat').T1_ms,csfT2:J('csf').T2_ms,liverT2:J('liver').T2_ms,gmT1:J('gm').T1_ms,gmT1b:waktuRelaksasi(J('gm'),3).T1,gmT2:J('gm').T2_ms,gmT2b:waktuRelaksasi(J('gm'),3).T2,p95:pers(1-Math.exp(-3)),p99:pers(1-Math.exp(-5)),rmin:Math.round(Math.min(...DATA.JARINGAN.map(j=>j.T1_ms/j.T2_ms))),rmax:Math.round(Math.max(...DATA.JARINGAN.map(j=>j.T1_ms/j.T2_ms))),pdCsf:J('csf').PD.toFixed(2).replace('.',','),pdGm:J('gm').PD.toFixed(2).replace('.',','),pdWm:J('wm').PD.toFixed(2).replace('.',','),fatT2:J('fat').T2_ms};
+document.querySelectorAll('[data-isi]').forEach(e=>{e.textContent=ISI[e.dataset.isi];});
+
+// Sumbu waktu diturunkan dari data (dua kali waktu terpanjang pada semua B0).
+const semua=DATA.JARINGAN.flatMap(j=>PILIHAN_B0.map(b=>waktuRelaksasi(j,b)));
+const TMAX1=2*Math.max(...semua.map(w=>w.T1));
+const TMAX2=2*Math.max(...semua.map(w=>w.T2));
+const AWAL=['csf','gm','wm','fat'];
+const pilih=new Set(AWAL);
+const GARIS=[[],[6,4],[2,4],[10,4,2,4],[],[6,4],[2,4]];
+const $=id=>document.getElementById(id);
+const gaya=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const gelap=()=>window.matchMedia('(prefers-color-scheme: dark)').matches;
+const warna=i=>'hsl('+(i*47)+',65%,'+(gelap()?62:42)+'%)';
+const b0Kini=()=>Number(document.querySelector('input[name=b0]:checked').value);
+// Tombol simbol: reset, putar, jeda
+const IKON={play:['Putar',"<path d='M8 5v14l11-7z'/>"],pause:['Jeda',"<path d='M6 5h4v14H6zM14 5h4v14h-4z'/>"],reset:['Reset',"<path d='M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/>"]};
+function setIk(b,n){const d=IKON[n];b.innerHTML="<svg viewBox='0 0 24 24' width='22' height='22' fill='currentColor' aria-hidden='true'>"+d[1]+'</svg>';b.setAttribute('aria-label',d[0]);b.title=d[0];}
+document.querySelectorAll('button[data-ik]').forEach(b=>setIk(b,b.dataset.ik));
+
+// Bangun kontrol dari data
+PILIHAN_B0.forEach((b,k)=>{
+ const l=document.createElement('label');
+ l.innerHTML="<input type='radio' name='b0' value='"+b+"'"+(k===0?' checked':'')+"> "+fmt(b)+' T';
+ $('pilihB0').appendChild(l);
+});
+DATA.JARINGAN.forEach((j,i)=>{
+ const l=document.createElement('label');
+ l.innerHTML="<input type='checkbox' data-id='"+j.id+"'><span class='kotak'></span>"+j.nama;
+ $('daftar').appendChild(l);
+ const o=document.createElement('option');o.value=j.id;o.textContent=j.nama;$('selJ').appendChild(o);
+});
+$('s1').max=TMAX1;$('s2').max=TMAX2;
+
+function sumbu(c,W,H,L,R,T,B,tmax,yTop){
+ c.strokeStyle=gaya('--garis');c.fillStyle=gaya('--lembut');c.lineWidth=1;c.font='18px system-ui,sans-serif';
+ [0,0.5,1].forEach(v=>{const y=H-B-(H-T-B)*v;c.beginPath();c.moveTo(L,y);c.lineTo(W-R,y);c.stroke();c.textAlign='right';c.fillText(fmt(v),L-6,y+6);});
+ [0,0.5,1].forEach(f=>{const t=Math.round(tmax*f);c.textAlign=f===0?'left':f===1?'right':'center';c.fillText(t+' ms',L+(W-L-R)*f,H-8);});
+}
+function gambarKurva(cv,tmax,fn,tc,b){
+ const c=cv.getContext('2d'),W=cv.width,H=cv.height,L=46,R=12,T=12,B=34;
+ c.clearRect(0,0,W,H);sumbu(c,W,H,L,R,T,B,tmax);
+ const gx=t=>L+(W-L-R)*t/tmax,gy=v=>H-B-(H-T-B)*v;
+ DATA.JARINGAN.forEach((j,i)=>{
+  if(!pilih.has(j.id))return;
+  const w=waktuRelaksasi(j,b);
+  c.strokeStyle=warna(i);c.fillStyle=warna(i);c.lineWidth=2.5;c.setLineDash(GARIS[i]);c.beginPath();
+  for(let k=0;k<=200;k++){const t=tmax*k/200,y=gy(fn(w,t));k?c.lineTo(gx(t),y):c.moveTo(gx(t),y);}
+  c.stroke();c.setLineDash([]);
+  c.beginPath();c.arc(gx(tc),gy(fn(w,tc)),5,0,6.283);c.fill();
+ });
+ c.strokeStyle=gaya('--teks');c.lineWidth=1.5;c.setLineDash([4,4]);c.beginPath();c.moveTo(gx(tc),T);c.lineTo(gx(tc),H-B);c.stroke();c.setLineDash([]);
+}
+function render(){
+ const b=b0Kini(),t1=Number($('s1').value),t2=Number($('s2').value);
+ document.querySelectorAll('#daftar input').forEach(x=>{x.checked=pilih.has(x.dataset.id);});
+ document.querySelectorAll('#daftar .kotak').forEach((k,i)=>{k.style.background=warna(i);});
+ $('o1').textContent=t1+' ms';$('o2').textContent=t2+' ms';
+ gambarKurva($('c1'),TMAX1,(w,t)=>1-Math.exp(-t/w.T1),t1,b);
+ gambarKurva($('c2'),TMAX2,(w,t)=>Math.exp(-t/w.T2),t2,b);
+ let h='';
+ DATA.JARINGAN.forEach(j=>{if(!pilih.has(j.id))return;const w=waktuRelaksasi(j,b);
+  h+='<tr><td>'+j.nama+'</td><td>'+w.T1+'</td><td>'+w.T2+'</td><td>'+fmt((1-Math.exp(-t1/w.T1)).toFixed(2))+'</td><td>'+fmt(Math.exp(-t2/w.T2).toFixed(2))+'</td><td><span class=\'kotak\' style=\'width:2.4em;height:1.1em;border:1px solid var(--garis);background:rgb('+Math.round(255*Math.exp(-t2/w.T2))+','+Math.round(255*Math.exp(-t2/w.T2))+','+Math.round(255*Math.exp(-t2/w.T2))+')\'></span></td></tr>';});
+ $('isi').innerHTML=h||'<tr><td colspan=6>Pilih minimal satu jaringan.</td></tr>';
+}
+
+// T2*: FID dan spin echo
+function paramE(){return waktuRelaksasi(J($('selJ').value),b0Kini());}
+function aturRentangE(){
+ const T2=paramE().T2;
+ $('te').min=Math.round(T2*0.2);$('te').max=Math.round(T2*1.5);$('te').value=Math.round(T2*0.6);
+}
+function panel(c,W,y0,ph,tmax,env,warnaGaris,judul,tanda){
+ const L=46,R=12,mid=y0+ph/2,A=ph/2-10,gx=t=>L+(W-L-R)*t/tmax,per=tmax/24;
+ c.strokeStyle=gaya('--garis');c.lineWidth=1;c.beginPath();c.moveTo(L,mid);c.lineTo(W-R,mid);c.stroke();
+ c.fillStyle=gaya('--lembut');c.font='18px system-ui,sans-serif';c.textAlign='left';c.fillText(judul,L+4,y0+18);
+ c.strokeStyle=warnaGaris;c.lineWidth=1.5;c.globalAlpha=0.5;c.setLineDash([5,4]);
+ [1,-1].forEach(s=>{c.beginPath();for(let k=0;k<=240;k++){const t=tmax*k/240,y=mid-s*A*env(t);k?c.lineTo(gx(t),y):c.moveTo(gx(t),y);}c.stroke();});
+ c.setLineDash([]);c.globalAlpha=1;c.lineWidth=2;c.beginPath();
+ for(let k=0;k<=640;k++){const t=tmax*k/640,y=mid-A*env(t)*Math.cos(6.283*(t-(tanda?tanda.te:0))/per);k?c.lineTo(gx(t),y):c.moveTo(gx(t),y);}
+ c.stroke();
+ if(tanda){c.strokeStyle=gaya('--lembut');c.fillStyle=gaya('--lembut');c.setLineDash([2,4]);
+  [[tanda.te/2,'RF 180°'],[tanda.te,'gema']].forEach(a=>{c.beginPath();c.moveTo(gx(a[0]),y0+24);c.lineTo(gx(a[0]),y0+ph);c.stroke();c.textAlign='center';c.fillText(a[1],gx(a[0]),y0+ph+16);});
+  c.setLineDash([]);}
+}
+function renderE(){
+ const T2=paramE().T2,rasio=Number($('rasio').value)/100,T2s=T2*rasio,TE=Number($('te').value),tmax=3*T2;
+ const inv=Math.max(0,1/T2s-1/T2);
+ $('oR').textContent=Math.round(rasio*100)+' %';$('oTE').textContent=TE+' ms';
+ const fid=t=>Math.exp(-t/T2s);
+ const echo=t=>{const tau=t<=TE/2?t:Math.abs(TE-t);return Math.exp(-t/T2)*Math.exp(-tau*inv);};
+ const cv=$('cE'),c=cv.getContext('2d'),W=cv.width,H=cv.height;
+ c.clearRect(0,0,W,H);
+ panel(c,W,0,150,tmax,fid,gaya('--t1'),'FID (meluruh dengan T2*)',null);
+ panel(c,W,190,150,tmax,echo,gaya('--t2'),'Spin echo (gema pada TE)',{te:TE});
+ c.fillStyle=gaya('--lembut');c.font='18px system-ui,sans-serif';c.textAlign='left';c.fillText('0 ms',46,H-4);c.textAlign='right';c.fillText(Math.round(tmax)+' ms',W-12,H-4);
+ $('infoE').textContent='T2 = '+T2+' ms, T2* = '+fmt(T2s.toFixed(0))+' ms. Pada TE, sinyal FID tinggal '+pers(fid(TE))+' dari M0, sedangkan gema masih '+pers(Math.exp(-TE/T2))+' dari M0.';
+}
+function renderB0(){const b=b0Kini();$('isiB0').innerHTML=['csf','gm','wm','fat'].map(id=>J(id)).map(j=>{const w=waktuRelaksasi(j,b);return '<tr><td>'+j.nama+'</td><td>'+w.T1+'</td><td>'+w.T2+'</td></tr>';}).join('');}
+function semuaUlang(){renderB0();render();renderE();renderV();L1.render();L2.render();renderT();renderK();renderC();renderH();}
+function resetB0(){document.querySelector('input[name=b0]').checked=true;aturRentangE();semuaUlang();}
+function resetKv(){pilih.clear();AWAL.forEach(x=>pilih.add(x));$('s1').value=Math.round(TMAX1/4);$('s2').value=Math.round(TMAX2/4);render();}
+function resetE(){$('selJ').value='gm';$('rasio').value=50;aturRentangE();renderE();}
+document.querySelectorAll('input[name=b0]').forEach(x=>x.addEventListener('change',()=>{aturRentangE();semuaUlang();}));
+document.querySelectorAll('#daftar input').forEach(x=>x.addEventListener('change',()=>{x.checked?pilih.add(x.dataset.id):pilih.delete(x.dataset.id);render();}));
+['s1','s2'].forEach(i=>$(i).addEventListener('input',render));
+['rasio','te'].forEach(i=>$(i).addEventListener('input',renderE));
+$('selJ').addEventListener('change',()=>{aturRentangE();renderE();});
+$('resetB0').addEventListener('click',resetB0);
+$('resetKv').addEventListener('click',resetKv);
+$('resetE').addEventListener('click',resetE);
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',semuaUlang);
+// ---- Visualisasi dephasing ----
+const NV=24,UV=Array.from({length:NV},(_,i)=>-1+2*(i+0.5)/NV);
+const selV=$('selV'),sp=$('sp'),ec=$('ec'),tv=$('tv'),pv=$('pv');
+DATA.JARINGAN.forEach(j=>{const o=document.createElement('option');o.value=j.id;o.textContent=j.nama;selV.appendChild(o);});
+let tcur=0,mainV=false,rafV=0,tLast=0;
+function renderV(){
+ const T2=waktuRelaksasi(J(selV.value),b0Kini()).T2,TE=T2,tmax=3*T2;
+ if(Number(tv.max)!==tmax){tv.max=tmax;if(tcur>tmax)tcur=tmax;}
+ const t=tcur,spread=Number(sp.value)/100,echo=ec.checked,K=3*Math.PI/T2;
+ tv.value=Math.round(t);$('oTv').textContent=Math.round(t)+' ms';$('oSp').textContent=Math.round(spread*100)+' %';
+ const fase=(u,tt)=>u*spread*K*((echo&&tt>TE/2)?tt-TE:tt),amp=tt=>Math.exp(-tt/T2);
+ const neto=tt=>{let x=0,y=0;UV.forEach(u=>{const f=fase(u,tt);x+=Math.cos(f);y+=Math.sin(f);});return[-y/NV*amp(tt),x/NV*amp(tt)];};
+ const cv=$('cV'),c=cv.getContext('2d'),W=cv.width,H=cv.height,cx=165,cy=190,R=125;
+ const GL=410,GR=W-16,gx=tt=>GL+(GR-GL)*tt/tmax,gy=v=>cy-R*v;
+ c.clearRect(0,0,W,H);c.font='19px system-ui,sans-serif';
+ // Judul dua panel
+ c.fillStyle=gaya('--lembut');c.textAlign='center';c.fillText('Vektor spin',cx,30);c.textAlign='left';c.fillText('Panjang vektor neto / M0',GL-30,30);
+ // Panel kiri: lingkaran dan panah spin
+ c.strokeStyle=gaya('--garis');c.lineWidth=1;c.beginPath();c.arc(cx,cy,R,0,6.283);c.moveTo(cx-R,cy);c.lineTo(cx+R,cy);c.moveTo(cx,cy-R);c.lineTo(cx,cy+R);c.stroke();
+ UV.forEach(u=>{const f=fase(u,t),a=amp(t)*R;c.strokeStyle='hsl('+(215+(u+1)/2*135)+',70%,55%)';c.lineWidth=2;c.beginPath();c.moveTo(cx,cy);c.lineTo(cx-a*Math.sin(f),cy-a*Math.cos(f));c.stroke();});
+ const m=neto(t),tipX=cx+m[0]*R,tipY=cy-m[1]*R,mag=Math.hypot(m[0],m[1]);
+ // Panel kanan: grafik (nol sejajar pusat lingkaran, 1 sejajar tepi atas lingkaran)
+ c.strokeStyle=gaya('--garis');c.lineWidth=1;c.fillStyle=gaya('--lembut');c.textAlign='right';
+ [0,0.5,1].forEach(v=>{c.beginPath();c.moveTo(GL,gy(v));c.lineTo(GR,gy(v));c.stroke();c.fillText(fmt(v),GL-6,gy(v)+6);});
+ c.beginPath();c.moveTo(GL,gy(0));c.lineTo(GL,gy(1));c.stroke();
+ c.textAlign='left';c.fillText('0 ms',GL,cy+26);c.textAlign='right';c.fillText(Math.round(tmax)+' ms',GR,cy+26);
+ c.strokeStyle=gaya('--lembut');c.lineWidth=1.5;c.setLineDash([3,4]);c.beginPath();for(let k=0;k<=100;k++){const tt=tmax*k/100;k?c.lineTo(gx(tt),gy(amp(tt))):c.moveTo(gx(tt),gy(amp(tt)));}c.stroke();c.setLineDash([]);
+ c.strokeStyle=echo?gaya('--t2'):gaya('--t1');c.lineWidth=2.5;c.beginPath();for(let k=0;k<=300;k++){const tt=tmax*k/300,v=Math.hypot(...neto(tt));k?c.lineTo(gx(tt),gy(v)):c.moveTo(gx(tt),gy(v));}c.stroke();
+ if(echo){c.strokeStyle=c.fillStyle=gaya('--lembut');c.lineWidth=1;c.setLineDash([2,4]);c.textAlign='center';[[TE/2,'RF 180°'],[TE,'gema']].forEach(a=>{c.beginPath();c.moveTo(gx(a[0]),gy(1));c.lineTo(gx(a[0]),gy(0));c.stroke();c.fillText(a[1],gx(a[0]),gy(1)+18);});c.setLineDash([]);}
+ c.strokeStyle=gaya('--teks');c.lineWidth=1.5;c.setLineDash([4,4]);c.beginPath();c.moveTo(gx(t),gy(1));c.lineTo(gx(t),gy(0));c.stroke();c.setLineDash([]);
+ // Vektor neto (batang utama)
+ c.strokeStyle=c.fillStyle=gaya('--teks');c.lineWidth=4;c.beginPath();c.moveTo(cx,cy);c.lineTo(tipX,tipY);c.stroke();c.beginPath();c.arc(tipX,tipY,5,0,6.283);c.fill();
+ // Garis putus-putus: ujung vektor neto ke titik pada grafik
+ const mx=gx(t),my=gy(mag);
+ c.strokeStyle=c.fillStyle=gaya('--aksen');c.lineWidth=2;c.setLineDash([7,5]);c.beginPath();c.moveTo(tipX,tipY);c.lineTo(mx,my);c.stroke();c.setLineDash([]);
+ c.beginPath();c.arc(mx,my,6,0,6.283);c.fill();
+ $('infoV').innerHTML='Waktu '+Math.round(t)+' ms. Vektor neto '+pers(mag)+' dari M0, batas T2 sejati '+pers(amp(t))+'. '+(echo?(t>TE/2?'Pulsa RF 180° sudah diberikan.':'Pulsa RF 180° akan diberikan pada '+Math.round(TE/2)+' ms.'):'Tanpa pulsa RF 180° (FID).')+'<br>Pada TE ('+Math.round(TE)+' ms) vektor neto '+pers(Math.hypot(...neto(TE)))+' dari M0, sedangkan batas T2 sejati '+pers(amp(TE))+'. Garis abu-abu putus-putus pada grafik adalah batas T2 sejati.';
+}
+function hentikanV(){mainV=false;cancelAnimationFrame(rafV);setIk(pv,'play');}
+function putarV(ts){
+ if(!mainV)return;const mx=Number(tv.max);tcur+=(ts-tLast)/6000*mx;tLast=ts;
+ if(tcur>=mx){tcur=mx;hentikanV();}
+ renderV();if(mainV)rafV=requestAnimationFrame(putarV);
+}
+pv.addEventListener('click',()=>{
+ if(mainV){hentikanV();return;}
+ if(tcur>=Number(tv.max))tcur=0;
+ mainV=true;setIk(pv,'pause');tLast=performance.now();rafV=requestAnimationFrame(putarV);
+});
+tv.addEventListener('input',()=>{tcur=Number(tv.value);renderV();});
+sp.addEventListener('input',renderV);ec.addEventListener('change',renderV);selV.addEventListener('change',renderV);
+function resetV(){hentikanV();tcur=0;selV.value='gm';sp.value=40;ec.checked=false;renderV();}
+$('resetV').addEventListener('click',resetV);
+// ---- Lemak vs cairan (satu salinan untuk T1, satu untuk T2) ----
+const NL=32,UL=Array.from({length:NL},(_,i)=>Math.tan(Math.PI*((i+0.5)/NL-0.5)));
+const JL=[J('fat'),J('csf')];
+function panahL(c,x0,y0,x1,y1,lw){
+ const a=Math.atan2(y1-y0,x1-x0),h=8+lw;c.lineWidth=lw;c.beginPath();c.moveTo(x0,y0);c.lineTo(x1,y1);c.stroke();
+ c.beginPath();c.moveTo(x1,y1);c.lineTo(x1-h*Math.cos(a-0.4),y1-h*Math.sin(a-0.4));c.lineTo(x1-h*Math.cos(a+0.4),y1-h*Math.sin(a+0.4));c.closePath();c.fill();
+}
+function buatL(mode,sfx){
+ const tl=$('tl'+sfx),pl=$('pl'+sfx),cv=$('cL'+sfx);
+ let tL=0,main=false,raf=0,tLast=0;
+ function render(){
+ const b=b0Kini(),ws=JL.map(j=>waktuRelaksasi(j,b)),tau=ws.map(w=>mode==='t1'?w.T1:w.T2),tmax=2*Math.max(...tau);
+ if(Number(tl.max)!==tmax){tl.max=tmax;if(tL>tmax)tL=tmax;}
+ tl.value=Math.round(tL);$('oTl'+sfx).textContent=Math.round(tL)+' ms';
+ const c=cv.getContext('2d'),W=cv.width,t=tL,warnaJ=[gelap()?'hsl(48,90%,58%)':'hsl(42,90%,42%)',gelap()?'hsl(195,75%,58%)':'hsl(200,75%,40%)'];
+ const f=(i,tt)=>mode==='t1'?1-Math.exp(-tt/tau[i]):Math.exp(-tt/tau[i]);
+ c.clearRect(0,0,W,cv.height);c.font='16px system-ui,sans-serif';
+ JL.forEach((j,i)=>{
+  const y0=i*200,col=warnaJ[i],gx=tt=>210+(W-222)*tt/tmax,gy=v=>y0+172-130*v;
+  c.fillStyle=gaya('--teks');c.textAlign='left';c.fillText(j.nama+' (T'+(mode==='t1'?'1 ':'2 ')+tau[i]+' ms)',12,y0+20);
+  c.strokeStyle=gaya('--garis');c.lineWidth=1;c.beginPath();c.moveTo(210,y0+34);c.lineTo(210,y0+172);c.lineTo(W-12,y0+172);c.stroke();
+  c.fillStyle=gaya('--lembut');c.textAlign='right';c.fillText('1',204,y0+46);c.fillText('0',204,y0+176);
+  if(i===1){c.textAlign='left';c.fillText('0 ms',210,y0+194);c.textAlign='right';c.fillText(Math.round(tmax)+' ms',W-12,y0+194);}
+  if(mode==='t1'){
+   const px=70,py=y0+165,L=105;
+   c.strokeStyle=c.fillStyle=gaya('--lembut');panahL(c,px-34,py,px-34,py-125,2);c.textAlign='center';c.fillText('B0',px-34,py+16);
+   const th=tt=>Math.acos(Math.min(1,Math.max(0,1-Math.exp(-tt/tau[i]))));
+   c.globalAlpha=0.3;c.strokeStyle=c.fillStyle=col;for(let k=1;k<=6;k++){const a=th(t*k/6);panahL(c,px,py,px+L*Math.sin(a),py-L*Math.cos(a),3);}c.globalAlpha=1;
+   const a=th(t);c.strokeStyle=c.fillStyle=col;panahL(c,px,py,px+L*Math.sin(a),py-L*Math.cos(a),5);
+  }else{
+   const cx=100,cy=y0+105,R=72;
+   c.strokeStyle=gaya('--garis');c.lineWidth=1;c.beginPath();c.arc(cx,cy,R,0,6.283);c.stroke();
+   c.strokeStyle=c.fillStyle=col;UL.forEach(u=>{const ph=Math.PI/2+u*t/tau[i];panahL(c,cx,cy,cx+0.9*R*Math.cos(ph),cy-0.9*R*Math.sin(ph),1);});
+   c.strokeStyle=c.fillStyle=gaya('--teks');panahL(c,cx,cy,cx,cy-R*f(i,t),4);
+  }
+  c.strokeStyle=col;c.lineWidth=2.5;c.beginPath();for(let k=0;k<=150;k++){const tt=tmax*k/150;k?c.lineTo(gx(tt),gy(f(i,tt))):c.moveTo(gx(tt),gy(f(i,tt)));}c.stroke();
+  c.strokeStyle=gaya('--teks');c.lineWidth=1.5;c.setLineDash([4,4]);c.beginPath();c.moveTo(gx(t),y0+34);c.lineTo(gx(t),y0+172);c.stroke();c.setLineDash([]);
+  c.fillStyle=col;c.beginPath();c.arc(gx(t),gy(f(i,t)),5,0,6.283);c.fill();
+ });
+ $('infoL'+sfx).textContent='Pada '+Math.round(t)+' ms, '+(mode==='t1'?'Mz/M0':'Mxy/M0')+' lemak '+pers(f(0,t))+' dan cairan serebrospinal '+pers(f(1,t))+'.';
+}
+
+ function hentikan(){main=false;cancelAnimationFrame(raf);setIk(pl,'play');}
+ function putar(ts){
+  if(!main)return;const mx=Number(tl.max);tL+=(ts-tLast)/6000*mx;tLast=ts;
+  if(tL>=mx){tL=mx;hentikan();}
+  render();if(main)raf=requestAnimationFrame(putar);
+ }
+ pl.addEventListener('click',()=>{
+  if(main){hentikan();return;}
+  if(tL>=Number(tl.max))tL=0;
+  main=true;setIk(pl,'pause');tLast=performance.now();raf=requestAnimationFrame(putar);
+ });
+ tl.addEventListener('input',()=>{tL=Number(tl.value);render();});
+ function reset(){hentikan();tL=0;render();}
+ $('resetL'+sfx).addEventListener('click',reset);
+ return{render,reset};
+}
+const L1=buatL('t1','1'),L2=buatL('t2','2');
+// ---- Kontras T1 dan TR ----
+const trs=$('trs'),TJ=['fat','csf','gm','wm'].map(J);
+trs.max=TMAX1;
+const sinyalT=(j,TR,b,pn)=>j.PD*(pn?1-Math.exp(-TR/waktuRelaksasi(j,b).T1):1);
+function renderT(){
+ const b=b0Kini(),TR=Number(trs.value),pn=document.querySelector('input[name=pulsa]:checked').value==='pn';
+ $('oTR').textContent=TR+' ms';
+ const cv=$('cT'),c=cv.getContext('2d'),W=cv.width,H=cv.height,col=[gelap()?'hsl(48,90%,58%)':'hsl(42,90%,42%)',gelap()?'hsl(195,75%,58%)':'hsl(200,75%,40%)'];
+ const S=[sinyalT(TJ[0],TR,b,pn),sinyalT(TJ[1],TR,b,pn)];
+ c.clearRect(0,0,W,H);c.font='16px system-ui,sans-serif';
+ c.strokeStyle=gaya('--garis');c.lineWidth=1;c.strokeRect(10,10,190,205);c.strokeRect(215,10,190,205);
+ c.fillStyle=gaya('--lembut');c.textAlign='left';c.fillText('Sebelum pulsa RF',18,30);c.fillText('Sesudah pulsa RF 90°',223,30);
+ c.strokeStyle=c.fillStyle=gaya('--lembut');panahL(c,28,195,28,50,2);c.textAlign='center';c.fillText('B0',28,210);
+ c.strokeStyle=c.fillStyle=col[0];panahL(c,85,195,85,195-135*S[0]-1,5);
+ c.strokeStyle=c.fillStyle=col[1];panahL(c,150,195,150,195-135*S[1]-1,5);
+ c.fillStyle=gaya('--lembut');c.fillText('lemak',85,210);c.fillText('cairan',150,210);
+ c.strokeStyle=gaya('--lembut');c.lineWidth=1;c.setLineDash([4,4]);c.beginPath();c.moveTo(222,125);c.lineTo(398,125);c.stroke();c.setLineDash([]);
+ c.strokeStyle=c.fillStyle=col[0];panahL(c,232,105,232+150*S[0]+1,105,5);
+ c.strokeStyle=c.fillStyle=col[1];panahL(c,232,145,232+150*S[1]+1,145,5);
+ c.fillStyle=gaya('--lembut');c.textAlign='left';c.fillText('bidang transversal',232,200);
+ let best=0,bi=0;for(let t=0;t<=TMAX1;t+=5){const d=Math.abs(sinyalT(TJ[0],t,b,true)-sinyalT(TJ[1],t,b,true));if(d>best){best=d;bi=t;}}
+ c.fillStyle=gaya('--teks');
+ ['Sinyal lemak: '+pers(S[0]),'Sinyal cairan: '+pers(S[1]),'Selisih: '+pers(Math.abs(S[0]-S[1]))].forEach((x,i)=>c.fillText(x,420,60+i*30));
+ const L=46,Rr=12,T=250,B=40,gx=tt=>L+(W-L-Rr)*tt/TMAX1,gy=v=>H-B-(H-T-B)*v;
+ sumbu(c,W,H,L,Rr,T,B,TMAX1);
+ [0,1].forEach(i=>{const T1=waktuRelaksasi(TJ[i],b).T1;c.strokeStyle=col[i];c.lineWidth=2.5;c.beginPath();for(let k=0;k<=150;k++){const tt=TMAX1*k/150,y=gy(1-Math.exp(-tt/T1));k?c.lineTo(gx(tt),y):c.moveTo(gx(tt),y);}c.stroke();
+  c.fillStyle=col[i];c.beginPath();c.arc(gx(TR),gy(1-Math.exp(-TR/T1)),5,0,6.283);c.fill();});
+ c.strokeStyle=gaya('--teks');c.lineWidth=1.5;c.setLineDash([4,4]);c.beginPath();c.moveTo(gx(TR),T);c.lineTo(gx(TR),H-B);c.stroke();c.setLineDash([]);
+ c.fillStyle=gaya('--lembut');c.textAlign='left';c.fillText('Mz/M0 terhadap waktu',L+8,T-8);
+ $('infoT').textContent=(pn?'':'Pada pulsa pertama, semua jaringan masih searah B0 sehingga belum ada kontras T1. ')+'Pada model ini, selisih sinyal lemak dan cairan terbesar sekitar TR '+bi+' ms ('+pers(best)+'). Pada TR yang sangat panjang, sinyal hanya mengikuti PD.';
+ $('isiT').innerHTML=TJ.map(j=>{const v=sinyalT(j,TR,b,pn),g=Math.round(255*v);return '<tr><td>'+j.nama+'</td><td>'+waktuRelaksasi(j,b).T1+'</td><td>'+fmt(j.PD.toFixed(2))+'</td><td>'+fmt(v.toFixed(2))+"</td><td><span class='kotak' style='width:2.4em;height:1.1em;border:1px solid var(--garis);background:rgb("+g+','+g+','+g+")'></span></td></tr>";}).join('');
+}
+trs.addEventListener('input',renderT);
+document.querySelectorAll('input[name=pulsa]').forEach(x=>x.addEventListener('change',renderT));
+function resetT(){trs.value=Math.round(TMAX1/8);document.querySelector('input[name=pulsa][value=pn]').checked=true;renderT();}
+$('resetT').addEventListener('click',resetT);
+// ---- Simulator pembobotan (Persamaan 2.4) ----
+const trK=$('trK'),teK=$('teK'),TK=['csf','gm','wm','fat'].map(J),IK=TK.map(j=>DATA.JARINGAN.indexOf(j));
+const PRE=[['T1',500,15],['T2',4000,100],['PD',4000,15]];
+const sigK=(j,TR,TE,b)=>{const w=waktuRelaksasi(j,b);return j.PD*Math.exp(-TE/w.T2)*(1-Math.exp(-TR/w.T1));};
+PRE.forEach(([n,tr,te])=>{const b=document.createElement('button');b.type='button';b.textContent=n;b.dataset.tr=tr;b.dataset.te=te;b.onclick=()=>{trK.value=tr;teK.value=te;renderK();};$('preK').appendChild(b);});
+function miniK(c,x0,y0,w,h,tmax,fn,tc,judul,b){
+ c.strokeStyle=gaya('--garis');c.lineWidth=1;c.strokeRect(x0,y0,w,h);
+ c.fillStyle=gaya('--lembut');c.font='15px system-ui,sans-serif';c.textAlign='left';c.fillText(judul,x0,y0-8);c.fillText('0',x0,y0+h+16);c.textAlign='right';c.fillText(tmax+' ms',x0+w,y0+h+16);
+ TK.forEach((j,i)=>{const col=warna(IK[i]),ww=waktuRelaksasi(j,b);c.strokeStyle=col;c.lineWidth=2;c.beginPath();
+  for(let k=0;k<=100;k++){const y=y0+h-h*fn(ww,tmax*k/100);k?c.lineTo(x0+w*k/100,y):c.moveTo(x0,y);}c.stroke();
+  c.fillStyle=col;c.beginPath();c.arc(x0+w*tc/tmax,y0+h-h*fn(ww,tc),4,0,6.283);c.fill();});
+ c.strokeStyle=gaya('--teks');c.lineWidth=1.5;c.setLineDash([4,4]);c.beginPath();c.moveTo(x0+w*tc/tmax,y0);c.lineTo(x0+w*tc/tmax,y0+h);c.stroke();c.setLineDash([]);
+}
+function renderK(){
+ const b=b0Kini(),TR=Number(trK.value),TE=Number(teK.value);
+ $('oTRK').textContent=TR+' ms';$('oTEK').textContent=TE+' ms';
+ $('preK').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',Number(x.dataset.tr)===TR&&Number(x.dataset.te)===TE));
+ const S=TK.map(j=>sigK(j,TR,TE,b)),mx=Math.max(...S,1e-9);
+ const cv=$('cK'),c=cv.getContext('2d');
+ c.clearRect(0,0,cv.width,cv.height);c.font='15px system-ui,sans-serif';
+ const cx=180,cy=110;
+ [[3,100],[1,76],[2,52],[0,24]].forEach(([k,r])=>{const g=Math.round(255*S[k]/mx);c.fillStyle='rgb('+g+','+g+','+g+')';c.beginPath();c.arc(cx,cy,r,0,6.283);c.fill();});
+ c.strokeStyle=gaya('--garis');c.lineWidth=1;c.beginPath();c.arc(cx,cy,100,0,6.283);c.stroke();
+ c.fillStyle=gaya('--lembut');c.textAlign='left';c.textAlign='center';c.fillText('lemak, GM, WM, CSF (luar ke dalam)',cx,236);c.textAlign='left';
+ c.fillText('Sinyal relatif (SI)',30,266);
+ c.strokeStyle=gaya('--garis');c.beginPath();c.moveTo(24,410);c.lineTo(346,410);c.stroke();
+ S.forEach((v,i)=>{const x=30+i*82,h=110*v,col=warna(IK[i]);c.fillStyle=col;c.fillRect(x,410-h,58,h);
+  c.textAlign='center';c.fillStyle=gaya('--teks');c.fillText(pers(v),x+29,404-h);c.fillStyle=col;c.fillText(['CSF','GM','WM','Lemak'][i],x+29,431);});
+ miniK(c,410,50,320,140,5000,(w,t)=>1-Math.exp(-t/w.T1),TR,'Faktor T1 terhadap TR',b);
+ miniK(c,410,280,320,140,300,(w,t)=>Math.exp(-t/w.T2),TE,'Faktor T2 terhadap TE',b);
+ const gm=waktuRelaksasi(J('gm'),b),cT=TR<gm.T1,cE=TE>=0.5*gm.T2,f=S[3],cs=S[0],d=Math.abs(f-cs);
+ const bobot=cT?(cE?'campuran (TR pendek dengan TE panjang), bobot tidak murni':'cenderung berbobot T1'):(cE?'cenderung berbobot T2':'cenderung berbobot PD');
+ $('infoK').textContent='Pembobotan: '+bobot+'. '+(d<0.03?'Lemak dan cairan serebrospinal hampir sama terang.':(f>cs?'Lemak lebih terang daripada cairan serebrospinal':'Cairan serebrospinal lebih terang daripada lemak')+' (selisih '+pers(d)+' dari M0).');
+ $('isiK').innerHTML=TK.map((j,i)=>{const w=waktuRelaksasi(j,b),g=Math.round(255*S[i]/mx);
+  return '<tr><td><span class=\'kotak\' style=\'background:'+warna(IK[i])+'\'></span>'+j.nama+'</td><td>'+fmt(j.PD.toFixed(2))+'</td><td>'+fmt((1-Math.exp(-TR/w.T1)).toFixed(2))+'</td><td>'+fmt(Math.exp(-TE/w.T2).toFixed(2))+'</td><td>'+fmt(S[i].toFixed(2))+"</td><td><span class='kotak' style='width:2.4em;height:1.1em;border:1px solid var(--garis);background:rgb("+g+','+g+','+g+")'></span></td></tr>";}).join('');
+}
+trK.addEventListener('input',renderK);teK.addEventListener('input',renderK);
+// ---- Kontras T2: TE pendek dan panjang (Gambar 2.16) ----
+const teC=$('teC');
+function renderC(){
+ const b=b0Kini(),wf=waktuRelaksasi(J('fat'),b),wc=waktuRelaksasi(J('csf'),b),tmax=2*wc.T2;
+ if(Number(teC.max)!==tmax){teC.max=tmax;if(Number(teC.value)>tmax)teC.value=tmax;}
+ const TE=Number(teC.value),vf=Math.exp(-TE/wf.T2),vc=Math.exp(-TE/wc.T2);
+ $('oTEC').textContent=TE+' ms';
+ const cv=$('cC'),c=cv.getContext('2d'),W=cv.width,H=cv.height,L=46,R=12,T=14,B=34,gx=t=>L+(W-L-R)*t/tmax,gy=v=>H-B-(H-T-B)*v;
+ c.clearRect(0,0,W,H);sumbu(c,W,H,L,R,T,B,tmax);
+ [[wf.T2,3,'Lemak'],[wc.T2,0,'Cairan']].forEach(([t2,i,n])=>{c.strokeStyle=warna(i);c.lineWidth=2.5;c.beginPath();for(let k=0;k<=150;k++){const t=tmax*k/150;k?c.lineTo(gx(t),gy(Math.exp(-t/t2))):c.moveTo(gx(t),gy(1));}c.stroke();
+  c.fillStyle=warna(i);c.beginPath();c.arc(gx(TE),gy(Math.exp(-TE/t2)),5,0,6.283);c.fill();});
+ c.strokeStyle=gaya('--teks');c.lineWidth=1.5;c.setLineDash([4,4]);c.beginPath();c.moveTo(gx(TE),T);c.lineTo(gx(TE),H-B);c.stroke();c.setLineDash([]);
+ const xb=Math.min(gx(TE)+12,W-R-4);c.lineWidth=2;c.beginPath();c.moveTo(xb,gy(vc));c.lineTo(xb,gy(vf));c.stroke();
+ c.font='15px system-ui,sans-serif';c.textAlign='left';c.fillStyle=gaya('--lembut');c.fillText('Mxy koheren / M0',L+8,T+14);
+ [[vc,0,'Cairan'],[vf,3,'Lemak']].forEach(([v,i,n],k)=>{const g=Math.round(255*v),x=470+k*80;c.fillStyle='rgb('+g+','+g+','+g+')';c.fillRect(x,40,60,34);c.strokeStyle=gaya('--garis');c.lineWidth=1;c.strokeRect(x,40,60,34);c.fillStyle=warna(i);c.textAlign='center';c.fillText(n,x+30,92);});
+ const ts=Math.log(wc.T2/wf.T2)/(1/wf.T2-1/wc.T2);
+ $('infoC').textContent='Pada TE '+TE+' ms: cairan '+pers(vc)+', lemak '+pers(vf)+', selisih '+pers(vc-vf)+'. Pada model ini selisih terbesar sekitar TE '+Math.round(ts)+' ms ('+pers(Math.exp(-ts/wc.T2)-Math.exp(-ts/wf.T2))+'). TE sangat pendek memberi selisih kecil, dan TE terlalu panjang membuat keduanya hampir habis.';
+}
+teC.addEventListener('input',renderC);
+function resetC(){teC.value=100;renderC();}
+$('resetC').addEventListener('click',resetC);
+// ---- Analogi kompor ----
+const trH=$('trH'),teH=$('teH');
+[['Berbobot T1',500,15],['Berbobot T2',4000,100],['Berbobot PD',4000,15]].forEach(([n,tr,te])=>{const b=document.createElement('button');b.type='button';b.textContent=n;b.dataset.tr=tr;b.dataset.te=te;b.onclick=()=>{trH.value=tr;teH.value=te;renderH();};$('preH').appendChild(b);});
+function apiH(c,cx,by,h,judul){
+ c.fillStyle=h>=0.5?'#ff8a1f':'#5aa2ff';c.font='bold 20px system-ui,sans-serif';c.textAlign='center';c.fillText(judul,cx,34);
+ c.fillStyle='#9a9a9a';c.beginPath();c.ellipse(cx,by,70,9,0,0,6.283);c.fill();
+ c.fillStyle='#4aa3ff';for(let k=-5;k<=5;k++){const x=cx+k*11;c.beginPath();c.moveTo(x-5,by-2);c.lineTo(x,by-14);c.lineTo(x+5,by-2);c.fill();}
+ const H=170*h;if(H>8){const g=c.createLinearGradient(0,by-H,0,by);g.addColorStop(0,'rgba(255,120,20,0)');g.addColorStop(0.35,'#ff8a1f');g.addColorStop(0.8,'#ffe9b0');g.addColorStop(1,'#bfe0ff');c.fillStyle=g;c.beginPath();c.moveTo(cx-48*(0.4+0.6*h),by-6);c.quadraticCurveTo(cx-40*h-10,by-H*0.45,cx,by-H);c.quadraticCurveTo(cx+40*h+10,by-H*0.45,cx+48*(0.4+0.6*h),by-6);c.closePath();c.fill();}
+}
+function kenopH(c,cx,cy,frac,nama){
+ c.fillStyle=gaya('--permukaan');c.strokeStyle=gaya('--lembut');c.lineWidth=2;c.beginPath();c.arc(cx,cy,52,0,6.283);c.fill();c.stroke();
+ const t=(-135+270*frac)*Math.PI/180;c.strokeStyle=gaya('--aksen');c.lineWidth=5;c.beginPath();c.moveTo(cx,cy);c.lineTo(cx+44*Math.sin(t),cy-44*Math.cos(t));c.stroke();
+ c.fillStyle=gaya('--teks');c.font='bold 16px system-ui,sans-serif';c.textAlign='center';c.fillText(nama,cx,cy+22);
+ c.fillStyle=gaya('--lembut');c.font='14px system-ui,sans-serif';c.fillText('Turun',cx-66,cy+50);c.fillText('Naik',cx+66,cy+50);
+}
+function renderH(){
+ const TR=Number(trH.value),TE=Number(teH.value),h1=Math.max(0,1-(TR-100)/4900),h2=Math.min(1,TE/150);
+ $('oTRH').textContent=TR+' ms';$('oTEH').textContent=TE+' ms';
+ $('preH').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',Number(x.dataset.tr)===TR&&Number(x.dataset.te)===TE));
+ [['cH1',h1,'Kontras T1',(TR-100)/4900,'TR'],['cH2',h2,'Kontras T2',(TE-5)/145,'TE']].forEach(([id,h,judul,frac,nama])=>{
+  const cv=$(id),c=cv.getContext('2d');c.clearRect(0,0,cv.width,cv.height);
+  c.fillStyle='#000';c.fillRect(20,8,280,240);apiH(c,160,232,h,judul);kenopH(c,160,315,frac,nama);
+ });
+ const kelas=h1>=0.5&&h2<0.5?'Api T1 besar dan api T2 kecil: citra berbobot T1.':h1<0.5&&h2>=0.5?'Api T2 besar dan api T1 kecil: citra berbobot T2.':h1<0.5?'Kedua api kecil: kontras PD yang dominan (berbobot PD).':'Kedua api besar (TR pendek, TE panjang): kontras campuran, bobot tidak murni.';
+ $('infoH').textContent='Api T1 '+pers(h1)+', api T2 '+pers(h2)+'. '+kelas;
+}
+trH.addEventListener('input',renderH);teH.addEventListener('input',renderH);
+function resetH(){trH.value=500;teH.value=15;renderH();}
+$('resetH').addEventListener('click',resetH);
+// ---- Sinyal air ----
+let air='';
+const AIR={tinggi:'Air bersinyal tinggi: citra kemungkinan besar berbobot T2 dan diperoleh dengan TE panjang.',rendah:'Air bersinyal rendah: citra kemungkinan berbobot T1 dan diperoleh dengan TR pendek. Tergantung area tubuh, sebagian citra berbobot PD juga punya air yang gelap.'};
+function renderA(){
+ $('airP').innerHTML='';[['tinggi','Air bersinyal tinggi'],['rendah','Air bersinyal rendah']].forEach(([k,t])=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-pressed',air===k);b.onclick=()=>{air=k;renderA();};$('airP').appendChild(b);});
+ $('airI').textContent=air?AIR[air]:'';
+}
+function resetA(){air='';renderA();}
+$('resetA').addEventListener('click',resetA);
+// ---- Tabel 2.6, 2.8, 2.10: contoh kontras ----
+const TB={
+ T1:{t:['Lemak','Hemangioma','Lipoma intraosseus','Perubahan akibat radiasi','Degenerasi','Deposisi lemak','Methemoglobin','Kista berisi cairan proteinaseus','Agen kontras paramagnetik','Darah mengalir lambat'],r:['Tulang kortikal','Nekrosis avaskular','Infark','Infeksi','Tumor','Sklerosis','Kista','Kalsifikasi'],n:['Udara','Darah mengalir cepat','Tendon','Tulang kortikal','Jaringan parut','Kalsifikasi']},
+ T2:{t:['Air','Cairan sinovial','Hemangioma','Infeksi','Inflamasi','Edema','Beberapa tumor','Perdarahan','Darah mengalir lambat','Kista'],r:['Tulang kortikal','Pulau tulang','Deoksihemoglobin','Hemosiderin','Kalsifikasi','Agen paramagnetik T2'],n:['Udara','Darah mengalir cepat','Tendon','Tulang kortikal','Jaringan parut','Kalsifikasi']},
+ PD:{t:['Cairan serebrospinal','Cairan sinovial','Darah mengalir lambat','Infeksi','Inflamasi','Edema','Kista','Lemak'],r:[],n:['Udara','Darah mengalir cepat','Tendon','Tulang kortikal','Jaringan parut','Kalsifikasi']}};
+const NM6=(w,k)=>k==='t'?'Sinyal tinggi':k==='r'?'Sinyal rendah':(w==='PD'?'Sinyal rendah atau tanpa':'Tanpa sinyal');
+let w6='T1',f6='all',cur6='',skor6=0,n6=0,jawab6=false;
+const kunci6=()=>['t','r','n'].filter(k=>TB[w6][k].length),semua6=()=>[...new Set(kunci6().flatMap(k=>TB[w6][k]))];
+function tombol6(par,k,t,fn,aktif){const b=document.createElement('button');b.type='button';b.textContent=t;if(aktif!==undefined)b.setAttribute('aria-pressed',aktif);b.onclick=fn;par.appendChild(b);}
+function render6(){
+ $('w6').innerHTML='';[['T1','Berbobot T1'],['T2','Berbobot T2'],['PD','Berbobot PD']].forEach(([k,t])=>tombol6($('w6'),k,t,()=>{w6=k;f6='all';skor6=0;n6=0;render6();soal6();tampil6();},k===w6));
+ $('f6').innerHTML='';[['all','Semua']].concat(kunci6().map(k=>[k,NM6(w6,k)])).forEach(([k,t])=>tombol6($('f6'),k,t,()=>{f6=k;render6();},k===f6));
+ $('t6').innerHTML=kunci6().filter(k=>f6==='all'||f6===k).map(k=>"<div class='baris6'><div class='sw "+k+"'>"+NM6(w6,k)+'</div><div>'+TB[w6][k].map(x=>"<span class='chip'>"+x+'</span>').join('')+'</div></div>').join('');
+ $('tbP').innerHTML='';kunci6().forEach(k=>tombol6($('tbP'),k,NM6(w6,k),()=>{
+  if(jawab6)return;jawab6=true;n6++;const ok=TB[w6][k].includes(cur6);if(ok)skor6++;
+  const ben=kunci6().filter(q=>TB[w6][q].includes(cur6)).map(q=>NM6(w6,q).toLowerCase()).join(' dan ');
+  $('tbI').className='baca '+(ok?'ok':'no');$('tbI').textContent=(ok?'Benar. ':'Belum tepat. ')+cur6+' pada citra berbobot '+w6+': '+ben+'.';tampil6();}));
+}
+function tampil6(){$('tbS').textContent='Skor: '+skor6+' / '+n6;}
+function soal6(){const d=semua6();cur6=d[Math.floor(Math.random()*d.length)];jawab6=false;$('tbK').innerHTML='Bagaimana sinyal <b>'+cur6+'</b> pada citra berbobot '+w6+'?';$('tbI').textContent='';$('tbI').className='baca';}
+$('tbN').addEventListener('click',soal6);
+function reset6(){w6='T1';f6='all';skor6=0;n6=0;render6();soal6();tampil6();}
+$('reset6').addEventListener('click',reset6);
+function resetK(){trK.value=500;teK.value=15;renderK();}
+$('resetK').addEventListener('click',resetK);
+resetB0();resetKv();resetE();resetV();L1.reset();L2.reset();resetT();resetK();resetH();resetA();resetC();reset6();
+
+// ---- Pilihan materi singkat / lengkap (per kartu) ----
+document.querySelectorAll('.bm').forEach(k=>{
+ k.dataset.mode='singkat';
+ const g=document.createElement('div');g.className='pilih';g.setAttribute('role','group');g.setAttribute('aria-label','Kedalaman materi kartu ini');
+ [['singkat','Materi singkat'],['lengkap','Materi lengkap'],['analogi','Analogi']].forEach(([m,t])=>{
+  const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-pressed',m==='singkat');
+  b.onclick=()=>{k.dataset.mode=m;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));};
+  g.appendChild(b);});
+ k.querySelector('.tag').after(g);});
+document.querySelectorAll('[data-isi]').forEach(e=>{e.textContent=ISI[e.dataset.isi];});
+
+// ---- Kuis ----
+const SOAL=[
+ {pertanyaan:'Mana yang termasuk parameter kontras intrinsik?',
+  pilihan:['TR','Waktu pemulihan T1 jaringan','TE','Sudut flip'],
+  jawaban:1,penjelasan:'T1, T2, kerapatan proton (PD), aliran, dan ADC melekat pada jaringan dan tidak bisa diubah. TR, TE, dan sudut flip dipilih pada protokol (ekstrinsik).',tingkat:1},
+ {pertanyaan:'Relaksasi T1 (spin-kisi) menggambarkan proses yang mana?',
+  pilihan:['Peluruhan magnetisasi transversal karena interaksi antar-spin','Pemulihan magnetisasi longitudinal menuju arah B0','Perubahan frekuensi Larmor karena pulsa RF','Hilangnya sinyal karena pulsa RF 180°'],
+  jawaban:1,penjelasan:'T1 adalah pemulihan magnetisasi longitudinal (kurva naik). Peluruhan transversal adalah T2.',tingkat:1},
+ {pertanyaan:'Pada 1,5 T, jaringan mana dalam daftar ini yang T2-nya paling pendek?',
+  pilihan:[J('csf').nama,J('fat').nama,J('muscle').nama,J('liver').nama],
+  jawaban:3,penjelasan:J('liver').nama+' memiliki T2 '+J('liver').T2_ms+' ms, sedangkan '+J('csf').nama+' '+J('csf').T2_ms+' ms. Perbedaan T2 inilah sumber kontras.',tingkat:1},
+ {pertanyaan:'Bagaimana bentuk kurva relaksasi T1 dan T2?',
+  pilihan:['Keduanya kurva naik','T1 meluruh dan T2 pulih','T1 pulih (naik) dan T2 meluruh (turun)','Keduanya kurva turun'],
+  jawaban:2,penjelasan:'Mz pulih menuju M0 (naik) menurut T1, sedangkan Mxy meluruh menuju nol (turun) menurut T2.',tingkat:1},
+ {pertanyaan:'Kapan kontras T1 paling mungkin muncul?',
+  pilihan:['Ketika TR panjang sehingga semua jaringan pulih penuh','Ketika TR pendek sehingga jaringan belum pulih penuh di antara dua pulsa RF','Ketika TE sangat panjang','Ketika B0 dimatikan'],
+  jawaban:1,penjelasan:'Kontras T1 berasal dari perbedaan laju pemulihan. Jika TR panjang, semua jaringan pulih penuh dan perbedaan itu tidak tampak.',tingkat:1},
+ {pertanyaan:'Apa yang dimaksud area hiperintens pada citra MR?',
+  pilihan:['Area bersinyal rendah, tampak hitam','Area bersinyal tinggi, tampak putih','Area tanpa jaringan','Area dengan T1 paling pendek'],
+  jawaban:1,penjelasan:'Hiperintens berarti sinyal tinggi (putih), dan hipointens berarti sinyal rendah (hitam). Sinyal tinggi terjadi jika magnetisasi transversal yang koheren besar pada TE.',tingkat:1},
+ {pertanyaan:'Apa yang dimaksud kerapatan proton (PD) suatu jaringan?',
+  pilihan:['Jumlah proton hidrogen mobil per satuan volume jaringan','Waktu pemulihan magnetisasi longitudinal','Kecepatan presesi proton','Kuat medan magnet utama'],
+  jawaban:0,penjelasan:'Makin tinggi PD, makin banyak sinyal yang tersedia dari jaringan itu. PD adalah salah satu parameter kontras intrinsik.',tingkat:1},
+ {pertanyaan:'Bagaimana perbandingan lemak dan air (cairan) pada T1 dan T2?',
+  pilihan:['Lemak: T1 dan T2 pendek. Air: T1 dan T2 panjang','Lemak: T1 panjang. Air: T1 pendek','T1 dan T2 keduanya sama','Lemak: T2 panjang. Air: T2 pendek'],
+  jawaban:0,penjelasan:'Pada data modul ini, T1 lemak '+J('fat').T1_ms+' ms dan T2 '+J('fat').T2_ms+' ms, sedangkan '+J('csf').nama+' (pendekatan untuk air) T1 '+J('csf').T1_ms+' ms dan T2 '+J('csf').T2_ms+' ms.',tingkat:1},
+ {pertanyaan:'Mengapa T2* selalu lebih pendek dari T2?',
+  pilihan:['Ketidakhomogenan medan menambah dephasing di atas peluruhan T2 murni','Pulsa RF 90° terlalu pendek','T1 selalu lebih pendek dari T2','Voksel terlalu kecil'],
+  jawaban:0,penjelasan:'Pada 1/T2* = 1/T2 + (suku ketidakhomogenan), suku tambahan itu hanya menambah laju peluruhan. Pulsa RF 180° pada spin echo membalik efek ini pada saat TE.',tingkat:2},
+ {pertanyaan:'Dari 1,5 T ke 3 T, bagaimana T1 dan T2 otak pada data modul ini?',
+  pilihan:['T1 dan T2 sama-sama memanjang','Keduanya tidak berubah','T1 memanjang dan T2 memendek','T1 memendek dan T2 memanjang'],
+  jawaban:2,penjelasan:'Faktor T1 '+fmt(SK3.T1)+' dan faktor T2 '+fmt(SK3.T2)+'. Contoh: '+J('gm').nama+' dari T1 '+J('gm').T1_ms+' ms menjadi '+waktuRelaksasi(J('gm'),3).T1+' ms. Faktor ini hanya diverifikasi untuk otak.',tingkat:2},
+ {pertanyaan:'Pada saat t = T1, Mz sudah pulih sekitar berapa persen dari M0?',
+  pilihan:[pers(Math.exp(-1)),pers(1-Math.exp(-1)),pers(1-Math.exp(-2)),pers(1)],
+  jawaban:1,penjelasan:'Dari Mz(t) = M0·(1 − e^(−t/T1)) dengan t = T1, Mz pulih '+pers(1-Math.exp(-1))+' dari M0. Pada t = 2·T1, pulihnya '+pers(1-Math.exp(-2))+'.',tingkat:2},
+ {pertanyaan:'Relaksasi T2 (spin-spin) terjadi terutama karena apa?',
+  pilihan:['Energi dilepas dari spin ke kisi molekul','Medan magnet inti hidrogen yang bertetangga saling berinteraksi sehingga fase tidak serempak','Pulsa RF 180° dihentikan','B0 dimatikan'],
+  jawaban:1,penjelasan:'Pada relaksasi spin-spin, spin saling berinteraksi dan memindahkan energi antar spin, sehingga fase menjadi tidak serempak (dephasing). Pelepasan energi ke kisi adalah T1.',tingkat:2},
+ {pertanyaan:'Apa yang ditentukan TR (waktu pengulangan) terhadap relaksasi T1?',
+  pilihan:['Seberapa banyak pemulihan T1 sempat terjadi di antara dua pulsa RF','Seberapa cepat T2 meluruh','Frekuensi Larmor','Nilai T1 jaringan itu sendiri'],
+  jawaban:0,penjelasan:'TR adalah jarak waktu antara satu pulsa RF dan pulsa berikutnya, sehingga menentukan seberapa banyak pemulihan T1 terjadi. Nilai T1 adalah sifat jaringan dan tidak berubah oleh TR.',tingkat:2},
+ {pertanyaan:'Pada TR pendek, mengapa lemak tampak lebih terang daripada air?',
+  pilihan:['Lemak punya T1 lebih panjang','Cairan tidak punya hidrogen','T1 lemak lebih pendek, sehingga komponen longitudinalnya lebih besar sebelum pulsa RF berikutnya dan sinyalnya lebih tinggi','Lemak tidak mengalami relaksasi'],
+  jawaban:2,penjelasan:'Lemak pulih lebih cepat, jadi lebih banyak magnetisasi longitudinal yang dibalik ke bidang transversal oleh pulsa RF berikutnya. Pada data modul ini, T1 lemak '+J('fat').T1_ms+' ms dan T1 '+J('csf').nama+' '+J('csf').T1_ms+' ms.',tingkat:2},
+ {pertanyaan:'Jika TR jauh lebih panjang daripada T1 semua jaringan, apa yang terutama menentukan besar sinyal?',
+  pilihan:['Perbedaan T1','T2*','Kerapatan proton (PD)','Frekuensi Larmor'],
+  jawaban:2,penjelasan:'Semua jaringan pulih penuh dan tidak tersaturasi. Besar komponen transversal hanya bergantung pada kerapatan proton.',tingkat:2},
+ {pertanyaan:'Mengapa T1 lemak pendek?',
+  pilihan:['Molekul lemak bergerak sangat cepat','Lemak tidak mengandung hidrogen','Gerak molekul lemak yang lambat cocok dengan frekuensi Larmor, sehingga energi mudah berpindah ke kisi','Lemak tidak terkena pengaruh B0'],
+  jawaban:2,penjelasan:'Pertukaran energi paling efisien ketika laju gerak molekul cocok dengan frekuensi Larmor. Pada lemak ini terjadi, sehingga NMV cepat menyearah dengan B0.',tingkat:2},
+ {pertanyaan:'Mengapa T2 air panjang?',
+  pilihan:['Air menyerap energi ke kisi dengan cepat','Molekul air berdempetan rapat','Molekul berjauhan sehingga interaksi spin-spin jarang, dan momen magnetik berpresesi jauh lebih cepat daripada gerak molekul','Air tidak punya hidrogen'],
+  jawaban:2,penjelasan:'Pada air, interaksi spin-spin kurang mungkin terjadi, sehingga dephasing berjalan perlahan dan magnetisasi transversal hilang bertahap.',tingkat:2},
+ {pertanyaan:'Apa yang terjadi pada T1 ketika B0 dinaikkan, dan mengapa?',
+  pilihan:['T1 memendek karena makin banyak molekul bergerak pada frekuensi Larmor','T1 memanjang karena makin sedikit molekul yang bergerak pada frekuensi penyebab relaksasi','T1 tidak berubah','T1 menjadi nol'],
+  jawaban:1,penjelasan:'Frekuensi Larmor sebanding dengan B0, sehingga pada B0 lebih tinggi makin sedikit molekul bergerak pada frekuensi penyebab relaksasi. Pada data modul, faktor T1 pada 3 T adalah '+fmt(SK3.T1)+'.',tingkat:2},
+ {pertanyaan:'Dua spin berdekatan, satu searah B0 dan satu berlawanan arah. Apa akibatnya pada frekuensi presesi keduanya?',
+  pilihan:['Sama persis','Keduanya berhenti berpresesi','Sedikit berbeda, sehingga fase bergeser','Keduanya naik dengan jumlah sama'],
+  jawaban:2,penjelasan:'Medan yang dialami sedikit berbeda, sehingga frekuensi presesi sedikit berbeda. Perbedaan kecil ini cukup untuk membuat fase tidak serempak (dephasing spin-spin).',tingkat:2},
+ {pertanyaan:'Pada spin echo, apa yang dipulihkan oleh pulsa RF 180°?',
+  pilihan:['Dephasing akibat ketidakhomogenan B0','Peluruhan T2 sejati akibat interaksi spin-spin','Pemulihan magnetisasi longitudinal (T1)','Semua jenis hilangnya sinyal'],
+  jawaban:0,penjelasan:'Pulsa RF 180° membalik fase sehingga efek ketidakhomogenan medan hilang pada TE. Peluruhan T2 sejati tidak dapat dipulihkan. Coba di visualisasi dengan kotak spin echo dicentang.',tingkat:2},
+ {pertanyaan:'Agar kontras T2 baik, parameter mana yang harus dibuat panjang?',
+  pilihan:['TR','TE','Sudut flip','B0'],
+  jawaban:1,penjelasan:'Kontras T2 berasal dari perbedaan peluruhan T2. TE menentukan seberapa banyak dephasing terjadi sebelum sinyal dikumpulkan, jadi TE harus panjang. Jika TE pendek, perbedaan T2 belum tampak.',tingkat:1},
+ {pertanyaan:'Pada citra berbobot T2, bagaimana tampak air dibanding lemak?',
+  pilihan:['Air hiperintens, lemak relatif hipointens','Air hipointens, lemak hiperintens','Keduanya hitam','Keduanya sama terang'],
+  jawaban:0,penjelasan:'T2 lemak lebih pendek daripada air, sehingga magnetisasi transversal lemak meluruh lebih cepat. Pada TE panjang, air masih punya lebih banyak magnetisasi transversal yang koheren.',tingkat:1},
+ {pertanyaan:'Mana yang bersinyal tinggi pada citra berbobot T1 menurut Tabel 2.6?',
+  pilihan:['Udara','Infark','Lemak','Tendon'],
+  jawaban:2,penjelasan:'Lemak bersinyal tinggi pada citra T1. Udara dan tendon tanpa sinyal, dan infark bersinyal rendah.',tingkat:1},
+ {pertanyaan:'Pada SI = PD · e^(−TE/T2) · (1 − e^(−TR/T1)), suku mana yang menyatakan pengaruh TR dan T1?',
+  pilihan:['PD','e^(−TE/T2)','(1 − e^(−TR/T1))','Frekuensi Larmor'],
+  jawaban:2,penjelasan:'Suku (1 − e^(−TR/T1)) menyatakan seberapa banyak pemulihan T1 terjadi selama TR. Suku e^(−TE/T2) menyatakan pengaruh TE dan T2.',tingkat:2},
+ {pertanyaan:'Pembobotan T1 memerlukan pengaturan yang mana?',
+  pilihan:['TR panjang dan TE panjang','TR pendek dan TE pendek','TR panjang dan TE pendek','TR pendek dan TE panjang'],
+  jawaban:1,penjelasan:'TR pendek menjaga perbedaan pemulihan T1 tetap tampak, dan TE pendek menekan pengaruh T2. Jika TR terlalu panjang, lemak dan air sama-sama pulih penuh dan perbedaan T1 tidak tampak.',tingkat:2},
+ {pertanyaan:'Jika TR panjang dan TE pendek, sinyal terutama mencerminkan apa?',
+  pilihan:['T1 jaringan','T2 jaringan','Kerapatan proton (PD)','Kuat B0'],
+  jawaban:2,penjelasan:'TR panjang membuat suku T1 mendekati 1, dan TE pendek membuat suku T2 mendekati 1. Yang tersisa adalah PD. Coba preset Berbobot PD pada simulator di kartu Pembobotan.',tingkat:2},
+ {pertanyaan:'Mana yang bersinyal tinggi pada citra berbobot T2 menurut Tabel 2.8?',
+  pilihan:['Udara','Cairan sinovial','Tendon','Tulang kortikal'],
+  jawaban:1,penjelasan:'Air, cairan sinovial, edema, dan kista bersinyal tinggi pada citra T2. Udara, tendon, dan tulang kortikal tanpa sinyal atau bersinyal sangat rendah.',tingkat:1},
+ {pertanyaan:'Mengapa citra berbobot T2 dipakai untuk memperlihatkan kelainan?',
+  pilihan:['Kelainan selalu punya T1 pendek','Sebagian besar kelainan berkadar air tinggi sehingga relatif hiperintens','TR pendek memperjelas kelainan','Kelainan tidak punya hidrogen'],
+  jawaban:1,penjelasan:'Air punya T2 panjang, jadi pada TE panjang masih banyak magnetisasi transversal koheren. Karena itu jaringan berkadar air tinggi tampak terang pada citra T2.',tingkat:1},
+ {pertanyaan:'Jika TE sangat pendek (e^(−TE/T2) ≈ 1), sinyal terutama bergantung pada apa?',
+  pilihan:['T2 dan TE','PD dan kontras T1','Hanya T2*','Hanya B0'],
+  jawaban:1,penjelasan:'Suku T2 mendekati 1 sehingga kontras T2 minimal. Sinyal bergantung terutama pada PD dan kontras T1 (Persamaan 2.5).',tingkat:2},
+ {pertanyaan:'Pada analogi kompor, apa yang terjadi jika kenop TR diturunkan (TR dipendekkan)?',
+  pilihan:['Kontras T2 naik','Kontras T1 naik','Kontras PD naik','Tidak ada yang berubah'],
+  jawaban:1,penjelasan:'Kenop TR mengatur api kontras T1. Menurunkan TR (TR pendek) membesarkan api T1, jadi kontras T1 naik. Menaikkan TE membesarkan api T2.',tingkat:1},
+ {pertanyaan:'Pada citra, air (cairan serebrospinal) tampak bersinyal tinggi. Citra itu kemungkinan besar berbobot apa?',
+  pilihan:['T1 dengan TR pendek','Tidak mungkin ditebak','T2 dengan TE panjang','Tanpa pembobotan'],
+  jawaban:2,penjelasan:'Sinyal air adalah langkah awal yang baik: air bersinyal tinggi menunjukkan citra kemungkinan berbobot T2 dengan TE panjang. Air bersinyal rendah lebih mungkin berbobot T1, meski sebagian citra PD juga punya air gelap.',tingkat:2},
+ {pertanyaan:'Untuk pembobotan PD pada analogi kompor, bagaimana posisi kedua kenop?',
+  pilihan:['TR naik dan TE naik','TR turun dan TE naik','TR naik dan TE turun','TR turun dan TE turun'],
+  jawaban:2,penjelasan:'TR panjang (kenop TR naik) mengecilkan api T1, dan TE pendek (kenop TE turun) mengecilkan api T2. Dengan begitu kontras PD yang dominan.',tingkat:2},
+ {pertanyaan:'Pada citra sagital otak berbobot T1, sebuah area bersinyal tinggi ternyata bukan lemak. Apa contohnya?',
+  pilihan:['Cairan serebrospinal','Darah mengalir lambat di sinus sagitalis superior','Udara di sinus sfenoid','Tulang kortikal'],
+  jawaban:1,penjelasan:'Tidak semua area terang adalah lemak. Darah mengalir lambat juga bersinyal tinggi. Sebaliknya, tidak semua area gelap adalah air: udara di sinus sfenoid juga gelap.',tingkat:2},
+ {pertanyaan:'(Lanjut) Mengapa air bebas, misalnya cairan serebrospinal, punya T1 dan T2 yang panjang?',
+  pilihan:['Molekulnya bergerak cepat, sehingga relaksasi berjalan kurang efisien','Molekulnya bergerak lambat dan terikat makromolekul','Molekulnya tidak punya proton','Medannya selalu lebih homogen'],
+  jawaban:0,penjelasan:'Air bebas bergerak sangat cepat, sehingga relaksasi lebih lambat dan T1 serta T2 panjang. Air terikat makromolekul bergerak lebih lambat dan T1 serta T2-nya lebih pendek.',tingkat:3},
+ {pertanyaan:'(Lanjut) Agen kontras gadolinium memperpendek T1 jaringan di sekitarnya. Apa akibatnya pada kurva pemulihan Mz?',
+  pilihan:['Kurva naik lebih cepat','Kurva naik lebih lambat','Kurva turun seperti kurva T2','Kurva tidak berubah'],
+  jawaban:0,penjelasan:'T1 yang lebih pendek berarti Mz pulih lebih cepat, jadi kurva naik lebih cepat.',tingkat:3},
+ {pertanyaan:'(Lanjut) Kapan pertukaran energi antara inti hidrogen dan kisi molekul paling efisien?',
+  pilihan:['Saat laju jungkir-balik molekul cocok dengan frekuensi Larmor hidrogen','Saat molekul tidak bergerak sama sekali','Saat B0 dimatikan','Saat tidak ada proton mobil'],
+  jawaban:0,penjelasan:'Jika laju gerak molekul cocok dengan frekuensi Larmor hidrogen, pertukaran energi efisien. Jika tidak cocok, kurang efisien. Ini penting untuk T1 dan T2.',tingkat:3},
+ {pertanyaan:'(Lanjut) Apa fungsi pulsa persiapan (dummy pulses)?',
+  pilihan:['Menghasilkan citra pertama','Menghapus dephasing','Memberi waktu agar vektor magnetisasi mencapai keadaan tunak, dan sinyalnya diabaikan','Mematikan B0'],
+  jawaban:2,penjelasan:'Beberapa pulsa RF pertama menghasilkan magnetisasi transversal yang berbeda-beda. Setelah keadaan tunak tercapai, sinyal sama setiap TR dan baru dipakai untuk citra.',tingkat:3}
+];
+// TODO-VERIFIKASI: soal tingkat 3 tentang air bebas bersifat kualitatif. Periksa ke sumber rujukan.
+// Kuis dengan perilaku toggle (di luar blok TETAP; jalankanKuis di blok TETAP tidak diubah):
+// - pilihan salah hanya berkedip merah sebentar lalu kembali normal, tetap bisa diklik lagi
+// - setelah benar, pilihan lain tetap bisa diklik tetapi tidak berubah warna
+function jalankanKuisToggle(el,soal){
+ let i=0;const st=soal.map(()=>({salah:new Set(),benar:-1}));
+ const skor=()=>st.filter(x=>x.benar>=0&&x.salah.size===0).length;
+ function tampil(){
+  el.innerHTML='';
+  const kartu=document.createElement('div');kartu.className='kartu';el.appendChild(kartu);
+  if(i>=soal.length){
+   kartu.innerHTML='<b>Skor: '+skor()+' / '+soal.length+'</b><p class=\'lembut\'>Dihitung dari soal yang benar pada percobaan pertama.</p>';
+   const n=document.createElement('div');n.className='navkuis';
+   const b1=document.createElement('button');b1.type='button';b1.textContent='\u2190 Kembali ke soal';b1.onclick=()=>{i=soal.length-1;tampil();};
+   const b2=document.createElement('button');b2.type='button';b2.textContent='Ulangi kuis';b2.onclick=()=>{st.forEach(x=>{x.salah.clear();x.benar=-1;});i=0;tampil();};
+   n.append(b1,b2);kartu.appendChild(n);return;
+  }
+  const s=soal[i],t=st[i];
+  const p=document.createElement('p');p.innerHTML='<b>'+(i+1)+'/'+soal.length+'.</b> '+s.pertanyaan;kartu.appendChild(p);
+  const info=document.createElement('p');info.setAttribute('role','status');info.setAttribute('aria-live','polite');
+  if(t.benar>=0){info.className='ok';info.textContent='Benar. '+s.penjelasan;}
+  else if(t.salah.size){info.className='no';info.textContent='Belum tepat. Coba pilihan lain.';}
+  s.pilihan.forEach((teks,k)=>{
+   const b=document.createElement('button');b.className='opsi';b.type='button';
+   if(t.benar===k){b.classList.add('benar');b.textContent='\u2713 '+teks;}else b.textContent=teks;
+   b.onclick=()=>{
+    if(t.benar>=0)return;
+    if(k===s.jawaban){t.benar=k;tampil();return;}
+    t.salah.add(k);
+    info.className='no';info.textContent='Belum tepat. Coba pilihan lain.';
+    b.classList.add('salah');b.textContent='\u2717 '+teks;
+    clearTimeout(b._w);b._w=setTimeout(()=>{b.classList.remove('salah');b.textContent=teks;},700);
+   };
+   kartu.appendChild(b);
+  });
+  kartu.appendChild(info);
+  const n=document.createElement('div');n.className='navkuis';
+  const bk=document.createElement('button');bk.type='button';bk.textContent='\u2190 Kembali';bk.disabled=i===0;bk.onclick=()=>{i--;tampil();};
+  const bl=document.createElement('button');bl.type='button';bl.textContent=i===soal.length-1?'Selesai':'Lanjut \u2192';bl.onclick=()=>{i++;tampil();};
+  n.append(bk,bl);kartu.appendChild(n);
+ }
+ tampil();
+}
+// Toggle tingkat soal: menyaring SOAL lalu menjalankan ulang kuis
+const KUIS_EL=document.getElementById('kuis'),KUIS_PIL=document.getElementById('kuis-pilih');
+const TKT=[[0,'Semua soal'],[1,'Tingkat 1'],[2,'Tingkat 2'],[3,'Tingkat 3 (lanjut)']];
+function mulaiKuis(t){
+ const daftar=t===0?SOAL:SOAL.filter(q=>q.tingkat===t);
+ KUIS_PIL.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',Number(b.dataset.tingkat)===t));
+ $('kuis-info').textContent=daftar.length+' soal ditampilkan. Skor dihitung ulang tiap kali tingkat diganti.';
+ jalankanKuisToggle(KUIS_EL,daftar);
+}
+TKT.forEach(([t,teks])=>{
+ const n=t===0?SOAL.length:SOAL.filter(q=>q.tingkat===t).length;
+ const b=document.createElement('button');b.type='button';b.dataset.tingkat=t;
+ b.textContent=teks+' ('+n+')';b.setAttribute('aria-pressed',t===0);
+ b.onclick=()=>mulaiKuis(t);KUIS_PIL.appendChild(b);
+});
+mulaiKuis(0);
+</script>
+</body>
+</html>

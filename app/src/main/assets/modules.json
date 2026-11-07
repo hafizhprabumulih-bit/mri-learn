@@ -1,0 +1,184 @@
+{
+  "versi": 1,
+  "dibuat": "2026-11-07 (Fase 2)",
+  "sumber": "modul-manifest.json (Fase 1), turunan sidebar.js dan kartu index.html. Deskripsi kosong/placeholder di web asli ditulis null (tidak mengarang deskripsi).",
+  "modul": [
+    {
+      "id": "1",
+      "folder": "modul1",
+      "judul": "Modul 1",
+      "deskripsi": "Fisika dasar MRI: atom, populasi spin, presesi Larmor, resonansi, sinyal FID, TR dan TE.",
+      "ikon": "bi-activity",
+      "ikonKartu": "bi-book",
+      "halamanMasuk": "index.html",
+      "pecahan": [],
+      "status": "ada",
+      "dibawa": true
+    },
+    {
+      "id": "2",
+      "folder": "modul2",
+      "judul": "Modul 2",
+      "deskripsi": null,
+      "ikon": "bi-book",
+      "ikonKartu": "bi-book",
+      "halamanMasuk": "index.html",
+      "pecahan": [],
+      "status": "ada",
+      "dibawa": true
+    },
+    {
+      "id": "3",
+      "folder": "modul3",
+      "judul": "Modul 3",
+      "deskripsi": "Sekuens dan kontras. M03A: spin echo, inversion recovery, turbo spin echo. M03B: gradient echo dan keadaan tunak. M03C: kontras khusus dan agen kontras.",
+      "ikon": "bi-journal-text",
+      "ikonKartu": "bi-lightning-charge",
+      "halamanMasuk": "index.html",
+      "pecahan": [
+        {
+          "id": "m03a",
+          "berkas": "m03a.html"
+        },
+        {
+          "id": "m03b",
+          "berkas": "m03b.html"
+        },
+        {
+          "id": "m03c",
+          "berkas": "m03c.html"
+        }
+      ],
+      "status": "ada",
+      "dibawa": true
+    },
+    {
+      "id": "4",
+      "folder": "modul4",
+      "judul": "Modul 4",
+      "deskripsi": "Pembentukan citra. M04A: pengodean spasial. M04B: ruang-k dan Fourier. M04C: ruang-k lanjut.",
+      "ikon": "bi-journal-text",
+      "ikonKartu": "bi-grid-3x3-gap",
+      "halamanMasuk": "index.html",
+      "pecahan": [
+        {
+          "id": "m04a",
+          "berkas": "m04a.html"
+        },
+        {
+          "id": "m04b",
+          "berkas": "m04b.html"
+        },
+        {
+          "id": "m04c",
+          "berkas": "m04c.html"
+        }
+      ],
+      "status": "ada",
+      "dibawa": true
+    },
+    {
+      "id": "5",
+      "folder": "modul5",
+      "judul": "Modul 5: Anatomi Pesawat dan Sistem Magnet",
+      "deskripsi": null,
+      "ikon": "bi-magnet",
+      "ikonKartu": "bi-magnet",
+      "halamanMasuk": "index.html",
+      "pecahan": [],
+      "status": "ada",
+      "dibawa": true
+    },
+    {
+      "id": "6",
+      "folder": "modul6",
+      "judul": "Modul 6",
+      "deskripsi": "Sistem gradien dan RF. Bagian 6B: rantai sinyal RF, jenis coil, pergeseran kimia, dan homogenitas B1.",
+      "ikon": "bi-journal-text",
+      "ikonKartu": "bi-broadcast",
+      "halamanMasuk": "index.html",
+      "pecahan": [
+        {
+          "id": "m06b",
+          "berkas": "m06b.html"
+        }
+      ],
+      "status": "sebagian",
+      "dibawa": true
+    },
+    {
+      "id": "7",
+      "folder": "modul7",
+      "judul": "Modul 7",
+      "deskripsi": "Keselamatan MR. M07A: zona, skrining, dan perangkat. M07B: medan statis, proyektil, dan kriogen. M07C: RF (SAR), gradien, dan bising.",
+      "ikon": "bi-journal-text",
+      "ikonKartu": "bi-shield-check",
+      "halamanMasuk": "index.html",
+      "pecahan": [
+        {
+          "id": "m07a",
+          "berkas": "m07a.html"
+        },
+        {
+          "id": "m07b",
+          "berkas": "m07b.html"
+        },
+        {
+          "id": "m07c",
+          "berkas": "m07c.html"
+        }
+      ],
+      "status": "ada",
+      "dibawa": true
+    },
+    {
+      "id": "8",
+      "folder": "modul8",
+      "judul": "Modul 8: Klinis, Artefak, dan QA",
+      "deskripsi": "Artefak citra dan QA. M08A: artefak pengodean dan jaringan (aliasing, ghosting, pergeseran kimia, Gibbs). M08B: aliran dan artefak aliran. M08C: artefak perangkat keras, cross-talk, dan QA.",
+      "ikon": "bi-clipboard2-check",
+      "ikonKartu": "bi-clipboard2-check",
+      "halamanMasuk": "index.html",
+      "pecahan": [
+        {
+          "id": "m08a",
+          "berkas": "m08a.html"
+        },
+        {
+          "id": "m08b",
+          "berkas": "m08b.html"
+        },
+        {
+          "id": "m08c",
+          "berkas": "m08c.html"
+        }
+      ],
+      "status": "ada",
+      "dibawa": true
+    },
+    {
+      "id": "9",
+      "folder": "modul9",
+      "judul": "Modul 9: Optimasi Protokol dan Konsol",
+      "deskripsi": null,
+      "ikon": "bi-sliders",
+      "ikonKartu": "bi-plus-square-dotted",
+      "halamanMasuk": "index.html",
+      "pecahan": [],
+      "status": "ada",
+      "dibawa": true
+    },
+    {
+      "id": "10",
+      "folder": "modul10",
+      "judul": "Modul 10",
+      "deskripsi": null,
+      "ikon": "bi-journal-text",
+      "ikonKartu": "bi-plus-square-dotted",
+      "halamanMasuk": "index.html",
+      "pecahan": [],
+      "status": "segera_hadir",
+      "dibawa": false
+    }
+  ]
+}

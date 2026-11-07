@@ -1,0 +1,14 @@
+<!-- A3 Tarian ruang-k: gradien menelusuri ruang-k. Judul dan hubungan ke materi diatur di struktur/m04c.json. File ini hanya isi kartu. -->
+<p>Ikuti titik yang bergerak di ruang-k langkah demi langkah. Pilih gradient-echo atau spin-echo, atur garis yang dipilih gradien fase (positif = separuh atas), dan pilih polaritas gradien baca. Perhatikan apa yang dilakukan pulsa 180&deg; pada spin-echo.</p>
+<fieldset><legend>Jenis urutan pulsa</legend>
+<label><input type='radio' name='tm' value='gre' checked> Gradient-echo</label>
+<label><input type='radio' name='tm' value='se'> Spin-echo</label>
+</fieldset>
+<fieldset><legend>Polaritas gradien frekuensi (baca)</legend>
+<label><input type='radio' name='tpl' value='pos' checked> Positif (baca kiri ke kanan)</label>
+<label><input type='radio' name='tpl' value='neg'> Negatif (baca kanan ke kiri)</label>
+</fieldset>
+<label for='tky'>Gradien fase memilih garis ke: <span id='tkyv'></span></label><input type='range' id='tky' min='-30' max='30' value='18'>
+<canvas id='ctr' width='300' height='300' style='width:300px' role='img' aria-label='Ruang-k dengan jalur titik yang ditelusuri gradien'></canvas>
+<p id='kettr' aria-live='polite'></p>
+<div class='stp'><button id='tprev2' type='button'>&lsaquo; Langkah sebelumnya</button><button id='tnext2' type='button'>Langkah berikutnya &rsaquo;</button><button id='reset16' type='button'>Reset</button></div>

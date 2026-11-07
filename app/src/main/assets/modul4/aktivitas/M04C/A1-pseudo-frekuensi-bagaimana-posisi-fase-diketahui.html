@@ -1,0 +1,9 @@
+<!-- A1 Pseudo-frekuensi: bagaimana posisi fase diketahui. Judul dan hubungan ke materi diatur di struktur/m04c.json. File ini hanya isi kartu. -->
+<p>Pilih posisi sebuah voksel sepanjang sumbu fase (piksel ke berapa dari pusat). Tiap TR memakai garis ruang-k yang berbeda. Gelombang di bawah menunjukkan apa yang terjadi pada sinyal voksel itu dari garis ke garis. Frekuensi gelombang ini adalah pseudo-frekuensi, dan FFT atasnya menemukan posisi voksel.</p>
+<label for='pp'>Posisi voksel: piksel <span id='ppv'></span> dari pusat (arah fase)</label>
+<input type='range' id='pp' min='-16' max='15' value='6'>
+<canvas id='cq1' width='600' height='140' style='width:100%' role='img' aria-label='Sinyal voksel pada tiap garis ruang-k'></canvas>
+<p class='lembut'>Atas: nilai sinyal (garis biru: bagian nyata, putus-putus: bagian imajiner) pada tiap nomor garis. Bawah: FFT atas gelombang itu, puncaknya adalah posisi voksel.</p>
+<canvas id='cq2' width='600' height='120' style='width:100%' role='img' aria-label='Hasil FFT yang menunjukkan posisi voksel'></canvas>
+<p id='ketq' aria-live='polite'></p>
+<button id='reset10' type='button'>Reset</button>

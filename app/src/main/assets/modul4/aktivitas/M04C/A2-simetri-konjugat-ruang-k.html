@@ -1,0 +1,15 @@
+<!-- A2 Simetri konjugat ruang-k. Judul dan hubungan ke materi diatur di struktur/m04c.json. File ini hanya isi kartu. -->
+<p>Titik di separuh atas dan separuh bawah ruang-k berpasangan secara diagonal (kx, ky) dengan (&minus;kx, &minus;ky). Pilih mode, lalu geser titik terpilih untuk melihat pasangannya. Mode &ldquo;separuh atas saja&rdquo; membuat citra rusak karena data tidak lengkap. Mode &ldquo;separuh atas + konjugat&rdquo; melengkapi separuh bawah dari simetri, sehingga citra pulih. Inilah dasar penghematan waktu pindai pada partial Fourier.</p>
+<fieldset><legend>Mode</legend>
+<label><input type='radio' name='smode' value='penuh' checked> Ruang-k penuh</label>
+<label><input type='radio' name='smode' value='atas'> Separuh atas saja</label>
+<label><input type='radio' name='smode' value='konj'> Separuh atas + konjugat</label>
+</fieldset>
+<label for='skx'>Titik terpilih, kx: <span id='skxv'></span></label><input type='range' id='skx' min='-31' max='31' value='6'>
+<label for='sky'>Titik terpilih, ky (positif = separuh atas): <span id='skyv'></span></label><input type='range' id='sky' min='-31' max='31' value='3'>
+<div class='baris'>
+<figure><canvas id='cs2' class='cit' width='64' height='64' role='img' aria-label='Ruang-k dengan titik terpilih dan pasangannya'></canvas><figcaption>Ruang-k (cincin biru = titik terpilih, oranye = pasangannya)</figcaption></figure>
+<figure><canvas id='ci2' class='cit' width='64' height='64' role='img' aria-label='Citra hasil'></canvas><figcaption>Citra hasil</figcaption></figure>
+</div>
+<p id='kets' aria-live='polite'></p>
+<button id='reset11' type='button'>Reset</button>

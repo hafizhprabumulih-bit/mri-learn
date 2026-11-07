@@ -1,0 +1,15 @@
+<!-- A3 Receive bandwidth, jendela sampling, dan TE. Judul dan hubungan ke materi diatur di struktur/m04b.json. File ini hanya isi kartu. -->
+<p>Ubah receive bandwidth (RBW) dan matriks frekuensi. Amati interval sampling, jendela sampling, dan letak puncak gema. Batang putus-putus adalah pengaturan awal sebagai pembanding. Frekuensi pembawa diambil dari data Larmor modul.</p>
+<!-- TODO-VERIFIKASI: nilai awal RBW dan matriks frekuensi hanya contoh belajar, bukan protokol. -->
+<label for='b0r'>Kuat medan B0 (T)</label>
+<select id='b0r'><option value='1.5'>1,5</option><option value='3'>3</option></select>
+<label for='rbw'>Receive bandwidth: <span id='rbwv'></span> kHz</label>
+<input type='range' id='rbw' min='4' max='100' value='25'>
+<label for='mf'>Matriks frekuensi (titik data per garis)</label>
+<select id='mf'><option>64</option><option selected>128</option><option>256</option><option>512</option></select>
+<label for='tpre'>Waktu dari pulsa RF sampai awal jendela (contoh): <span id='tprev'></span> ms</label>
+<input type='range' id='tpre' min='1' max='20' value='5'>
+<canvas id='cr' width='600' height='150' style='width:100%' role='img' aria-label='Batang jendela sampling sekarang dibandingkan dengan pengaturan awal, dengan puncak gema di tengah'></canvas>
+<p id='ketr' aria-live='polite'></p>
+<p id='ketr2' class='lembut' aria-live='polite'></p>
+<button id='reset8' type='button'>Reset</button>

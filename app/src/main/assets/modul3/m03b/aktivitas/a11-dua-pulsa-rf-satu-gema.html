@@ -1,0 +1,18 @@
+<div class='kartu aktivitas' id='m03b-a11'>
+<span class='tag'>M03B · A11 · tambahan dari modul lama (belum ada di pohon) · terkait T2.2</span>
+<b>Dua pulsa RF, satu gema</b>
+<p class='lembut'>Pulsa pertama menimbulkan FID. Pulsa kedua menimbulkan FID lagi dan, pada waktu dua kali jaraknya, sebuah gema. Ubah sudut kedua: gema terbesar muncul pada 180°, tetapi sudut lain pun tetap menghasilkan gema, hanya lebih lemah.</p>
+<canvas id='m3-cv-h' width='760' height='260' role='img' aria-label='Dua pulsa RF dan gema'></canvas>
+<label for='m3-h-a1'>Sudut pulsa 1: <span id='m3-h-o1'></span></label>
+<input type='range' id='m3-h-a1' min='1' max='180' step='1'>
+<label for='m3-h-a2'>Sudut pulsa 2: <span id='m3-h-o2'></span></label>
+<input type='range' id='m3-h-a2' min='1' max='180' step='1'>
+<label for='m3-h-t'>Jarak antar pulsa (satuan relatif): <span id='m3-h-ot'></span></label>
+<input type='range' id='m3-h-t' min='10' max='100' step='1'>
+<div class='baris'>
+<button type='button' data-h='90,180'>90° lalu 180° (spin echo)</button>
+<button type='button' data-h='30,30'>30° lalu 30° (gradient echo tunak)</button>
+<button type='button' id='m3-h-rs'>Reset</button>
+</div>
+<p id='m3-h-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

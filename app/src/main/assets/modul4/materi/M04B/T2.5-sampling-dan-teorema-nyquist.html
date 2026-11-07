@@ -1,0 +1,9 @@
+<!-- T2.5 Sampling dan teorema Nyquist | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04b.json -->
+<p class='s'>Sampling yang terlalu jarang membuat frekuensi salah terbaca (aliasing). Frekuensi tertinggi harus disampel minimal dua kali per siklus.</p>
+<div class='l'>
+<p><b>Frekuensi sampling digital</b> adalah jumlah titik data yang diambil per detik selama jendela sampling, dengan satuan Hz. Selang waktu antartitik disebut interval sampling: <span class='rumus'>&omega;<sub>sampling</sub> = 1/&Delta;T<sub>s</sub></span>. Jika frekuensi sampling naik, interval turun, dan sebaliknya.</p>
+<p><b>Terlalu rendah:</b> titik data di ruang-k kurang untuk membentuk citra yang akurat. <b>Terlalu tinggi:</b> berkas menjadi besar, sampling memakan waktu, dan lebih banyak frekuensi derau ikut terambil sehingga kualitas citra turun.</p>
+<p><b>Teorema Nyquist.</b> Frekuensi tertinggi dalam modulasi harus disampel setidaknya dua kali per siklus. Sekali per siklus membuat gelombang tampak sebagai garis lurus, sehingga frekuensinya hilang. Kurang dari sekali per siklus menghasilkan frekuensi yang sepenuhnya salah, dan itulah aliasing. Dua kali per siklus menggambarkan frekuensi dengan benar. Frekuensi yang lebih rendah otomatis tersampel lebih sering. Frekuensi sampling biasanya dijaga sekitar dua kali frekuensi tertinggi, karena lebih tinggi dari itu menambah derau dan waktu.</p>
+<p>Aliasing akibat sampling kurang rapat ini bersaudara dengan aliasing akibat FOV kecil pada M04B A7.2 (FOV, matriks, dan aliasing): keduanya muncul karena sampel terlalu jarang. <!-- TODO-VERIFIKASI: hubungan aliasing sampling dan aliasing FOV disederhanakan; bab rujukan membahas aliasing lebih lengkap di bab lain. --></p>
+</div>
+<p class='a'><b>Analogi:</b> Kamera video memotret kipas yang berputar cepat. Jika bingkai terlalu jarang, kipas tampak berputar lambat atau bahkan mundur. Itulah aliasing.</p>

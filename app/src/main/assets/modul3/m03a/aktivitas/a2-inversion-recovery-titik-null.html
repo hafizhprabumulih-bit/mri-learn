@@ -1,0 +1,19 @@
+<div class='kartu aktivitas' id='m03a-a2'>
+<span class='tag'>M03A · A2 · menjelaskan T1.2, T1.3, T2.3</span>
+<b>Titik null inversion recovery: STIR, FLAIR, dan TI</b>
+<p class='lembut'>Geser TI dan lihat kurva pemulihan <code>1 − 2e^(−TI/T1)</code> keempat jaringan. Batang di kanan adalah sinyal tiap jaringan pada TI itu (TR dianggap panjang). Tekan STIR atau FLAIR untuk memasang TI pada titik null lemak atau CSF. Nilai T1 dari data bersama (1,5 T).</p>
+<div class='pilih' role='group' aria-label='Preset TI'>
+<button type='button' data-ti='t1'>T1w</button>
+<button type='button' data-ti='stir'>STIR (null lemak)</button>
+<button type='button' data-ti='flair'>FLAIR (null CSF)</button>
+<button type='button' data-ti='pd'>PD (TI panjang)</button>
+</div>
+<canvas id='m3-cv-i' width='760' height='350' role='img' aria-label='Kurva inversion recovery'></canvas>
+<label for='m3-i-t'>TI: <span id='m3-i-o'></span></label>
+<input type='range' id='m3-i-t' min='0' max='3000' step='10' value='600'>
+<div class='baris'>
+<button type='button' id='m3-i-m' aria-pressed='true'>Rekonstruksi: magnitudo</button>
+<button type='button' id='m3-i-rs'>Reset</button>
+</div>
+<p id='m3-i-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

@@ -1,0 +1,19 @@
+<div class='kartu aktivitas' id='m03a-a3'>
+<span class='tag'>M03A · A3 · menjelaskan T1.4, T2.2</span>
+<b>Rangkaian gema TSE, phase reordering, dan waktu pindai</b>
+<p class='lembut'>Bagian atas menunjukkan gema dalam <i>echo train</i> (tinggi batang = amplitudo gema, meluruh menurut T2 jaringan). Bagian bawah menunjukkan ruang-k: satu baris per gema, panjang baris = amplitudo gema. Tanpa phase reordering, baris diisi berurutan. Dengan phase reordering, gema yang TE-nya paling dekat TE efektif mengisi baris tengah. Ilustrasi disederhanakan: matriks fase 256 dan NSA 1 mengikuti contoh buku.</p>
+<canvas id='m3z-cv' width='760' height='340' role='img' aria-label='Rangkaian gema TSE dan ruang-k'></canvas>
+<div class='baris'><button type='button' id='m3z-ro' aria-pressed='true'>Phase reordering: nyala</button><button type='button' id='m3z-rs'>Reset</button></div>
+<label for='m3z-etl'>Turbo factor (ETL): <span id='m3z-oetl'></span></label>
+<input type='range' id='m3z-etl' min='2' max='32' step='1'>
+<label for='m3z-esp'>Jarak antar gema (ES): <span id='m3z-oesp'></span></label>
+<input type='range' id='m3z-esp' min='5' max='30' step='1'>
+<label for='m3z-te'>TE efektif: <span id='m3z-ote'></span></label>
+<input type='range' id='m3z-te' min='10' max='300' step='1'>
+<label for='m3z-tr'>TR: <span id='m3z-otr'></span></label>
+<input type='range' id='m3z-tr' min='300' max='10000' step='100'>
+<label for='m3z-j'>Jaringan</label>
+<select id='m3z-j'></select>
+<div class='gulir'><table class='tabel' id='m3z-tb'></table></div>
+<p id='m3z-ket' role='status' aria-live='polite' class='lembut'></p>
+</div>

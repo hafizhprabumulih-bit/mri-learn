@@ -1,0 +1,57 @@
+/* ISI MODUL: CSS tambahan di sini */
+canvas{height:auto;display:block}
+.baris{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+label{display:block;margin-top:8px;font-weight:600}
+input[type=number]{font:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--garis);background:var(--latar);color:var(--teks);width:9em}
+.lencana{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid currentColor;font-weight:600}
+.meter{height:10px;border-radius:99px;background:var(--garis);overflow:hidden;margin:6px 0}
+.meter i{display:block;height:100%;width:0;background:var(--b0);transition:width .6s ease}
+button[hidden]{display:none}
+button:active{transform:scale(.96)}
+.denyut{border-color:var(--b0);animation:denyut 1.6s infinite}
+.muncul{animation:muncul .45s ease}
+.lencana.ok{animation:hijau 1.8s infinite}
+canvas.klik{cursor:pointer}
+@keyframes denyut{0%,100%{box-shadow:0 0 0 0 rgba(47,107,255,.55)}50%{box-shadow:0 0 0 9px rgba(47,107,255,0)}}
+@keyframes hijau{0%,100%{box-shadow:0 0 0 0 rgba(43,138,62,.5)}50%{box-shadow:0 0 0 7px rgba(43,138,62,0)}}
+@keyframes muncul{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.denyut,.muncul,.lencana.ok{animation:none}.meter i{transition:none}}
+.pilih{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.pilih button[aria-pressed=true]{background:var(--aksen);color:var(--latar);border-color:var(--aksen);font-weight:600}
+.bm[data-mode=singkat] .l,.bm[data-mode=lengkap] .s{display:none}
+.bm .l,.bm .s{animation:masuk .4s ease}
+.opsi{display:block;width:100%;text-align:left;margin:6px 0}
+.opsi.benar{background:var(--benar);border-color:var(--benar);color:#fff;font-weight:600}
+.opsi.salah{background:var(--salah);border-color:var(--salah);color:#fff}
+.navkuis{display:flex;gap:8px;justify-content:space-between;margin-top:10px}
+button:disabled{opacity:.55;cursor:not-allowed}
+.sumber{font-size:.85rem}
+select{font:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--garis);background:var(--latar);color:var(--teks)}
+@keyframes masuk{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.bm .l,.bm .s{animation:none}}
+.tag{font-size:.8rem;font-weight:700;color:var(--aksen);text-transform:uppercase;letter-spacing:.04em}
+.bm .a{display:none;border-left:3px solid var(--t2);padding-left:10px}
+.bm[data-mode=analogi] .a{display:block;animation:masuk .4s ease}
+.bm[data-mode=analogi] .l{display:none}
+.tabel{border-collapse:collapse;width:100%;font-size:.92rem}
+.tabel th,.tabel td{border:1px solid var(--garis);padding:4px 8px;text-align:left}
+.gulir{overflow-x:auto}
+svg{max-width:100%;height:auto;display:block}
+.hasil{font-weight:600}
+.grup{border:1px solid var(--garis);border-radius:var(--radius);padding:8px 12px;margin:10px 0}
+.grup legend{font-weight:600;padding:0 6px}
+.org{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.8rem;max-width:112px;padding:6px 8px}
+.sk-b.benar{background:var(--benar);border-color:var(--benar);color:#fff;font-weight:600}
+.sk-b.salah{background:var(--salah);border-color:var(--salah);color:#fff;font-weight:600}
+
+/* --- Tambahan struktur pecahan M07A/B/C --- */
+[hidden]{display:none!important}
+h3{font-size:1.1rem;margin:1.4em 0 .2em}
+.sumber a{font-weight:600}
+.kartu.baru{border-left:4px solid var(--t2)}
+.peta{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;font-size:.9rem}
+.peta a{padding:2px 10px;border:1px solid var(--garis);border-radius:999px;text-decoration:none}
+.peta a[aria-current=page]{background:var(--aksen);color:var(--latar);border-color:var(--aksen);font-weight:600}
+
+.daftar{columns:2 260px;margin:.4em 0;padding-left:1.1em;font-size:.92rem}
+details{margin:6px 0}

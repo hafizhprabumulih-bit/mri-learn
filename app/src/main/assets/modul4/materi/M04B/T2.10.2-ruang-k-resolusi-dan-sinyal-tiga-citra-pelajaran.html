@@ -1,0 +1,14 @@
+<!-- T2.10.2 Ruang-k, resolusi, dan sinyal: tiga citra pelajaran | sumber: kartu materi di modul asli. Isi: ringkas (p.s), lengkap (div.l), analogi (p.a). Judul/kode diatur di struktur/m04b.json -->
+<p class='s'>Citra dari seluruh ruang-k memuat sinyal dan resolusi. Dari tepi ruang-k saja, detail jelas tetapi sinyal sangat sedikit. Dari pusat saja, sinyal baik tetapi resolusi buruk, dan seluruh objek tetap tampak.</p>
+<div class='l'>
+<p>Bandingkan tiga citra dari satu objek. (1) Seluruh ruang-k dipakai: sinyal dan resolusi sama-sama tampak. (2) Hanya data di tepi ruang-k (data resolusi): detail seperti rambut dan mata tampak jelas, tetapi sinyalnya sangat sedikit. (3) Hanya data di pusat ruang-k (data sinyal): sinyalnya sangat baik, tetapi resolusinya buruk.</p>
+<p>Contoh ini juga menunjukkan bahwa ruang-k bukan citra (Fakta 1). Jika ruang-k adalah citra, citra dari data tepi akan kehilangan hidung, dan citra dari data pusat hanya menampilkan hidung. Kenyataannya, kedua citra tetap menampilkan seluruh wajah walaupun hanya sebagian kecil titik data yang dipakai, karena tiap titik data memuat informasi dari seluruh irisan. simulasi A7.1 (ruang-k dengan mask) dan A5 (Sinyal dan resolusi) meniru hal ini dengan data modul.</p>
+<p><b>Hal yang perlu diingat:</b></p>
+<ul>
+<li>Garis tepi ruang-k diisi gradien fase curam, sehingga memuat data beresolusi spasial tinggi.</li>
+<li>Garis tengah ruang-k diisi gradien fase landai, sehingga memuat data beresolusi spasial rendah.</li>
+<li>Bagian tengah ruang-k memuat data dengan amplitudo sinyal tinggi dan resolusi spasial rendah.</li>
+<li>Bagian tepi ruang-k memuat data dengan resolusi spasial tinggi dan amplitudo sinyal rendah.</li>
+</ul>
+</div>
+<p class='a'><b>Analogi:</b> Foto buram versus sketsa garis tepi. Foto buram (pusat) tetap memperlihatkan seluruh wajah dengan terang. Sketsa garis (tepi) tajam, tetapi gelap dan miskin isi.</p>

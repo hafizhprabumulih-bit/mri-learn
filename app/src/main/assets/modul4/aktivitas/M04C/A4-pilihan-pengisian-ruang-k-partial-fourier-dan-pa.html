@@ -1,0 +1,16 @@
+<!-- A4 Pilihan pengisian ruang-k: partial Fourier dan parallel imaging. Judul dan hubungan ke materi diatur di struktur/m04c.json. File ini hanya isi kartu. -->
+<p>Bandingkan pengisian konvensional dengan dua pilihan penghemat waktu. Pada partial Fourier, hanya sebagian garis diukur dan sisanya diisi nol atau dilengkapi simetri konjugat. Pada parallel imaging, garis dilewati dengan faktor R sehingga FOV fase mengecil dan terjadi aliasing. Pada MRI nyata, profil sensitivitas coil dipakai untuk membuka lipatan itu.</p>
+<fieldset><legend>Pilihan</legend>
+<label><input type='radio' name='pm' value='penuh' checked> Konvensional (semua garis)</label>
+<label><input type='radio' name='pm' value='partial'> Partial Fourier</label>
+<label><input type='radio' name='pm' value='paralel'> Parallel imaging</label>
+</fieldset>
+<label for='pf'>Partial Fourier: ruang-k terisi <span id='pfv'></span>% (dari atas)</label><input type='range' id='pf' min='55' max='100' step='5' value='70'>
+<label><input type='checkbox' id='pk'> Lengkapi dengan simetri konjugat</label>
+<label for='pr'>Parallel imaging: faktor reduksi R = <span id='prv'></span></label><input type='range' id='pr' min='2' max='4' step='1' value='2'>
+<div class='baris'>
+<figure><canvas id='cq3' class='cit' width='64' height='64' role='img' aria-label='Ruang-k yang terisi'></canvas><figcaption>Ruang-k</figcaption></figure>
+<figure><canvas id='ci3' class='cit' width='64' height='64' role='img' aria-label='Citra hasil'></canvas><figcaption>Citra</figcaption></figure>
+</div>
+<p id='ketp2' aria-live='polite'></p>
+<button id='reset17' type='button'>Reset</button>

@@ -1,0 +1,10 @@
+<!-- A5 Urutan akuisisi: sequential vs 2D volumetrik. Judul dan hubungan ke materi diatur di struktur/m04c.json. File ini hanya isi kartu. -->
+<p>Tiga lemari mewakili tiga irisan. Putar atau geser untuk melihat urutan pengisian laci. Pada sequential, seluruh laci satu lemari terisi lebih dulu, sehingga citra irisan itu dapat segera ditampilkan (cocok untuk tahan napas). Pada 2D volumetrik, yang paling umum, laci yang sama diisi di semua lemari dalam satu TR.</p>
+<fieldset><legend>Jenis akuisisi</legend>
+<label><input type='radio' name='am' value='seq'> Sequential</label>
+<label><input type='radio' name='am' value='vol' checked> 2D volumetrik</label>
+</fieldset>
+<label for='ac'>Laci terisi: <span id='acv'></span> dari <span id='acm'></span></label><input type='range' id='ac' min='0' max='48' value='0'>
+<canvas id='cak' width='360' height='250' style='width:360px' role='img' aria-label='Tiga lemari dengan laci yang terisi menurut urutan akuisisi'></canvas>
+<p id='keta2' aria-live='polite'></p>
+<div class='stp'><button id='aplay' type='button'>Putar</button><button id='reset18' type='button'>Reset</button></div>

@@ -1,0 +1,31 @@
+<!-- NODE M03A T2.1: edit di sini. Judul dan cakupan mengikuti pohon. -->
+<h3 id='m03a-t2-1' class='simpul'><span class='kode'>T2.1</span> Spin echo: gema simetris & persamaan sinyal</h3>
+<!-- CATATAN: kartu 'Persamaan sinyal' memuat SE, gradient echo, dan IR. Bagian gradient echo bisa dipindah ke M03B. Kartu 'Kegunaan, kelebihan, dan nama sekuens' tidak punya simpul sendiri di pohon. -->
+<div class='kartu bm'>
+<span class='tag'>M03A · T2.1 · Spin echo: gema simetris & persamaan sinyal</span>
+<b class='sub'>Persamaan sinyal</b>
+<p><i>Spin echo</i> (pulsa 90° lalu 180°): <code>S ∝ PD·(1 − e^(−TR/T1))·e^(−TE/T2)</code></p>
+<p class='s'><i>Gradient echo</i> memakai sudut flip α tanpa pulsa 180°. <i>Inversion recovery</i> menambah pulsa 180° di awal dan menunggu selama TI.</p>
+<div class='l'>
+<p><i>Gradient echo</i>: <code>S ∝ PD·sin α·(1 − E1)/(1 − E1·cos α)·e^(−TE/T2*)</code>, dengan <code>E1 = e^(−TR/T1)</code>. Sudut yang memberi sinyal terbesar disebut sudut Ernst: <code>α = arccos(E1)</code>.</p>
+<p><i>Inversion recovery</i> diawali pulsa 180°, lalu menunggu TI. Jaringan yang magnetisasinya melewati nol tepat saat pulsa 90° tiba tampak gelap. <b>STIR</b> memilih TI untuk menekan lemak, <b>FLAIR</b> untuk menekan cairan.</p>
+<p class='lembut'>Nilai jaringan (1,5 T) dari data bersama:</p>
+<div class='gulir'><table class='tabel'><tr><th>Jaringan</th><th>T1 (ms)</th><th>T2 (ms)</th><th>PD</th></tr><tr><td>Lemak</td><td>260</td><td>85</td><td>1,00</td></tr><tr><td>Substansia grisea</td><td>925</td><td>100</td><td>0,86</td></tr><tr><td>Substansia alba</td><td>790</td><td>92</td><td>0,77</td></tr><tr><td>Cairan serebrospinal</td><td>2400</td><td>180</td><td>1,00</td></tr></table></div>
+</div>
+<p class='a'><b>Analogi:</b> bandul yang dibalik lalu berayun kembali. Saat bandul tepat melewati titik nol, kamu "memotretnya", dan jaringan itu tampak hilang dari citra.</p>
+</div>
+
+<div class='kartu bm'>
+<span class='tag'>M03A · T2.1 · Spin echo: gema simetris & persamaan sinyal</span>
+<b class='sub'>Kegunaan, kelebihan, dan nama sekuens</b>
+<p class='s'>Spin echo adalah standar emas karena kontrasnya mudah dipahami dan dapat diprediksi, tetapi waktu pindainya panjang. Karena itu citra PD dan T2w biasanya dibuat dengan FSE/TSE.</p>
+<div class='l'>
+<div class='gulir'><table class='tabel'><tr><th>Kelebihan</th><th>Kekurangan</th></tr><tr><td>Kualitas citra baik, sangat serbaguna, T2 sejati, tersedia di semua sistem, standar emas kontras dan pembobotan</td><td>Waktu pindai panjang</td></tr></table></div>
+<p class='lembut'>Nama sekuens menurut produsen (Tabel 3.1, sebagai panduan saja):</p>
+<div class='gulir'><table class='tabel'><tr><th>Generik</th><th>GE</th><th>Philips</th><th>Siemens</th><th>Toshiba</th><th>Hitachi</th></tr><tr><td>Spin echo</td><td>SE</td><td>SE</td><td>SE</td><td>SE</td><td>SE</td></tr><tr><td>Fast/turbo SE</td><td>FSE</td><td>TSE</td><td>TSE</td><td>FSE</td><td>FSE</td></tr><tr><td>Inversion recovery</td><td>IR</td><td>IR</td><td>IR</td><td>IR</td><td>IR</td></tr><tr><td>STIR</td><td>STIR</td><td>STIR</td><td>STIR</td><td>Fast STIR</td><td>STIR</td></tr><tr><td>FLAIR</td><td>FLAIR</td><td>FLAIR</td><td>FLAIR</td><td>Fast FLAIR</td><td>FLAIR</td></tr><tr><td>DRIVE</td><td>FR-FSE</td><td>DRIVE</td><td>RESTORE</td><td>T2 PULS FSE</td><td>Driven equilibrium FSE</td></tr></table></div>
+<p><b>Ingat:</b> sekuens spin echo memakai pulsa 180° untuk merefokus momen magnetik. Bobot T1, T2, dan PD semuanya dapat dicapai. Spin echo konvensional biasanya mengambil satu atau dua echo, dan meski tergolong sekuens lama, ia tetap standar emas untuk semua bagian tubuh.</p>
+<p><b>Tip pindai:</b> memilih TR berarti mengatur seberapa banyak pemulihan T1 yang diizinkan antar pulsa eksitasi, yaitu seberapa kuat kontras T1. Memilih TE berarti mengatur seberapa banyak peluruhan T2 yang diizinkan sebelum puncak echo, yaitu seberapa kuat kontras T2. Keduanya juga memengaruhi SNR, tetapi pembobotan biasanya lebih penting.</p>
+</div>
+<p class='a'><b>Analogi:</b> TR adalah lamanya kamu menunggu gelas terisi ulang, TE adalah kapan kamu mendengarkan dentang lonceng yang meredup.</p>
+</div>
+<p class='lembut tautan-akt'>▶ Aktivitas: <a href='#m03a-a1'>A1</a></p>
