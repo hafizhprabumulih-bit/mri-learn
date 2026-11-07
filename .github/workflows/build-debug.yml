@@ -24,11 +24,12 @@ jobs:
         with:
           gradle-version: "9.6.0"
 
-      - name: Pasang platform Android 37 dan Build Tools 36.0.0
+      - name: Terima lisensi SDK dan tampilkan paket yang tersedia
         run: |
           SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
           yes | "$SDKMANAGER" --licenses > /dev/null || true
-          "$SDKMANAGER" "platforms;android-37" "build-tools;36.0.0"
+          echo "Paket platform dan build-tools yang tersedia (untuk diagnosis):"
+          "$SDKMANAGER" --list 2>/dev/null | grep -E "platforms;android-3[6-9]|build-tools;3[6-9]" || true
 
       - name: Bangun APK debug
         run: gradle :app:assembleDebug --stacktrace
