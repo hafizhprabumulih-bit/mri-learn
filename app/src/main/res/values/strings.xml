@@ -4,4 +4,9 @@
     <string name="home_placeholder_title">Kerangka proyek siap</string>
     <string name="home_placeholder_body">Daftar modul dan materi akan tampil di sini setelah navigasi dibuat.</string>
     <string name="disclaimer">Media belajar, bukan untuk keputusan klinis. Simulasi disederhanakan.</string>
+    <string name="kembali">Kembali</string>
+    <string name="halaman_utama_modul">Halaman utama modul</string>
+    <string name="status_segera_hadir">Segera hadir</string>
+    <string name="status_sebagian">Sebagian</string>
+    <string name="galat_muat">Data modul tidak dapat dimuat.</string>
 </resources>
