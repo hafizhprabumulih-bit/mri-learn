@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Latar gelap yang sama dengan tema Compose; mencegah kedip putih saat aplikasi dibuka. -->
+    <color name="window_background">#FF0C1220</color>
+    <color name="ic_launcher_background">#FF0C1220</color>
+</resources>

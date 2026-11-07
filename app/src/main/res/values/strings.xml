@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MRI learn</string>
+    <string name="home_placeholder_title">Kerangka proyek siap</string>
+    <string name="home_placeholder_body">Daftar modul dan materi akan tampil di sini setelah navigasi dibuat.</string>
+    <string name="disclaimer">Media belajar, bukan untuk keputusan klinis. Simulasi disederhanakan.</string>
+</resources>
